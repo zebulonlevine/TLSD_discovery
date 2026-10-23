@@ -15,3 +15,13 @@
   module's README.
 - **Colours** (fixed): non-targeting controls `#DDDDDD`, other genes `#4D4D4D`.
 - **Panel scripts** are named by manuscript panel (draft5 numbering).
+- **Code brought in from outside the analysis tree** (laptop notebooks/scripts) is confirmed, cleaned and
+  made presentable:
+  1. **Confirm**: re-run it and show the cleaned version reproduces the original outputs exactly
+     (arrays / tables bit-identical; figures text- and pixel-identical), and that it matches the
+     manuscript panel.
+  2. **Clean**: remove dead code, demo blocks, unused imports, sandbox or absolute paths, and stale
+     comments.
+  3. **Present**: module docstring stating the panel and method, functions plus `main()`, outputs via
+     `common/paths`, a per-folder README with the run command and expected numbers, and source-data
+     CSVs where cheap.
