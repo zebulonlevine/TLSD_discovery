@@ -1,0 +1,9 @@
+# Copy to config/paths.yaml (git-ignored) and edit, or set TLSD_DATA / TLSD_OUT.
+# Both roots use the layout of the original analysis tree:
+#   GenomeWide_results/   genome-wide screen: counts/, results/ (MAGeCK + gene tables), libraryInfo/
+#   Sublibrary_results/   sublibrary screens: counts/, results/, scores/ (line scores), libraryInfo/
+#   fixed_NotI/           sublibrary re-scored without the 53 NotI/BamHI guides (the published scores)
+#   GSEA_Fig1/            genome-wide GO (decoupler) inputs/outputs
+# End-to-end run: set data and out to the same directory.
+data: /path/to/tlsd_data
+out:  /path/to/tlsd_data

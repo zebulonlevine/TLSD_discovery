@@ -1,0 +1,29 @@
+# local configuration
+config/paths.yaml
+# work-order log (kept outside the published history)
+.workorders/
+# data and derived outputs never go in git
+*.pdf
+*.png
+*.svg
+*.npz
+*.pkl
+*.nd2
+*.tif
+*.tiff
+*.fcs
+*.xlsx
+*.xls
+*.gmt
+results/
+counts/
+plots/
+scores/
+supplementary_tables/
+# editor / OS / python cruft
+._*
+.DS_Store
+.smbdelete*
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
