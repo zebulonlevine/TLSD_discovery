@@ -1,0 +1,653 @@
+gene,category
+PIK3C3,Autophagy/Lysosome
+PIK3R4,Autophagy/Lysosome
+BECN1,Autophagy/Lysosome
+UVRAG,Autophagy/Lysosome
+SH3GLB1,Autophagy/Lysosome
+RUBCN,Autophagy/Lysosome
+RUBCNL,Autophagy/Lysosome
+ZFYVE26,Autophagy/Lysosome
+FEZ1,Autophagy/Lysosome
+FEZ2,Autophagy/Lysosome
+SCOC,Autophagy/Lysosome
+SMURF1,Autophagy/Lysosome
+HUNK,Autophagy/Lysosome
+CTSA,Autophagy/Lysosome
+CTSB,Autophagy/Lysosome
+CTSC,Autophagy/Lysosome
+CTSD,Autophagy/Lysosome
+CTSF,Autophagy/Lysosome
+CTSG,Autophagy/Lysosome
+CTSH,Autophagy/Lysosome
+CTSK,Autophagy/Lysosome
+CTSL,Autophagy/Lysosome
+CTSO,Autophagy/Lysosome
+CTSS,Autophagy/Lysosome
+CTSV,Autophagy/Lysosome
+CTSW,Autophagy/Lysosome
+CTSZ,Autophagy/Lysosome
+PRTN3,Autophagy/Lysosome
+DPP4,Autophagy/Lysosome
+DPP7,Autophagy/Lysosome
+GGH,Autophagy/Lysosome
+LGMN,Autophagy/Lysosome
+TPP1,Autophagy/Lysosome
+PPT1,Autophagy/Lysosome
+PPT2,Autophagy/Lysosome
+PCYOX1,Autophagy/Lysosome
+PON2,Autophagy/Lysosome
+TXNDC5,Autophagy/Lysosome
+IFI30,Autophagy/Lysosome
+AGA,Autophagy/Lysosome
+GAA,Autophagy/Lysosome
+GLA,Autophagy/Lysosome
+GLB1,Autophagy/Lysosome
+MAN2B1,Autophagy/Lysosome
+MAN2B2,Autophagy/Lysosome
+MANBA,Autophagy/Lysosome
+CHIT1,Autophagy/Lysosome
+CTBS,Autophagy/Lysosome
+FUCA1,Autophagy/Lysosome
+FUCA2,Autophagy/Lysosome
+GM2A,Autophagy/Lysosome
+HEXA,Autophagy/Lysosome
+HEXB,Autophagy/Lysosome
+HYAL1,Autophagy/Lysosome
+HYAL2,Autophagy/Lysosome
+HYAL3,Autophagy/Lysosome
+GUSB,Autophagy/Lysosome
+IDUA,Autophagy/Lysosome
+NEU1,Autophagy/Lysosome
+NEU4,Autophagy/Lysosome
+SIAE,Autophagy/Lysosome
+PYGB,Autophagy/Lysosome
+HPSE,Autophagy/Lysosome
+NAGLU,Autophagy/Lysosome
+HGSNAT,Autophagy/Lysosome
+SGSH,Autophagy/Lysosome
+ABHD6,Autophagy/Lysosome
+DAGLB,Autophagy/Lysosome
+LIPA,Autophagy/Lysosome
+PLA2G10,Autophagy/Lysosome
+PLA2G15,Autophagy/Lysosome
+PLA2G4E,Autophagy/Lysosome
+PLA2G5,Autophagy/Lysosome
+PLBD1,Autophagy/Lysosome
+PLBD2,Autophagy/Lysosome
+PLD1,Autophagy/Lysosome
+PLD3,Autophagy/Lysosome
+PRDX6,Autophagy/Lysosome
+GPLD1,Autophagy/Lysosome
+NAAA,Autophagy/Lysosome
+ASAH1,Autophagy/Lysosome
+GALC,Autophagy/Lysosome
+GBA,Autophagy/Lysosome
+NAGA,Autophagy/Lysosome
+SMPD1,Autophagy/Lysosome
+SPHK2,Autophagy/Lysosome
+ACP2,Autophagy/Lysosome
+ACP3,Autophagy/Lysosome
+ACP4,Autophagy/Lysosome
+ACP5,Autophagy/Lysosome
+ARSA,Autophagy/Lysosome
+ARSB,Autophagy/Lysosome
+ARSD,Autophagy/Lysosome
+ARSG,Autophagy/Lysosome
+GALNS,Autophagy/Lysosome
+GNS,Autophagy/Lysosome
+IDS,Autophagy/Lysosome
+STS,Autophagy/Lysosome
+DNASE2,Autophagy/Lysosome
+DNASE2B,Autophagy/Lysosome
+ATP6V0A1,Autophagy/Lysosome
+ATP6V0A2,Autophagy/Lysosome
+TCIRG1,Autophagy/Lysosome
+ATP6V0A4,Autophagy/Lysosome
+ATP6V0B,Autophagy/Lysosome
+ATP6V0C,Autophagy/Lysosome
+ATP6V0D1,Autophagy/Lysosome
+ATP6V0D2,Autophagy/Lysosome
+ATP6V0E1,Autophagy/Lysosome
+ATP6V0E2,Autophagy/Lysosome
+ATP6V1A,Autophagy/Lysosome
+ATP6V1B1,Autophagy/Lysosome
+ATP6V1B2,Autophagy/Lysosome
+ATP6V1C1,Autophagy/Lysosome
+ATP6V1C2,Autophagy/Lysosome
+ATP6V1D,Autophagy/Lysosome
+ATP6V1E1,Autophagy/Lysosome
+ATP6V1E2,Autophagy/Lysosome
+ATP6V1F,Autophagy/Lysosome
+ATP6V1G1,Autophagy/Lysosome
+ATP6V1G2,Autophagy/Lysosome
+ATP6V1G3,Autophagy/Lysosome
+ATP6V1H,Autophagy/Lysosome
+ATP6AP1,Autophagy/Lysosome
+ATP6AP2,Autophagy/Lysosome
+LRRK2,Autophagy/Lysosome
+GRN,Autophagy/Lysosome
+TMEM106B,Autophagy/Lysosome
+TMEM175,Autophagy/Lysosome
+CLCN7,Autophagy/Lysosome
+MAP1LC3A,Autophagy/Lysosome
+MAP1LC3B,Autophagy/Lysosome
+MAP1LC3C,Autophagy/Lysosome
+GABARAP,Autophagy/Lysosome
+GABARAPL1,Autophagy/Lysosome
+GABARAPL2,Autophagy/Lysosome
+FNBP1L,Autophagy/Lysosome
+PTK2,Autophagy/Lysosome
+RNF5,Autophagy/Lysosome
+ATG7,Autophagy/Lysosome
+ATG10,Autophagy/Lysosome
+CSNK2A1,Autophagy/Lysosome
+CSNK2A2,Autophagy/Lysosome
+CSNK2B,Autophagy/Lysosome
+FOXO1,Autophagy/Lysosome
+SIRT2,Autophagy/Lysosome
+IFT20,Autophagy/Lysosome
+IFT88,Autophagy/Lysosome
+GJA1,Autophagy/Lysosome
+SIRT1,Autophagy/Lysosome
+USP22,Autophagy/Lysosome
+HULC,Autophagy/Lysosome
+PPP1R13L,Autophagy/Lysosome
+BIRC5,Autophagy/Lysosome
+RACK1,Autophagy/Lysosome
+EVA1A,Autophagy/Lysosome
+TMEM74,Autophagy/Lysosome
+TBC1D25,Autophagy/Lysosome
+RAB33B,Autophagy/Lysosome
+NOD1,Autophagy/Lysosome
+NOD2,Autophagy/Lysosome
+PTPN22,Autophagy/Lysosome
+TMEM59,Autophagy/Lysosome
+MAP1LC3B,Autophagy/Lysosome
+GABARAP,Autophagy/Lysosome
+GABARAPL1,Autophagy/Lysosome
+ATG12,Autophagy/Lysosome
+ATG5,Autophagy/Lysosome
+ATG16L1,Autophagy/Lysosome
+ATG16L2,Autophagy/Lysosome
+ATG4A,Autophagy/Lysosome
+ATG4B,Autophagy/Lysosome
+ATG4C,Autophagy/Lysosome
+ATG4D,Autophagy/Lysosome
+ATG3,Autophagy/Lysosome
+UCHL1,Autophagy/Lysosome
+USP10,Autophagy/Lysosome
+ULK1,Autophagy/Lysosome
+ULK2,Autophagy/Lysosome
+ULK3,Autophagy/Lysosome
+ATG13,Autophagy/Lysosome
+RB1CC1,Autophagy/Lysosome
+ATG101,Autophagy/Lysosome
+UFM1,UFMylation
+UFC1,UFMylation
+UFL1,UFMylation
+DDRGK1,UFMylation
+UBA5,UFMylation
+CDK5RAP3,UFMylation
+UFSP2,UFMylation
+UFSP1,UFMylation
+ACAD11,UFMylation
+R3HDM4,R3HDM4
+RPS2,40S Biogenesis/Proteins
+RPS3,40S Biogenesis/Proteins
+RPS3A,40S Biogenesis/Proteins
+RPS4X,40S Biogenesis/Proteins
+RPS4Y1,40S Biogenesis/Proteins
+RPS4Y2,40S Biogenesis/Proteins
+RPS5,40S Biogenesis/Proteins
+RPS6,40S Biogenesis/Proteins
+RPS7,40S Biogenesis/Proteins
+RPS8,40S Biogenesis/Proteins
+RPS9,40S Biogenesis/Proteins
+RPS10,40S Biogenesis/Proteins
+RPS11,40S Biogenesis/Proteins
+RPS12,40S Biogenesis/Proteins
+RPS13,40S Biogenesis/Proteins
+RPS14,40S Biogenesis/Proteins
+RPS15,40S Biogenesis/Proteins
+RPS15A,40S Biogenesis/Proteins
+RPS16,40S Biogenesis/Proteins
+RPS17,40S Biogenesis/Proteins
+RPS18,40S Biogenesis/Proteins
+RPS19,40S Biogenesis/Proteins
+RPS20,40S Biogenesis/Proteins
+RPS21,40S Biogenesis/Proteins
+RPS23,40S Biogenesis/Proteins
+RPS24,40S Biogenesis/Proteins
+RPS25,40S Biogenesis/Proteins
+RPS26,40S Biogenesis/Proteins
+RPS27,40S Biogenesis/Proteins
+RPS27A,40S Biogenesis/Proteins
+RPS27L,40S Biogenesis/Proteins
+RPS28,40S Biogenesis/Proteins
+RPS29,40S Biogenesis/Proteins
+FAU,40S Biogenesis/Proteins
+RPSA,40S Biogenesis/Proteins
+RPSA2,40S Biogenesis/Proteins
+BUD23,40S Biogenesis/Proteins
+EIF5B,40S Biogenesis/Proteins
+BYSL,40S Biogenesis/Proteins
+LTV1,40S Biogenesis/Proteins
+NOB1,40S Biogenesis/Proteins
+PNO1,40S Biogenesis/Proteins
+RACK1,40S Biogenesis/Proteins
+RIOK1,40S Biogenesis/Proteins
+RIOK2,40S Biogenesis/Proteins
+RIOK3,40S Biogenesis/Proteins
+RRP12,40S Biogenesis/Proteins
+TRMT112,40S Biogenesis/Proteins
+TSR1,40S Biogenesis/Proteins
+TSR2,40S Biogenesis/Proteins
+TSR3,40S Biogenesis/Proteins
+UTP4,40S Biogenesis/Proteins
+WDR43,40S Biogenesis/Proteins
+HEATR1,40S Biogenesis/Proteins
+UTP15,40S Biogenesis/Proteins
+WDR75,40S Biogenesis/Proteins
+NOL11,40S Biogenesis/Proteins
+PWP2,40S Biogenesis/Proteins
+UTP6,40S Biogenesis/Proteins
+WDR3,40S Biogenesis/Proteins
+TBL3,40S Biogenesis/Proteins
+UTP18,40S Biogenesis/Proteins
+WDR36,40S Biogenesis/Proteins
+DDX21,40S Biogenesis/Proteins
+NOP2,40S Biogenesis/Proteins
+RRP7A,40S Biogenesis/Proteins
+NOL6,40S Biogenesis/Proteins
+CSNK2B,40S Biogenesis/Proteins
+RRP36,40S Biogenesis/Proteins
+SNORD3A,40S Biogenesis/Proteins
+NOP56,40S Biogenesis/Proteins
+NOP58,40S Biogenesis/Proteins
+SNU13,40S Biogenesis/Proteins
+FBL,40S Biogenesis/Proteins
+RRP9,40S Biogenesis/Proteins
+IMP3,40S Biogenesis/Proteins
+IMP4,40S Biogenesis/Proteins
+MPHOSPH10,40S Biogenesis/Proteins
+RCL1,40S Biogenesis/Proteins
+BMS1,40S Biogenesis/Proteins
+EMG1,40S Biogenesis/Proteins
+NOP14,40S Biogenesis/Proteins
+NOC4L,40S Biogenesis/Proteins
+UTP14A,40S Biogenesis/Proteins
+AATF,40S Biogenesis/Proteins
+NOL10,40S Biogenesis/Proteins
+EIF2S1,Translation initiation
+EIF2S2,Translation initiation
+EIF2S3,Translation initiation
+EIF2S3B,Translation initiation
+EIF2B1,Translation initiation
+EIF2B2,Translation initiation
+EIF2B3,Translation initiation
+EIF2B4,Translation initiation
+EIF2B5,Translation initiation
+EIF3A,Translation initiation
+EIF3B,Translation initiation
+EIF3C,Translation initiation
+EIF3D,Translation initiation
+EIF3E,Translation initiation
+EIF3F,Translation initiation
+EIF3G,Translation initiation
+EIF3H,Translation initiation
+EIF3I,Translation initiation
+EIF3J,Translation initiation
+EIF3K,Translation initiation
+EIF3L,Translation initiation
+EIF3M,Translation initiation
+EIF4A1,Translation initiation
+EIF4A2,Translation initiation
+EIF4E,Translation initiation
+EIF4E2,Translation initiation
+EIF4E3,Translation initiation
+EIF4G1,Translation initiation
+EIF4G2,Translation initiation
+EIF4G3,Translation initiation
+EIF1,Translation initiation
+EIF1AX,Translation initiation
+EIF1AY,Translation initiation
+EIF4B,Translation initiation
+EIF4H,Translation initiation
+EIF4EBP1,Translation initiation
+EIF4EBP2,Translation initiation
+EIF4EBP3,Translation initiation
+EIF5,Translation initiation
+EIF5B,Translation initiation
+PABPC1,Translation initiation
+PABPC1L,Translation initiation
+PABPC1L2A,Translation initiation
+PABPC3,Translation initiation
+PABPC4,Translation initiation
+PABPC4L,Translation initiation
+PABPC5,Translation initiation
+DHX29,Translation initiation
+DDX3X,Translation initiation
+DDX3Y,Translation initiation
+VCP,Translation initiation
+EIF2A,Translation initiation
+BZW1,Translation initiation
+BZW2,Translation initiation
+RPL3,60S Biogenesis/Proteins
+RPL3L,60S Biogenesis/Proteins
+RPL4,60S Biogenesis/Proteins
+RPL5,60S Biogenesis/Proteins
+RPL6,60S Biogenesis/Proteins
+RPL7,60S Biogenesis/Proteins
+RPL7A,60S Biogenesis/Proteins
+RPL7L1,60S Biogenesis/Proteins
+RPL8,60S Biogenesis/Proteins
+RPL9,60S Biogenesis/Proteins
+RPL10,60S Biogenesis/Proteins
+RPL10A,60S Biogenesis/Proteins
+RPL10L,60S Biogenesis/Proteins
+RPL11,60S Biogenesis/Proteins
+RPL12,60S Biogenesis/Proteins
+RPL13,60S Biogenesis/Proteins
+RPL13A,60S Biogenesis/Proteins
+RPL14,60S Biogenesis/Proteins
+RPL15,60S Biogenesis/Proteins
+RPL17,60S Biogenesis/Proteins
+RPL18,60S Biogenesis/Proteins
+RPL18A,60S Biogenesis/Proteins
+RPL19,60S Biogenesis/Proteins
+RPL21,60S Biogenesis/Proteins
+RPL22,60S Biogenesis/Proteins
+RPL23,60S Biogenesis/Proteins
+RPL23A,60S Biogenesis/Proteins
+RPL24,60S Biogenesis/Proteins
+RPL26,60S Biogenesis/Proteins
+RPL26L1,60S Biogenesis/Proteins
+RPL27,60S Biogenesis/Proteins
+RPL27A,60S Biogenesis/Proteins
+RPL28,60S Biogenesis/Proteins
+RPL29,60S Biogenesis/Proteins
+RPL30,60S Biogenesis/Proteins
+RPL31,60S Biogenesis/Proteins
+RPL32,60S Biogenesis/Proteins
+RPL34,60S Biogenesis/Proteins
+RPL35,60S Biogenesis/Proteins
+RPL35A,60S Biogenesis/Proteins
+RPL36,60S Biogenesis/Proteins
+RPL36A,60S Biogenesis/Proteins
+RPL36AL,60S Biogenesis/Proteins
+RPL37,60S Biogenesis/Proteins
+RPL37A,60S Biogenesis/Proteins
+RPL38,60S Biogenesis/Proteins
+RPL39,60S Biogenesis/Proteins
+RPL39L,60S Biogenesis/Proteins
+UBA52,60S Biogenesis/Proteins
+RPL41,60S Biogenesis/Proteins
+RPLP0,60S Biogenesis/Proteins
+RPLP1,60S Biogenesis/Proteins
+RPLP2,60S Biogenesis/Proteins
+ZFP42,60S Biogenesis/Proteins
+REXO2,60S Biogenesis/Proteins
+NMD3,60S Biogenesis/Proteins
+RAE1,60S Biogenesis/Proteins
+RRS1,60S Biogenesis/Proteins
+RPF2,60S Biogenesis/Proteins
+NOP53,60S Biogenesis/Proteins
+HEATR3,60S Biogenesis/Proteins
+EIF6,60S Biogenesis/Proteins
+MRTO4,60S Biogenesis/Proteins
+DUSP12,60S Biogenesis/Proteins
+SBDS,60S Biogenesis/Proteins
+EFL1,60S Biogenesis/Proteins
+TMA16,60S Biogenesis/Proteins
+GTPBP4,60S Biogenesis/Proteins
+LLPH,60S Biogenesis/Proteins
+ZNF593,60S Biogenesis/Proteins
+GNL2,60S Biogenesis/Proteins
+LSG1,60S Biogenesis/Proteins
+DNAJC21,60S Biogenesis/Proteins
+ILF2,60S Biogenesis/Proteins
+ILF3,60S Biogenesis/Proteins
+RSL24D1,60S Biogenesis/Proteins
+BCCIP,60S Biogenesis/Proteins
+PES1,60S Biogenesis/Proteins
+BOP1,60S Biogenesis/Proteins
+WDR12,60S Biogenesis/Proteins
+DDX27,60S Biogenesis/Proteins
+PELP1,60S Biogenesis/Proteins
+TEX10,60S Biogenesis/Proteins
+WDR18,60S Biogenesis/Proteins
+NKRF,60S Biogenesis/Proteins
+XRN2,60S Biogenesis/Proteins
+DHX15,60S Biogenesis/Proteins
+NGDN,60S Biogenesis/Proteins
+TFB1M,Both Biogenesis
+RPUSD2,Both Biogenesis
+NUP88,Both Biogenesis
+MPHOSPH6,Both Biogenesis
+CINP,Both Biogenesis
+TRMT61B,Both Biogenesis
+DKC1,Both Biogenesis
+UTP25,Both Biogenesis
+MAK16,Both Biogenesis
+EIF2A,Both Biogenesis
+GTF3A,Both Biogenesis
+EXOSC7,Both Biogenesis
+MCAT,Both Biogenesis
+FTSJ3,Both Biogenesis
+NOM1,Both Biogenesis
+RPS27L,Both Biogenesis
+ZNHIT3,Both Biogenesis
+PIH1D2,Both Biogenesis
+DDX3X,Both Biogenesis
+UTP14C,Both Biogenesis
+GTF2H5,Both Biogenesis
+ERI1,Both Biogenesis
+KRR1,Both Biogenesis
+RNASEL,Both Biogenesis
+NPM1,Both Biogenesis
+RBFA,Both Biogenesis
+RBIS,Both Biogenesis
+DDX51,Both Biogenesis
+CDKN2A,Both Biogenesis
+XPO1,Both Biogenesis
+ESF1,Both Biogenesis
+ZNF622,Both Biogenesis
+PA2G4,Both Biogenesis
+KRI1,Both Biogenesis
+POP5,Both Biogenesis
+GEMIN4,Both Biogenesis
+NIP7,Both Biogenesis
+ABT1,Both Biogenesis
+AK6,Both Biogenesis
+NOP16,Both Biogenesis
+EXOSC8,Both Biogenesis
+RRP15,Both Biogenesis
+EXOSC1,Both Biogenesis
+UTP11,Both Biogenesis
+TENT4B,Both Biogenesis
+MRPS2,Both Biogenesis
+FSAF1,Both Biogenesis
+WBP11,Both Biogenesis
+PIN4,Both Biogenesis
+NSA2,Both Biogenesis
+POP4,Both Biogenesis
+MALSU1,Both Biogenesis
+DDX49,Both Biogenesis
+RPUSD4,Both Biogenesis
+NOA1,Both Biogenesis
+AFG2A,Both Biogenesis
+DDX52,Both Biogenesis
+MTERF3,Both Biogenesis
+LAS1L,Both Biogenesis
+NSUN4,Both Biogenesis
+DIS3,Both Biogenesis
+DNTTIP2,Both Biogenesis
+RCC1L,Both Biogenesis
+NAF1,Both Biogenesis
+PDCD2,Both Biogenesis
+MRM2,Both Biogenesis
+METTL25B,Both Biogenesis
+RPLP0P6,Both Biogenesis
+RRP1,Both Biogenesis
+MTG1,Both Biogenesis
+MYBBP1A,Both Biogenesis
+GRWD1,Both Biogenesis
+URB1,Both Biogenesis
+UTP23,Both Biogenesis
+FDXACB1,Both Biogenesis
+RPP25,Both Biogenesis
+EXOSC10,Both Biogenesis
+BRIX1,Both Biogenesis
+DDX54,Both Biogenesis
+EIF5,Both Biogenesis
+MRM1,Both Biogenesis
+XRCC5,Both Biogenesis
+MPV17L2,Both Biogenesis
+EIF1AX,Both Biogenesis
+WDR74,Both Biogenesis
+MIEF1,Both Biogenesis
+SRFBP1,Both Biogenesis
+ZNF658,Both Biogenesis
+NOC2L,Both Biogenesis
+ZNF574,Both Biogenesis
+GREB1L,Both Biogenesis
+GTPBP6,Both Biogenesis
+RIOX2,Both Biogenesis
+EBNA1BP2,Both Biogenesis
+UTP3,Both Biogenesis
+ZCCHC4,Both Biogenesis
+NDUFAB1,Both Biogenesis
+DDX31,Both Biogenesis
+NLE1,Both Biogenesis
+SDAD1,Both Biogenesis
+DDX18,Both Biogenesis
+GNL3L,Both Biogenesis
+RPF1,Both Biogenesis
+REXO1L1P,Both Biogenesis
+UTP20,Both Biogenesis
+SURF6,Both Biogenesis
+ERAL1,Both Biogenesis
+NPM3,Both Biogenesis
+NSUN3,Both Biogenesis
+TFB2M,Both Biogenesis
+EXOSC3,Both Biogenesis
+EXOSC5,Both Biogenesis
+DIMT1,Both Biogenesis
+EXOSC9,Both Biogenesis
+RPUSD1,Both Biogenesis
+DHX37,Both Biogenesis
+DDX47,Both Biogenesis
+TRMT2B,Both Biogenesis
+RRP7BP,Both Biogenesis
+METTL17,Both Biogenesis
+SLX9,Both Biogenesis
+WDR55,Both Biogenesis
+ISG20L2,Both Biogenesis
+DCAF13,Both Biogenesis
+DDX28,Both Biogenesis
+NOL9,Both Biogenesis
+MDN1,Both Biogenesis
+DROSHA,Both Biogenesis
+METTL5,Both Biogenesis
+VCX,Both Biogenesis
+REXO5,Both Biogenesis
+NAT10,Both Biogenesis
+RPP40,Both Biogenesis
+POP7,Both Biogenesis
+NOL7,Both Biogenesis
+PPAN,Both Biogenesis
+SENP3,Both Biogenesis
+MTG2,Both Biogenesis
+NOP10,Both Biogenesis
+NGRN,Both Biogenesis
+EXOSC4,Both Biogenesis
+RRP1B,Both Biogenesis
+LSM6,Both Biogenesis
+FRG1,Both Biogenesis
+DDX55,Both Biogenesis
+FCF1,Both Biogenesis
+PDCD11,Both Biogenesis
+ISG20,Both Biogenesis
+RAN,Both Biogenesis
+METTL15,Both Biogenesis
+SART1,Both Biogenesis
+RRP8,Both Biogenesis
+GLUL,Both Biogenesis
+URB2,Both Biogenesis
+MTREX,Both Biogenesis
+NOLC1,Both Biogenesis
+FBLL1,Both Biogenesis
+METTL15P1,Both Biogenesis
+TUFM,Both Biogenesis
+RBM34,Both Biogenesis
+MTERF4,Both Biogenesis
+SPOUT1,Both Biogenesis
+CHD7,Both Biogenesis
+C1QBP,Both Biogenesis
+EIF4A3,Both Biogenesis
+SDE2,Both Biogenesis
+ERCC2,Both Biogenesis
+DHX29,Both Biogenesis
+NOL8,Both Biogenesis
+AFG2B,Both Biogenesis
+NSUN5,Both Biogenesis
+DDX17,Both Biogenesis
+DHX30,Both Biogenesis
+C1D,Both Biogenesis
+RPS19BP1,Both Biogenesis
+LTO1,Both Biogenesis
+PIH1D1,Both Biogenesis
+EXOSC2,Both Biogenesis
+MRM3,Both Biogenesis
+EXOSC6,Both Biogenesis
+SUV39H1,Both Biogenesis
+ERI3,Both Biogenesis
+ERI2,Both Biogenesis
+GTPBP10,Both Biogenesis
+RPUSD3,Both Biogenesis
+FGF12,Both Biogenesis
+DDX56,Both Biogenesis
+METTL16,Both Biogenesis
+PRKDC,Both Biogenesis
+MYG1,Both Biogenesis
+DDX10,Both Biogenesis
+REXO1,Both Biogenesis
+CUL4B,Both Biogenesis
+CUL4A,Both Biogenesis
+PWP1,Both Biogenesis
+NVL,Both Biogenesis
+TCOF1,Both Biogenesis
+GAR1,Both Biogenesis
+FASTKD2,Both Biogenesis
+RRN3,Both Biogenesis
+WDR46,Both Biogenesis
+REXO4,Both Biogenesis
+LYAR,Both Biogenesis
+PAK1IP1,Both Biogenesis
+NHP2,Both Biogenesis
+AIRIM,Both Biogenesis
+ZNHIT6,Both Biogenesis
+YBEY,Both Biogenesis
+NOP9,Both Biogenesis
+RPP30,Both Biogenesis
+RPP38,Both Biogenesis
+POLR1G,Both Biogenesis
+POLR1A,Both Biogenesis
+POLR1E,Both Biogenesis
+POLR1B,Both Biogenesis
+POLR1D,Both Biogenesis
+POLR1F,Both Biogenesis
+POLR1H,Both Biogenesis
+POLR1C,Both Biogenesis
+NRBF2,Autophagy/Lysosome
+ANKZF1,Autophagy/Lysosome
+ATG9A,Autophagy/Lysosome
+ATG9B,Autophagy/Lysosome
+ATG14,Autophagy/Lysosome
+ATG2A,Autophagy/Lysosome
+ATG2B,Autophagy/Lysosome
+WIPI1,Autophagy/Lysosome
+WIPI2,Autophagy/Lysosome
+AMBRA1,Autophagy/Lysosome
+SQSTM1,Autophagy/Lysosome
+RNASEK,Autophagy/Lysosome

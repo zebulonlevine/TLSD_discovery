@@ -1,0 +1,1452 @@
+gene,category
+PIK3C3,Autophagy
+PIK3R4,Autophagy
+BECN1,Autophagy
+UVRAG,Autophagy
+SH3GLB1,Autophagy
+RUBCN,Autophagy
+RUBCNL,Autophagy
+ZFYVE26,Autophagy
+FEZ1,Autophagy
+FEZ2,Autophagy
+SCOC,Autophagy
+SMURF1,Autophagy
+HUNK,Autophagy
+CTSA,Lysosome
+CTSB,Lysosome
+CTSC,Lysosome
+CTSD,Lysosome
+CTSF,Lysosome
+CTSG,Lysosome
+CTSH,Lysosome
+CTSK,Lysosome
+CTSL,Lysosome
+CTSO,Lysosome
+CTSS,Lysosome
+CTSV,Lysosome
+CTSW,Lysosome
+CTSZ,Lysosome
+PRTN3,Lysosome
+DPP4,Lysosome
+DPP7,Lysosome
+GGH,Lysosome
+LGMN,Lysosome
+TPP1,Lysosome
+PPT1,Lysosome
+PPT2,Lysosome
+PCYOX1,Lysosome
+PON2,Lysosome
+TXNDC5,Lysosome
+IFI30,Lysosome
+AGA,Lysosome
+GAA,Lysosome
+GLA,Lysosome
+GLB1,Lysosome
+MAN2B1,Lysosome
+MAN2B2,Lysosome
+MANBA,Lysosome
+CHIT1,Lysosome
+CTBS,Lysosome
+FUCA1,Lysosome
+FUCA2,Lysosome
+GM2A,Lysosome
+HEXA,Lysosome
+HEXB,Lysosome
+HYAL1,Lysosome
+HYAL2,Lysosome
+HYAL3,Lysosome
+GUSB,Lysosome
+IDUA,Lysosome
+NEU1,Lysosome
+NEU4,Lysosome
+SIAE,Lysosome
+PYGB,Lysosome
+HPSE,Lysosome
+NAGLU,Lysosome
+HGSNAT,Lysosome
+SGSH,Lysosome
+ABHD6,Lysosome
+DAGLB,Lysosome
+LIPA,Lysosome
+PLA2G10,Lysosome
+PLA2G15,Lysosome
+PLA2G4E,Lysosome
+PLA2G5,Lysosome
+PLBD1,Lysosome
+PLBD2,Lysosome
+PLD1,Lysosome
+PLD3,Lysosome
+PRDX6,Lysosome
+GPLD1,Lysosome
+NAAA,Lysosome
+ASAH1,Lysosome
+GALC,Lysosome
+GBA,Lysosome
+NAGA,Lysosome
+SMPD1,Lysosome
+SPHK2,Lysosome
+ACP2,Lysosome
+ACP3,Lysosome
+ACP4,Lysosome
+ACP5,Lysosome
+ARSA,Lysosome
+ARSB,Lysosome
+ARSD,Lysosome
+ARSG,Lysosome
+GALNS,Lysosome
+GNS,Lysosome
+IDS,Lysosome
+STS,Lysosome
+DNASE2,Lysosome
+DNASE2B,Lysosome
+ATP6V0A1,Lysosome
+ATP6V0A2,Lysosome
+TCIRG1,Lysosome
+ATP6V0A4,Lysosome
+ATP6V0B,Lysosome
+ATP6V0C,Lysosome
+ATP6V0D1,Lysosome
+ATP6V0D2,Lysosome
+ATP6V0E1,Lysosome
+ATP6V0E2,Lysosome
+ATP6V1A,Lysosome
+ATP6V1B1,Lysosome
+ATP6V1B2,Lysosome
+ATP6V1C1,Lysosome
+ATP6V1C2,Lysosome
+ATP6V1D,Lysosome
+ATP6V1E1,Lysosome
+ATP6V1E2,Lysosome
+ATP6V1F,Lysosome
+ATP6V1G1,Lysosome
+ATP6V1G2,Lysosome
+ATP6V1G3,Lysosome
+ATP6V1H,Lysosome
+ATP6AP1,Lysosome
+ATP6AP2,Lysosome
+LRRK2,Lysosome
+GRN,Lysosome
+TMEM106B,Lysosome
+TMEM175,Lysosome
+CLCN7,Lysosome
+MAP1LC3A,Autophagy
+MAP1LC3B,Autophagy
+MAP1LC3C,Autophagy
+GABARAP,Autophagy
+GABARAPL1,Autophagy
+GABARAPL2,Autophagy
+FNBP1L,Autophagy
+PTK2,Autophagy
+RNF5,Autophagy
+ATG7,Autophagy
+ATG10,Autophagy
+CSNK2A1,Autophagy
+CSNK2A2,Autophagy
+CSNK2B,Autophagy
+FOXO1,Autophagy
+SIRT2,Autophagy
+IFT20,Autophagy
+IFT88,Autophagy
+GJA1,Autophagy
+SIRT1,Autophagy
+USP22,Autophagy
+HULC,Autophagy
+PPP1R13L,Autophagy
+BIRC5,Autophagy
+RACK1,Autophagy
+EVA1A,Autophagy
+TMEM74,Autophagy
+TBC1D25,Autophagy
+RAB33B,Autophagy
+NOD1,Autophagy
+NOD2,Autophagy
+PTPN22,Autophagy
+TMEM59,Autophagy
+MAP1LC3B,Autophagy
+GABARAP,Autophagy
+GABARAPL1,Autophagy
+ATG12,Autophagy
+ATG5,Autophagy
+ATG16L1,Autophagy
+ATG16L2,Autophagy
+ATG4A,Autophagy
+ATG4B,Autophagy
+ATG4C,Autophagy
+ATG4D,Autophagy
+ATG3,Autophagy
+UCHL1,Autophagy
+USP10,Autophagy
+ULK1,Autophagy
+ULK2,Autophagy
+ULK3,Autophagy
+ATG13,Autophagy
+RB1CC1,Autophagy
+ATG101,Autophagy
+PSMA1,Proteasome
+PSMA2,Proteasome
+PSMA3,Proteasome
+PSMA4,Proteasome
+PSMA5,Proteasome
+PSMA6,Proteasome
+PSMA7,Proteasome
+PSMB1,Proteasome
+PSMB2,Proteasome
+PSMB3,Proteasome
+PSMB4,Proteasome
+PSMB5,Proteasome
+PSMB6,Proteasome
+PSMB7,Proteasome
+PSMA8,Proteasome
+PSMB8,Proteasome
+PSMB9,Proteasome
+PSMB10,Proteasome
+PSMB11,Proteasome
+PSMC1,Proteasome
+PSMC2,Proteasome
+PSMC3,Proteasome
+PSMC4,Proteasome
+PSMC5,Proteasome
+PSMC6,Proteasome
+PSMD1,Proteasome
+PSMD2,Proteasome
+PSMD4,Proteasome
+ADRM1,Proteasome
+PSMD7,Proteasome
+PSMD14,Proteasome
+PSMD3,Proteasome
+PSMD6,Proteasome
+PSMD11,Proteasome
+PSMD8,Proteasome
+PSMD12,Proteasome
+PSMD13,Proteasome
+SEM1,Proteasome
+POMP,Proteasome
+PSMG1,Proteasome
+PSMG2,Proteasome
+PSMG3,Proteasome
+PSMG4,Proteasome
+PSMD5,Proteasome
+PSMD9,Proteasome
+PSMD10,Proteasome
+PAAF1,Proteasome
+UFM1,UFMylation
+UFC1,UFMylation
+UFL1,UFMylation
+DDRGK1,UFMylation
+UBA5,UFMylation
+CDK5RAP3,UFMylation
+UFSP2,UFMylation
+UFSP1,UFMylation
+ACAD11,UFMylation
+HBS1L,RQC
+GTPBP1,RQC
+GTPBP2,RQC
+PELO,RQC
+RACK1,RQC
+ZNF598,RQC
+ABCE1,RQC
+TRIP4,RQC
+ASCC1,RQC
+ASCC2,RQC
+ASCC3,RQC
+LTN1,RQC
+MKRN1,RQC
+MKRN2,RQC
+USP10,RQC
+USP21,RQC
+OTUD3,RQC
+NPLOC4,RQC
+VCP,RQC
+UFD1,RQC
+GCN1,RQC
+ABCF2,RQC
+DRG2,RQC
+GIGYF1,RQC
+GIGYF2,RQC
+EIF4E2,RQC
+EDF1,RQC
+MAP3K20,RQC
+NEMF,RQC
+TCF25,RQC
+EIF5A,RQC
+EIF3J,RQC
+OGT,RQC
+AMFR,E3
+ARK2C,E3
+BARD1,E3
+BFAR,E3
+BIRC2,E3
+BIRC3,E3
+BIRC7,E3
+BIRC8,E3
+BMI1,E3
+BRAP,E3
+BRCA1,E3
+CBL,E3
+CBLB,E3
+CBLC,E3
+CBLL1,E3
+CBLL2,E3
+CCNB1IP1,E3
+CGRRF1,E3
+CHFR,E3
+CNOT4,E3
+COP1,E3
+DCST1,E3
+DTX1,E3
+DTX2,E3
+DTX3,E3
+DTX3L,E3
+DTX4,E3
+DZIP3,E3
+FANCL,E3
+G2E3,E3
+GTF2H2,E3
+HLTF,E3
+IRF2BP1,E3
+IRF2BP2,E3
+IRF2BPL,E3
+LNX1,E3
+LNX2,E3
+LOC122513141,E3
+LONRF1,E3
+LONRF2,E3
+LONRF3,E3
+LRSAM1,E3
+MAP3K1,E3
+MARCHF1,E3
+MARCHF10,E3
+MARCHF11,E3
+MARCHF2,E3
+MARCHF3,E3
+MARCHF4,E3
+MARCHF5,E3
+MARCHF6,E3
+MARCHF7,E3
+MARCHF8,E3
+MARCHF9,E3
+MDM2,E3
+MDM4,E3
+MEX3A,E3
+MEX3B,E3
+MEX3C,E3
+MEX3D,E3
+MGRN1,E3
+MIB1,E3
+MIB2,E3
+MID1,E3
+MID2,E3
+MKRN1,E3
+MKRN2,E3
+MKRN3,E3
+MNAT1,E3
+MSL2,E3
+MUL1,E3
+MYLIP,E3
+NEURL1,E3
+NEURL1B,E3
+NEURL3,E3
+NFX1,E3
+NFXL1,E3
+NHLRC1,E3
+NSMCE1,E3
+OBI1,E3
+PCGF1,E3
+PCGF2,E3
+PCGF3,E3
+PCGF5,E3
+PCGF6,E3
+PDZRN3,E3
+PDZRN4,E3
+PEX10,E3
+PEX12,E3
+PEX2,E3
+PHF7,E3
+PHRF1,E3
+PJA1,E3
+PJA2,E3
+PML,E3
+RAD18,E3
+RAG1,E3
+RAPSN,E3
+RBBP6,E3
+RC3H1,E3
+RC3H2,E3
+RCHY1,E3
+RFFL,E3
+RFPL1,E3
+RFPL2,E3
+RFPL3,E3
+RFPL4A,E3
+RFPL4AL1,E3
+RFPL4B,E3
+RFWD3,E3
+RING1,E3
+RLIM,E3
+RNF10,E3
+RNF103,E3
+RNF11,E3
+RNF111,E3
+RNF112,E3
+RNF113A,E3
+RNF113B,E3
+RNF114,E3
+RNF115,E3
+RNF121,E3
+RNF122,E3
+RNF123,E3
+RNF125,E3
+RNF126,E3
+RNF128,E3
+RNF13,E3
+RNF130,E3
+RNF133,E3
+RNF135,E3
+RNF138,E3
+RNF139,E3
+RNF141,E3
+RNF145,E3
+RNF146,E3
+RNF148,E3
+RNF149,E3
+RNF150,E3
+RNF151,E3
+RNF152,E3
+RNF157,E3
+RNF166,E3
+RNF167,E3
+RNF168,E3
+RNF169,E3
+RNF17,E3
+RNF170,E3
+RNF175,E3
+RNF180,E3
+RNF181,E3
+RNF182,E3
+RNF183,E3
+RNF185,E3
+RNF186,E3
+RNF187,E3
+RNF2,E3
+RNF20,E3
+RNF207,E3
+RNF208,E3
+RNF212,E3
+RNF212B,E3
+RNF213,E3
+RNF214,E3
+RNF215,E3
+RNF220,E3
+RNF222,E3
+RNF223,E3
+RNF224,E3
+RNF225,E3
+RNF227,E3
+RNF24,E3
+RNF25,E3
+RNF26,E3
+RNF32,E3
+RNF34,E3
+RNF38,E3
+RNF39,E3
+RNF4,E3
+RNF40,E3
+RNF41,E3
+RNF43,E3
+RNF44,E3
+RNF5,E3
+RNF6,E3
+RNF8,E3
+RNFT1,E3
+RNFT2,E3
+RSPRY1,E3
+SCAF11,E3
+SH3RF1,E3
+SH3RF2,E3
+SH3RF3,E3
+SHPRH,E3
+SIAH1,E3
+SIAH2,E3
+SYVN1,E3
+TMEM129,E3
+TOPORS,E3
+TRAF2,E3
+TRAF3,E3
+TRAF4,E3
+TRAF5,E3
+TRAF6,E3
+TRAF7,E3
+TRAIP,E3
+TRIM10,E3
+TRIM11,E3
+TRIM13,E3
+TRIM15,E3
+TRIM17,E3
+TRIM2,E3
+TRIM21,E3
+TRIM22,E3
+TRIM23,E3
+TRIM24,E3
+TRIM25,E3
+TRIM26,E3
+TRIM27,E3
+TRIM28,E3
+TRIM3,E3
+TRIM31,E3
+TRIM32,E3
+TRIM33,E3
+TRIM34,E3
+TRIM35,E3
+TRIM36,E3
+TRIM37,E3
+TRIM38,E3
+TRIM39,E3
+TRIM4,E3
+TRIM40,E3
+TRIM41,E3
+TRIM42,E3
+TRIM43,E3
+TRIM43B,E3
+TRIM45,E3
+TRIM46,E3
+TRIM47,E3
+TRIM48,E3
+TRIM49,E3
+TRIM49B,E3
+TRIM49C,E3
+TRIM49D1,E3
+TRIM49D2,E3
+TRIM5,E3
+TRIM50,E3
+TRIM51,E3
+TRIM51G,E3
+TRIM52,E3
+TRIM54,E3
+TRIM55,E3
+TRIM56,E3
+TRIM58,E3
+TRIM59,E3
+TRIM6,E3
+TRIM60,E3
+TRIM61,E3
+TRIM62,E3
+TRIM63,E3
+TRIM64,E3
+TRIM64B,E3
+TRIM64C,E3
+TRIM65,E3
+TRIM67,E3
+TRIM68,E3
+TRIM69,E3
+TRIM7,E3
+TRIM71,E3
+TRIM72,E3
+TRIM73,E3
+TRIM74,E3
+TRIM75,E3
+TRIM77,E3
+TRIM8,E3
+TRIM9,E3
+TRIML1,E3
+TTC3,E3
+UBOX5,E3
+UBR1,E3
+UBR2,E3
+UBR3,E3
+UHRF1,E3
+UHRF2,E3
+UNK,E3
+UNKL,E3
+VPS11,E3
+VPS18,E3
+VPS41,E3
+VPS8,E3
+XIAP,E3
+ZFPL1,E3
+ZFTRAF1,E3
+ZNF598,E3
+ZNFX1,E3
+ZNRF1,E3
+ZNRF2,E3
+ZNRF3,E3
+ZNRF4,E3
+ZSWIM2,E3
+RNF228,E3
+GTF2H2C,E3
+ANAPC11,E3
+RBX1,E3
+RNF7,E3
+PIAS1,E3
+PIAS2,E3
+PIAS3,E3
+PIAS4,E3
+NSMCE2,E3
+ZMIZ1,E3
+ZMIZ2,E3
+UBR4,E3
+PELI1,E3
+PELI2,E3
+PELI3,E3
+RTF2,E3
+RMND5A,E3
+RMND5B,E3
+MAEA,E3
+PRPF19,E3
+UBE4A,E3
+UBE4B,E3
+WDSUB1,E3
+NOSIP,E3
+PPIL2,E3
+STUB1,E3
+ANKIB1,E3
+ARIH1,E3
+ARIH2,E3
+CUL9,E3
+PRKN,E3
+RBCK1,E3
+RNF14,E3
+RNF144A,E3
+RNF144B,E3
+RNF19A,E3
+RNF19B,E3
+RNF216,E3
+RNF217,E3
+RNF31,E3
+AREL1,E3
+HACE1,E3
+HECTD1,E3
+HECTD2,E3
+HECTD3,E3
+HECTD4,E3
+HECW1,E3
+HECW2,E3
+HERC1,E3
+HERC2,E3
+HERC3,E3
+HERC4,E3
+HERC5,E3
+HERC6,E3
+HUWE1,E3
+ITCH,E3
+NEDD4,E3
+NEDD4L,E3
+SMURF1,E3
+SMURF2,E3
+TRIP12,E3
+UBE3A,E3
+UBE3B,E3
+UBE3C,E3
+UBR5,E3
+WWP1,E3
+WWP2,E3
+BTRC,E3
+CCNF,E3
+ECT2L,E3
+FBH1,E3
+FBXL2,E3
+FBXL3,E3
+FBXL12,E3
+FBXL13,E3
+FBXL14,E3
+FBXL15,E3
+FBXL16,E3
+FBXL17,E3
+FBXL18,E3
+FBXL19,E3
+FBXL20,E3
+FBXL22,E3
+FBXL4,E3
+FBXL5,E3
+FBXL6,E3
+FBXL7,E3
+FBXL8,E3
+FBXO10,E3
+FBXO11,E3
+FBXO15,E3
+FBXO16,E3
+FBXO17,E3
+FBXO2,E3
+FBXO21,E3
+FBXO22,E3
+FBXO24,E3
+FBXO25,E3
+FBXO27,E3
+FBXO28,E3
+FBXO3,E3
+FBXO30,E3
+FBXO31,E3
+FBXO32,E3
+FBXO33,E3
+FBXO34,E3
+FBXO36,E3
+FBXO38,E3
+FBXO39,E3
+FBXO4,E3
+FBXO40,E3
+FBXO41,E3
+FBXO42,E3
+FBXO43,E3
+FBXO44,E3
+FBXO45,E3
+FBXO46,E3
+FBXO47,E3
+FBXO48,E3
+FBXO5,E3
+FBXO6,E3
+FBXO7,E3
+FBXO8,E3
+FBXO9,E3
+FBXW10,E3
+FBXW10B,E3
+FBXW11,E3
+FBXW12,E3
+FBXW2,E3
+FBXW4,E3
+FBXW5,E3
+FBXW7,E3
+FBXW8,E3
+FBXW9,E3
+KDM2A,E3
+KDM2B,E3
+LMO7,E3
+NCCRP1,E3
+SKP2,E3
+ZC3HC1,E3
+APPBP2,E3
+ASB2,E3
+ASB4,E3
+CISH,E3
+FEM1A,E3
+FEM1B,E3
+FEM1C,E3
+KLHDC1,E3
+KLHDC10,E3
+KLHDC2,E3
+KLHDC3,E3
+LRR1,E3
+LRRC14,E3
+LRRC28,E3
+LRRC42,E3
+LRRC58,E3
+MED8,E3
+NRBP1,E3
+PCMTD2,E3
+PRAME,E3
+PRAMEF12,E3
+PRAMEF17,E3
+PRAMEF9,E3
+SOCS1,E3
+VHL,E3
+ZER1,E3
+ZSWIM4,E3
+ZSWIM5,E3
+ZSWIM6,E3
+ZSWIM8,E3
+ZYG11A,E3
+ZYG11B,E3
+ABTB1,E3
+ABTB2,E3
+ABTB3,E3
+ANKFY1,E3
+ARMC5,E3
+BTBD1,E3
+BTBD10,E3
+BTBD16,E3
+BTBD17,E3
+BTBD18,E3
+BTBD19,E3
+BTBD2,E3
+BTBD3,E3
+BTBD6,E3
+BTBD7,E3
+BTBD8,E3
+BTBD9,E3
+CCIN,E3
+ENC1,E3
+GAN,E3
+GMCL1,E3
+GMCL2,E3
+IBTK,E3
+IPP,E3
+IVNS1ABP,E3
+KBTBD11,E3
+KBTBD12,E3
+KBTBD13,E3
+KBTBD2,E3
+KBTBD3,E3
+KBTBD4,E3
+KBTBD6,E3
+KBTBD7,E3
+KBTBD8,E3
+KCTD10,E3
+KCTD11,E3
+KCTD12,E3
+KCTD13,E3
+KCTD17,E3
+KCTD18,E3
+KCTD2,E3
+KCTD20,E3
+KCTD21,E3
+KCTD3,E3
+KCTD5,E3
+KCTD6,E3
+KCTD7,E3
+KCTD9,E3
+KEAP1,E3
+KLHL1,E3
+KLHL10,E3
+KLHL11,E3
+KLHL12,E3
+KLHL13,E3
+KLHL14,E3
+KLHL15,E3
+KLHL17,E3
+KLHL18,E3
+KLHL2,E3
+KLHL20,E3
+KLHL21,E3
+KLHL22,E3
+KLHL23,E3
+KLHL24,E3
+KLHL25,E3
+KLHL26,E3
+KLHL28,E3
+KLHL29,E3
+KLHL3,E3
+KLHL30,E3
+KLHL31,E3
+KLHL32,E3
+KLHL33,E3
+KLHL34,E3
+KLHL35,E3
+KLHL36,E3
+KLHL38,E3
+KLHL4,E3
+KLHL40,E3
+KLHL41,E3
+KLHL42,E3
+KLHL5,E3
+KLHL6,E3
+KLHL7,E3
+KLHL8,E3
+KLHL9,E3
+LGALS3BP,E3
+LZTR1,E3
+RCBTB1,E3
+RCBTB2,E3
+RHOBTB1,E3
+RHOBTB2,E3
+RHOBTB3,E3
+SHKBP1,E3
+SPOP,E3
+SPOPL,E3
+TNFAIP1,E3
+AHR,E3
+AMBRA1,E3
+ARPC1B,E3
+ATG16L1,E3
+ATG16L2,E3
+BRWD1,E3
+BRWD3,E3
+CIAO1,E3
+CRBN,E3
+DCAF1,E3
+DCAF10,E3
+DCAF11,E3
+DCAF12,E3
+DCAF12L2,E3
+DCAF13,E3
+DCAF15,E3
+DCAF16,E3
+DCAF17,E3
+DCAF4,E3
+DCAF4L1,E3
+DCAF4L2,E3
+DCAF5,E3
+DCAF6,E3
+DCAF7,E3
+DCAF8,E3
+DCAF8L2,E3
+DDB2,E3
+DET1,E3
+DTL,E3
+ERCC8,E3
+GRWD1,E3
+LRWD1,E3
+PAFAH1B1,E3
+PHIP,E3
+PWP1,E3
+RBBP5,E3
+TBL1X,E3
+TBL1XR1,E3
+TOR1AIP2,E3
+TRPC4AP,E3
+WDR1,E3
+WDR12,E3
+WDR26,E3
+WDR48,E3
+WDR70,E3
+WDTC1,E3
+WIPI2,E3
+ANKRD9,E3
+ASB1,E3
+ASB10,E3
+ASB11,E3
+ASB12,E3
+ASB13,E3
+ASB14,E3
+ASB15,E3
+ASB16,E3
+ASB17,E3
+ASB18,E3
+ASB3,E3
+ASB5,E3
+ASB6,E3
+ASB7,E3
+ASB8,E3
+ASB9,E3
+ELOA,E3
+ELOA2,E3
+LRRC41,E3
+NEURL2,E3
+PCMTD1,E3
+RAB40A,E3
+RAB40AL,E3
+RAB40B,E3
+RAB40C,E3
+SOCS2,E3
+SOCS3,E3
+SOCS4,E3
+SOCS5,E3
+SOCS6,E3
+SOCS7,E3
+SPSB1,E3
+SPSB2,E3
+SPSB3,E3
+SPSB4,E3
+TULP4,E3
+WSB1,E3
+WSB2,E3
+FZR1,E3
+CDC20,E3
+MYCBP2,E3
+TNFAIP3,E3
+RABGEF1,E3
+UBE2O,E3
+BIRC6,E3
+RANBP2,E3
+ZNF451,E3
+EGR2,E3
+RASD2,E3
+ETF1,Translation termination
+GSPT1,Translation termination
+GSPT2,Translation termination
+ABCE1,Translation termination
+EIF2D,Translation termination
+DENR,Translation termination
+MCTS1,Translation termination
+UPF1,Translation termination
+UPF2,Translation termination
+UPF3A,Translation termination
+UPF3B,Translation termination
+EEF1A1,Translation elongation
+EEF1A2,Translation elongation
+EEF1B2,Translation elongation
+EEF1D,Translation elongation
+EEF1G,Translation elongation
+AARS1,Translation elongation
+AARSD1,Translation elongation
+CARS1,Translation elongation
+DARS1,Translation elongation
+EPRS1,Translation elongation
+FARSA,Translation elongation
+FARSB,Translation elongation
+GARS1,Translation elongation
+HARS1,Translation elongation
+IARS1,Translation elongation
+KARS1,Translation elongation
+LARS1,Translation elongation
+MARS1,Translation elongation
+NARS1,Translation elongation
+QARS1,Translation elongation
+RARS1,Translation elongation
+SARS1,Translation elongation
+TARS1,Translation elongation
+TARS3,Translation elongation
+VARS1,Translation elongation
+WARS1,Translation elongation
+YARS1,Translation elongation
+PSTK,Translation elongation
+SEPSECS,Translation elongation
+DTD1,Translation elongation
+DTD2,Translation elongation
+AIMP1,Translation elongation
+AIMP2,Translation elongation
+EEF1E1,Translation elongation
+EEF2,Translation elongation
+EEF2K,Translation elongation
+EEF2KMT,Translation elongation
+EIF5A,Translation elongation
+EIF5AL1,Translation elongation
+EIF5A2,Translation elongation
+SECISBP2,Translation elongation
+EEFSEC,Translation elongation
+EIF2S1,Translation initiation
+EIF2S2,Translation initiation
+EIF2S3,Translation initiation
+EIF2S3B,Translation initiation
+EIF2B1,Translation initiation
+EIF2B2,Translation initiation
+EIF2B3,Translation initiation
+EIF2B4,Translation initiation
+EIF2B5,Translation initiation
+EIF3A,Translation initiation
+EIF3B,Translation initiation
+EIF3C,Translation initiation
+EIF3D,Translation initiation
+EIF3E,Translation initiation
+EIF3F,Translation initiation
+EIF3G,Translation initiation
+EIF3H,Translation initiation
+EIF3I,Translation initiation
+EIF3J,Translation initiation
+EIF3K,Translation initiation
+EIF3L,Translation initiation
+EIF3M,Translation initiation
+EIF4A1,Translation initiation
+EIF4A2,Translation initiation
+EIF4E,Translation initiation
+EIF4E2,Translation initiation
+EIF4E3,Translation initiation
+EIF4G1,Translation initiation
+EIF4G2,Translation initiation
+EIF4G3,Translation initiation
+EIF1,Translation initiation
+EIF1AX,Translation initiation
+EIF1AY,Translation initiation
+EIF4B,Translation initiation
+EIF4H,Translation initiation
+EIF4EBP1,Translation initiation
+EIF4EBP2,Translation initiation
+EIF4EBP3,Translation initiation
+EIF5,Translation initiation
+EIF5B,Translation initiation
+PABPC1,Translation initiation
+PABPC1L,Translation initiation
+PABPC1L2A,Translation initiation
+PABPC3,Translation initiation
+PABPC4,Translation initiation
+PABPC4L,Translation initiation
+PABPC5,Translation initiation
+DHX29,Translation initiation
+DDX3X,Translation initiation
+DDX3Y,Translation initiation
+VCP,Translation initiation
+EIF2A,Translation initiation
+BZW1,Translation initiation
+BZW2,Translation initiation
+RPS2,40S Biogenesis/Proteins
+RPS3,40S Biogenesis/Proteins
+RPS3A,40S Biogenesis/Proteins
+RPS4X,40S Biogenesis/Proteins
+RPS4Y1,40S Biogenesis/Proteins
+RPS4Y2,40S Biogenesis/Proteins
+RPS5,40S Biogenesis/Proteins
+RPS6,40S Biogenesis/Proteins
+RPS7,40S Biogenesis/Proteins
+RPS8,40S Biogenesis/Proteins
+RPS9,40S Biogenesis/Proteins
+RPS10,40S Biogenesis/Proteins
+RPS11,40S Biogenesis/Proteins
+RPS12,40S Biogenesis/Proteins
+RPS13,40S Biogenesis/Proteins
+RPS14,40S Biogenesis/Proteins
+RPS15,40S Biogenesis/Proteins
+RPS15A,40S Biogenesis/Proteins
+RPS16,40S Biogenesis/Proteins
+RPS17,40S Biogenesis/Proteins
+RPS18,40S Biogenesis/Proteins
+RPS19,40S Biogenesis/Proteins
+RPS20,40S Biogenesis/Proteins
+RPS21,40S Biogenesis/Proteins
+RPS23,40S Biogenesis/Proteins
+RPS24,40S Biogenesis/Proteins
+RPS25,40S Biogenesis/Proteins
+RPS26,40S Biogenesis/Proteins
+RPS27,40S Biogenesis/Proteins
+RPS27A,40S Biogenesis/Proteins
+RPS27L,40S Biogenesis/Proteins
+RPS28,40S Biogenesis/Proteins
+RPS29,40S Biogenesis/Proteins
+FAU,40S Biogenesis/Proteins
+RPSA,40S Biogenesis/Proteins
+RPSA2,40S Biogenesis/Proteins
+BUD23,40S Biogenesis/Proteins
+EIF5B,40S Biogenesis/Proteins
+BYSL,40S Biogenesis/Proteins
+LTV1,40S Biogenesis/Proteins
+NOB1,40S Biogenesis/Proteins
+PNO1,40S Biogenesis/Proteins
+RACK1,40S Biogenesis/Proteins
+RIOK1,40S Biogenesis/Proteins
+RIOK2,40S Biogenesis/Proteins
+RIOK3,40S Biogenesis/Proteins
+RRP12,40S Biogenesis/Proteins
+TRMT112,40S Biogenesis/Proteins
+TSR1,40S Biogenesis/Proteins
+TSR2,40S Biogenesis/Proteins
+TSR3,40S Biogenesis/Proteins
+UTP4,40S Biogenesis/Proteins
+WDR43,40S Biogenesis/Proteins
+HEATR1,40S Biogenesis/Proteins
+UTP15,40S Biogenesis/Proteins
+WDR75,40S Biogenesis/Proteins
+NOL11,40S Biogenesis/Proteins
+PWP2,40S Biogenesis/Proteins
+UTP6,40S Biogenesis/Proteins
+WDR3,40S Biogenesis/Proteins
+TBL3,40S Biogenesis/Proteins
+UTP18,40S Biogenesis/Proteins
+WDR36,40S Biogenesis/Proteins
+DDX21,40S Biogenesis/Proteins
+NOP2,40S Biogenesis/Proteins
+RRP7A,40S Biogenesis/Proteins
+NOL6,40S Biogenesis/Proteins
+CSNK2B,40S Biogenesis/Proteins
+RRP36,40S Biogenesis/Proteins
+SNORD3A,40S Biogenesis/Proteins
+NOP56,40S Biogenesis/Proteins
+NOP58,40S Biogenesis/Proteins
+SNU13,40S Biogenesis/Proteins
+FBL,40S Biogenesis/Proteins
+RRP9,40S Biogenesis/Proteins
+IMP3,40S Biogenesis/Proteins
+IMP4,40S Biogenesis/Proteins
+MPHOSPH10,40S Biogenesis/Proteins
+RCL1,40S Biogenesis/Proteins
+BMS1,40S Biogenesis/Proteins
+EMG1,40S Biogenesis/Proteins
+NOP14,40S Biogenesis/Proteins
+NOC4L,40S Biogenesis/Proteins
+UTP14A,40S Biogenesis/Proteins
+AATF,40S Biogenesis/Proteins
+NOL10,40S Biogenesis/Proteins
+RPL3,60S Biogenesis/Proteins
+RPL3L,60S Biogenesis/Proteins
+RPL4,60S Biogenesis/Proteins
+RPL5,60S Biogenesis/Proteins
+RPL6,60S Biogenesis/Proteins
+RPL7,60S Biogenesis/Proteins
+RPL7A,60S Biogenesis/Proteins
+RPL7L1,60S Biogenesis/Proteins
+RPL8,60S Biogenesis/Proteins
+RPL9,60S Biogenesis/Proteins
+RPL10,60S Biogenesis/Proteins
+RPL10A,60S Biogenesis/Proteins
+RPL10L,60S Biogenesis/Proteins
+RPL11,60S Biogenesis/Proteins
+RPL12,60S Biogenesis/Proteins
+RPL13,60S Biogenesis/Proteins
+RPL13A,60S Biogenesis/Proteins
+RPL14,60S Biogenesis/Proteins
+RPL15,60S Biogenesis/Proteins
+RPL17,60S Biogenesis/Proteins
+RPL18,60S Biogenesis/Proteins
+RPL18A,60S Biogenesis/Proteins
+RPL19,60S Biogenesis/Proteins
+RPL21,60S Biogenesis/Proteins
+RPL22,60S Biogenesis/Proteins
+RPL23,60S Biogenesis/Proteins
+RPL23A,60S Biogenesis/Proteins
+RPL24,60S Biogenesis/Proteins
+RPL26,60S Biogenesis/Proteins
+RPL26L1,60S Biogenesis/Proteins
+RPL27,60S Biogenesis/Proteins
+RPL27A,60S Biogenesis/Proteins
+RPL28,60S Biogenesis/Proteins
+RPL29,60S Biogenesis/Proteins
+RPL30,60S Biogenesis/Proteins
+RPL31,60S Biogenesis/Proteins
+RPL32,60S Biogenesis/Proteins
+RPL34,60S Biogenesis/Proteins
+RPL35,60S Biogenesis/Proteins
+RPL35A,60S Biogenesis/Proteins
+RPL36,60S Biogenesis/Proteins
+RPL36A,60S Biogenesis/Proteins
+RPL36AL,60S Biogenesis/Proteins
+RPL37,60S Biogenesis/Proteins
+RPL37A,60S Biogenesis/Proteins
+RPL38,60S Biogenesis/Proteins
+RPL39,60S Biogenesis/Proteins
+RPL39L,60S Biogenesis/Proteins
+UBA52,60S Biogenesis/Proteins
+RPL41,60S Biogenesis/Proteins
+RPLP0,60S Biogenesis/Proteins
+RPLP1,60S Biogenesis/Proteins
+RPLP2,60S Biogenesis/Proteins
+ZFP42,60S Biogenesis/Proteins
+REXO2,60S Biogenesis/Proteins
+NMD3,60S Biogenesis/Proteins
+RAE1,60S Biogenesis/Proteins
+RRS1,60S Biogenesis/Proteins
+RPF2,60S Biogenesis/Proteins
+NOP53,60S Biogenesis/Proteins
+HEATR3,60S Biogenesis/Proteins
+EIF6,60S Biogenesis/Proteins
+MRTO4,60S Biogenesis/Proteins
+DUSP12,60S Biogenesis/Proteins
+SBDS,60S Biogenesis/Proteins
+EFL1,60S Biogenesis/Proteins
+TMA16,60S Biogenesis/Proteins
+GTPBP4,60S Biogenesis/Proteins
+LLPH,60S Biogenesis/Proteins
+ZNF593,60S Biogenesis/Proteins
+GNL2,60S Biogenesis/Proteins
+LSG1,60S Biogenesis/Proteins
+DNAJC21,60S Biogenesis/Proteins
+ILF2,60S Biogenesis/Proteins
+ILF3,60S Biogenesis/Proteins
+RSL24D1,60S Biogenesis/Proteins
+BCCIP,60S Biogenesis/Proteins
+PES1,60S Biogenesis/Proteins
+BOP1,60S Biogenesis/Proteins
+WDR12,60S Biogenesis/Proteins
+DDX27,60S Biogenesis/Proteins
+PELP1,60S Biogenesis/Proteins
+TEX10,60S Biogenesis/Proteins
+WDR18,60S Biogenesis/Proteins
+NKRF,60S Biogenesis/Proteins
+XRN2,60S Biogenesis/Proteins
+DHX15,60S Biogenesis/Proteins
+NGDN,60S Biogenesis/Proteins
+TFB1M,Both Biogenesis
+RPUSD2,Both Biogenesis
+NUP88,Both Biogenesis
+MPHOSPH6,Both Biogenesis
+CINP,Both Biogenesis
+TRMT61B,Both Biogenesis
+DKC1,Both Biogenesis
+UTP25,Both Biogenesis
+MAK16,Both Biogenesis
+EIF2A,Both Biogenesis
+GTF3A,Both Biogenesis
+EXOSC7,Both Biogenesis
+MCAT,Both Biogenesis
+FTSJ3,Both Biogenesis
+NOM1,Both Biogenesis
+RPS27L,Both Biogenesis
+ZNHIT3,Both Biogenesis
+PIH1D2,Both Biogenesis
+DDX3X,Both Biogenesis
+UTP14C,Both Biogenesis
+GTF2H5,Both Biogenesis
+ERI1,Both Biogenesis
+KRR1,Both Biogenesis
+RNASEL,Both Biogenesis
+NPM1,Both Biogenesis
+RBFA,Both Biogenesis
+RBIS,Both Biogenesis
+DDX51,Both Biogenesis
+CDKN2A,Both Biogenesis
+XPO1,Both Biogenesis
+ESF1,Both Biogenesis
+ZNF622,Both Biogenesis
+PA2G4,Both Biogenesis
+KRI1,Both Biogenesis
+POP5,Both Biogenesis
+GEMIN4,Both Biogenesis
+NIP7,Both Biogenesis
+ABT1,Both Biogenesis
+AK6,Both Biogenesis
+NOP16,Both Biogenesis
+EXOSC8,Both Biogenesis
+RRP15,Both Biogenesis
+EXOSC1,Both Biogenesis
+UTP11,Both Biogenesis
+TENT4B,Both Biogenesis
+MRPS2,Both Biogenesis
+FSAF1,Both Biogenesis
+WBP11,Both Biogenesis
+PIN4,Both Biogenesis
+NSA2,Both Biogenesis
+POP4,Both Biogenesis
+MALSU1,Both Biogenesis
+DDX49,Both Biogenesis
+RPUSD4,Both Biogenesis
+NOA1,Both Biogenesis
+AFG2A,Both Biogenesis
+DDX52,Both Biogenesis
+MTERF3,Both Biogenesis
+LAS1L,Both Biogenesis
+NSUN4,Both Biogenesis
+DIS3,Both Biogenesis
+DNTTIP2,Both Biogenesis
+RCC1L,Both Biogenesis
+NAF1,Both Biogenesis
+PDCD2,Both Biogenesis
+MRM2,Both Biogenesis
+METTL25B,Both Biogenesis
+RPLP0P6,Both Biogenesis
+RRP1,Both Biogenesis
+MTG1,Both Biogenesis
+MYBBP1A,Both Biogenesis
+GRWD1,Both Biogenesis
+URB1,Both Biogenesis
+UTP23,Both Biogenesis
+FDXACB1,Both Biogenesis
+RPP25,Both Biogenesis
+EXOSC10,Both Biogenesis
+BRIX1,Both Biogenesis
+DDX54,Both Biogenesis
+EIF5,Both Biogenesis
+MRM1,Both Biogenesis
+XRCC5,Both Biogenesis
+MPV17L2,Both Biogenesis
+EIF1AX,Both Biogenesis
+WDR74,Both Biogenesis
+MIEF1,Both Biogenesis
+SRFBP1,Both Biogenesis
+ZNF658,Both Biogenesis
+NOC2L,Both Biogenesis
+ZNF574,Both Biogenesis
+GREB1L,Both Biogenesis
+GTPBP6,Both Biogenesis
+RIOX2,Both Biogenesis
+EBNA1BP2,Both Biogenesis
+UTP3,Both Biogenesis
+ZCCHC4,Both Biogenesis
+NDUFAB1,Both Biogenesis
+DDX31,Both Biogenesis
+NLE1,Both Biogenesis
+SDAD1,Both Biogenesis
+DDX18,Both Biogenesis
+GNL3L,Both Biogenesis
+RPF1,Both Biogenesis
+REXO1L1P,Both Biogenesis
+UTP20,Both Biogenesis
+SURF6,Both Biogenesis
+ERAL1,Both Biogenesis
+NPM3,Both Biogenesis
+NSUN3,Both Biogenesis
+TFB2M,Both Biogenesis
+EXOSC3,Both Biogenesis
+EXOSC5,Both Biogenesis
+DIMT1,Both Biogenesis
+EXOSC9,Both Biogenesis
+RPUSD1,Both Biogenesis
+DHX37,Both Biogenesis
+DDX47,Both Biogenesis
+TRMT2B,Both Biogenesis
+RRP7BP,Both Biogenesis
+METTL17,Both Biogenesis
+SLX9,Both Biogenesis
+WDR55,Both Biogenesis
+ISG20L2,Both Biogenesis
+DCAF13,Both Biogenesis
+DDX28,Both Biogenesis
+NOL9,Both Biogenesis
+MDN1,Both Biogenesis
+DROSHA,Both Biogenesis
+METTL5,Both Biogenesis
+VCX,Both Biogenesis
+REXO5,Both Biogenesis
+NAT10,Both Biogenesis
+RPP40,Both Biogenesis
+POP7,Both Biogenesis
+NOL7,Both Biogenesis
+PPAN,Both Biogenesis
+SENP3,Both Biogenesis
+MTG2,Both Biogenesis
+NOP10,Both Biogenesis
+NGRN,Both Biogenesis
+EXOSC4,Both Biogenesis
+RRP1B,Both Biogenesis
+LSM6,Both Biogenesis
+FRG1,Both Biogenesis
+DDX55,Both Biogenesis
+FCF1,Both Biogenesis
+PDCD11,Both Biogenesis
+ISG20,Both Biogenesis
+RAN,Both Biogenesis
+METTL15,Both Biogenesis
+SART1,Both Biogenesis
+RRP8,Both Biogenesis
+GLUL,Both Biogenesis
+URB2,Both Biogenesis
+MTREX,Both Biogenesis
+NOLC1,Both Biogenesis
+FBLL1,Both Biogenesis
+METTL15P1,Both Biogenesis
+TUFM,Both Biogenesis
+RBM34,Both Biogenesis
+MTERF4,Both Biogenesis
+SPOUT1,Both Biogenesis
+CHD7,Both Biogenesis
+C1QBP,Both Biogenesis
+EIF4A3,Both Biogenesis
+SDE2,Both Biogenesis
+ERCC2,Both Biogenesis
+DHX29,Both Biogenesis
+NOL8,Both Biogenesis
+AFG2B,Both Biogenesis
+NSUN5,Both Biogenesis
+DDX17,Both Biogenesis
+DHX30,Both Biogenesis
+C1D,Both Biogenesis
+RPS19BP1,Both Biogenesis
+LTO1,Both Biogenesis
+PIH1D1,Both Biogenesis
+EXOSC2,Both Biogenesis
+MRM3,Both Biogenesis
+EXOSC6,Both Biogenesis
+SUV39H1,Both Biogenesis
+ERI3,Both Biogenesis
+ERI2,Both Biogenesis
+GTPBP10,Both Biogenesis
+RPUSD3,Both Biogenesis
+FGF12,Both Biogenesis
+DDX56,Both Biogenesis
+METTL16,Both Biogenesis
+PRKDC,Both Biogenesis
+MYG1,Both Biogenesis
+DDX10,Both Biogenesis
+REXO1,Both Biogenesis
+CUL4B,Both Biogenesis
+CUL4A,Both Biogenesis
+PWP1,Both Biogenesis
+NVL,Both Biogenesis
+TCOF1,Both Biogenesis
+GAR1,Both Biogenesis
+FASTKD2,Both Biogenesis
+RRN3,Both Biogenesis
+WDR46,Both Biogenesis
+REXO4,Both Biogenesis
+LYAR,Both Biogenesis
+PAK1IP1,Both Biogenesis
+NHP2,Both Biogenesis
+AIRIM,Both Biogenesis
+ZNHIT6,Both Biogenesis
+YBEY,Both Biogenesis
+NOP9,Both Biogenesis
+RPP30,Both Biogenesis
+RPP38,Both Biogenesis
+POLR1G,Both Biogenesis
+POLR1A,Both Biogenesis
+POLR1E,Both Biogenesis
+POLR1B,Both Biogenesis
+POLR1D,Both Biogenesis
+POLR1F,Both Biogenesis
+POLR1H,Both Biogenesis
+POLR1C,Both Biogenesis
+NRBF2,Autophagy
+ANKZF1,Autophagy
+ATG9A,Autophagy
+ATG9B,Autophagy
+ATG14,Autophagy
+ATG2A,Autophagy
+ATG2B,Autophagy
+WIPI1,Autophagy
+SQSTM1,Autophagy
+RNASEK,Autophagy
+AMBRA1,Autophagy
+WIPI2,Autophagy

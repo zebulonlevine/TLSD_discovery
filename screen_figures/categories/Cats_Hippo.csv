@@ -1,0 +1,66 @@
+gene,category
+NF2,positive regulator
+WWC1,positive regulator
+LATS1,core kinase cascade
+LATS2,core kinase cascade
+MOB1A,core kinase cascade
+MOB1B,core kinase cascade
+SAV1,core kinase cascade
+STK3,core kinase cascade
+STK4,core kinase cascade
+INSM1,transcriptional module
+VGLL1,transcriptional module
+VGLL2,transcriptional module
+TEAD1,transcriptional module
+TEAD2,transcriptional module
+TEAD3,transcriptional module
+TEAD4,transcriptional module
+VGLL3,transcriptional module
+VGLL4,transcriptional module
+WWTR1,transcriptional module
+YAP1,transcriptional module
+MARK2,positive regulator
+AJUBA,negative regulator
+DLG1,positive regulator
+ILK,negative regulator
+LLGL1,positive regulator
+LLGL2,positive regulator
+PATJ,positive regulator
+PRKCI,negative regulator
+PRKCZ,negative regulator
+PTK2,negative regulator
+AMOT,positive regulator
+AMOTL1,positive regulator
+AMOTL2,positive regulator
+CDH1,positive regulator
+CRB3,positive regulator
+CTNNA1,positive regulator
+SCRIB,positive regulator
+TJP2,positive regulator
+ANXA2,positive regulator
+KIRREL1,positive regulator
+HSP90AA1,negative regulator
+MOB3B,positive regulator
+NEDD4L,positive regulator
+PPP5C,negative regulator
+WWC2,positive regulator
+WWC3,positive regulator
+STRN,negative regulator
+FGFR1OP2,negative regulator
+MOB4,negative regulator
+PPP2CA,negative regulator
+PPP2R1A,negative regulator
+SIKE1,negative regulator
+SLMAP,negative regulator
+STRIP1,negative regulator
+STRN3,negative regulator
+MAP4K1,positive regulator
+MAP4K2,positive regulator
+MAP4K3,positive regulator
+MAP4K4,positive regulator
+MAP4K5,positive regulator
+MINK1,positive regulator
+TAOK1,positive regulator
+TAOK2,positive regulator
+TAOK3,positive regulator
+TNIK,positive regulator
