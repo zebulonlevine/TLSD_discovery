@@ -1,0 +1,22 @@
+# Confocal colocalization (Fig 7D): Cellpose-SAM segmentation + per-cell Pearson.
+# Versions as installed (conda list, 2026-10-23). torch is the CUDA 12.8 wheel;
+# the Cellpose-SAM model (cpsam, ~1.2 GB) downloads to ~/.cellpose on first use.
+name: nd2_coloc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - numpy=2.2.6
+  - scipy=1.15.2
+  - scikit-image=0.25.2
+  - pandas=2.3.3
+  - tifffile=2025.5.10
+  - imagecodecs=2025.3.30
+  - matplotlib=3.10.8
+  - seaborn=0.13.2
+  - pip
+  - pip:
+      - torch==2.10.0
+      - cellpose==4.0.9
+      - nd2==0.11.2
+      - pyyaml==6.0.3

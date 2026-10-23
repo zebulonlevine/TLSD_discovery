@@ -77,6 +77,30 @@ def repo(*parts):
     return os.path.join(REPO, *parts)
 
 
+# Imaging data have their own layouts, so they get their own read-only roots
+# (same resolution order: environment variable, then config/paths.yaml).
+#   spt_data       holds all_data/<experiment>/... (raw movies, tracking tiers,
+#                  likelihood caches), i.e. the single-molecule tree
+#   confocal_data  holds the GFP-TLSD1 confocal experiment (Denoised/, output/)
+
+def spt_root():
+    return _root('TLSD_SPT_DATA', 'spt_data')
+
+
+def spt(*parts):
+    """Path to a single-molecule input under the SPT data root (read only)."""
+    return os.path.join(spt_root(), *parts)
+
+
+def confocal_root():
+    return _root('TLSD_CONFOCAL_DATA', 'confocal_data')
+
+
+def confocal(*parts):
+    """Path to a confocal input under the confocal data root (read only)."""
+    return os.path.join(confocal_root(), *parts)
+
+
 def expand(s):
     """Expand ${TLSD_DATA}/${TLSD_OUT}/${TLSD_REPO} (and ~) in a config string."""
     return os.path.expanduser(os.path.expandvars(s)) if isinstance(s, str) else s
@@ -84,7 +108,8 @@ def expand(s):
 
 def _export():
     os.environ.setdefault('TLSD_REPO', REPO)
-    for env, fn in (('TLSD_DATA', data_root), ('TLSD_OUT', out_root)):
+    for env, fn in (('TLSD_DATA', data_root), ('TLSD_OUT', out_root),
+                    ('TLSD_SPT_DATA', spt_root), ('TLSD_CONFOCAL_DATA', confocal_root)):
         try:
             os.environ.setdefault(env, fn())
         except RuntimeError:

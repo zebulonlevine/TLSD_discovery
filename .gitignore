@@ -27,3 +27,6 @@ supplementary_tables/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+# job logs
+logs/
+*.log

@@ -7,3 +7,9 @@
 # End-to-end run: set data and out to the same directory.
 data: /path/to/tlsd_data
 out:  /path/to/tlsd_data
+# Imaging inputs (read only), each with its own layout:
+#   spt_data       directory holding all_data/<experiment>/ (raw .nd2, tracking tiers,
+#                  traj_combinations/, occupancy_compare_cache_36state/ likelihood caches)
+#   confocal_data  the GFP-TLSD1 confocal experiment (Denoised/*.nd2, output/cell_masks/)
+spt_data: /path/to/spt_tree
+confocal_data: /path/to/confocal_experiment
