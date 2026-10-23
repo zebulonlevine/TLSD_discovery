@@ -1,0 +1,149 @@
+# Genes known to be involved in ricin trafficking and toxicity
+# Sources: Bassik 2013, Morgens 2017, Tian 2018, and curated reviews of
+# retrograde trafficking & glycosylation contributions to ricin biology.
+
+# --- N-glycosylation (precursor synthesis + elaboration) ---
+MGAT1
+MGAT2
+MGAT4A
+MGAT4B
+MGAT5
+SLC35A2
+SLC35A3
+SLC35C1
+GMDS
+TSTA3
+GFPT1
+GFPT2
+GALE
+UGP2
+PGM3
+UAP1
+GNE
+GMPPA
+GMPPB
+NANS
+CMAS
+
+# --- ER N-glycan precursor (ALG / OST) ---
+ALG1
+ALG2
+ALG3
+ALG5
+ALG6
+ALG8
+ALG9
+ALG10
+ALG11
+ALG12
+ALG13
+ALG14
+DPM1
+DPM2
+DPM3
+DPAGT1
+PMM2
+MPI
+MPDU1
+RFT1
+STT3A
+STT3B
+RPN1
+RPN2
+OST4
+DDOST
+TUSC3
+MAGT1
+OSTC
+KRTCAP2
+
+# --- ER -> Golgi anterograde (COPII) ---
+SEC23A
+SEC23B
+SEC24A
+SEC24B
+SEC24C
+SEC24D
+SEC13
+SEC31A
+SEC31B
+HSP90B1
+ERP44
+ERLEC1
+
+# --- Golgi tethering complexes ---
+# GARP
+VPS51
+VPS52
+VPS53
+VPS54
+# COG
+COG1
+COG2
+COG3
+COG4
+COG5
+COG6
+COG7
+COG8
+# TRAPP
+TRAPPC1
+TRAPPC2
+TRAPPC2L
+TRAPPC3
+TRAPPC4
+TRAPPC5
+TRAPPC6A
+TRAPPC6B
+TRAPPC8
+TRAPPC9
+TRAPPC10
+TRAPPC11
+TRAPPC12
+TRAPPC13
+
+# --- Retrograde COPI ---
+COPA
+COPB1
+COPB2
+COPG1
+ARCN1
+COPZ1
+
+# --- AP-1 / AP-3 / AP-4 clathrin adaptors ---
+AP1B1
+AP1G1
+AP1M1
+AP1S1
+AP3B1
+AP3D1
+AP3M1
+AP3S1
+
+# --- Late endosome / lysosome (HOPS, M6P pathway) ---
+VPS11
+VPS16
+VPS18
+VPS33A
+VPS33B
+VPS39
+VPS41
+IGF2R
+M6PR
+GNPTAB
+GNPTG
+NAGPA
+
+# --- Small GTPases involved in retrograde traffic ---
+RAB1A
+RAB1B
+RAB7A
+
+# --- Other characterized factors ---
+TM9SF1
+TM9SF4
+SLC39A9
+SLC39A3
+DHRSX
+RABGEF1
+TAPT1

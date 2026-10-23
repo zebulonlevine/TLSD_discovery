@@ -1,0 +1,16 @@
+# Ricin reanalysis (MAGeCK + pandas/openpyxl for the Morgens 2017 xlsx).
+# Versions as installed (conda list, 2026-10-23).
+name: mageck
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12.12
+  - mageck=0.5.9.5
+  - numpy=2.2.5
+  - pandas=2.3.3
+  - scipy=1.16.3
+  - matplotlib=3.10.7
+  - seaborn=0.13.2
+  - openpyxl=3.1.5
+  - pyyaml=6.0.3
