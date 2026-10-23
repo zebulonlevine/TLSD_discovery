@@ -1,0 +1,11 @@
+# UniProt topology annotation (proteomics/annotation/uniprot_topology_pipeline.py).
+# Versions as installed (conda list, 2026-10-23).
+name: membrane_analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.14.4
+  - pandas=3.0.2
+  - requests=2.33.1
+  - openpyxl=3.1.5
+  - xlrd=2.0.2
