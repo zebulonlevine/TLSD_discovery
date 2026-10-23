@@ -1,0 +1,53 @@
+# CRISPRi Screen Pipeline Configuration
+# ======================================
+#
+# Usage: 
+#   python screen_pipeline.py run --config config.yaml --wait
+#   python screen_pipeline.py run --config config.yaml --dry-run
+#
+# Individual stages:
+#   python screen_pipeline.py count --config config.yaml
+#   python screen_pipeline.py aggregate --config config.yaml
+#   python screen_pipeline.py mageck --config config.yaml
+#   python screen_pipeline.py results --config config.yaml
+#   python screen_pipeline.py status --config config.yaml
+
+# Project name (used in logging)
+project_name: "RPE1_RiboScreen_genomewide"
+
+# Input files
+sample_table: "${TLSD_REPO}/crispr_screens/pipeline/sample_table_genomewide.csv"        # Maps sample names to FASTQ files
+library_table: "${TLSD_REPO}/crispr_screens/pipeline/library_table_genomewide.csv"      # Library reference files for counting
+comparisons_table: "${TLSD_REPO}/crispr_screens/pipeline/comparisons_genomewide.csv"    # Defines treatment vs control comparisons
+
+# Directories
+fastq_dir: "${TLSD_DATA}/fastq/genomewide"    # FASTQs from GEO; sample_table paths are relative to this
+output_dir: "${TLSD_OUT}/GenomeWide_results/results"
+counts_dir: "${TLSD_OUT}/GenomeWide_results/counts"
+jobs_dir: "${TLSD_OUT}/GenomeWide_results/jobs"
+logs_dir: "${TLSD_OUT}/GenomeWide_results/logs"
+
+# Path to counting script
+count_script: "${TLSD_REPO}/crispr_screens/pipeline/count_spacers.py"
+
+# Analysis parameters
+fdr: 0.05                               # False discovery rate threshold
+counts_threshold: 50                    # Min combined counts per replicate pair
+min_treat_mean: 5                      # Minimum treatment mean for U-test
+
+# SLURM settings
+slurm:
+  partition: "20"
+  # Measured 2026-09-17 (jobs 10978061-76): MaxRSS 783-849 MB against the
+  # 1500mb request = 52-57% utilised; elapsed 2:53-3:41 against 30:00.
+  mem: "1500mb"
+  # TotalCPU (~3:10) ~= Elapsed (~3:41) on every job, i.e. mageck and the
+  # U-test loop really are single-threaded. Measured, not assumed.
+  cpus: 1
+  time: "30:00"
+  mail_type: "FAIL"                     # NONE, BEGIN, END, FAIL, ALL
+  conda_env: "crispri-screen"           # activated inside each job, so jobs
+                                        # don't depend on the submitting shell
+
+# Execution control
+dry_run: false                          # Generate scripts without submitting

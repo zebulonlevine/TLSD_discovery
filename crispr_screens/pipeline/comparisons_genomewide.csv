@@ -1,0 +1,17 @@
+comparison_name,treatment,control
+L29_TopvBottom,"L29rep1_bottom,L29rep2_bottom","L29rep1_top,L29rep2_top"
+S3_TopvBottom,"S3rep1_bottom,S3rep2_bottom","S3rep1_top,S3rep2_top"
+L29_UnsortedvEarly,"L29rep1_unsorted,L29rep2_unsorted","L29rep1_early,L29rep2_early"
+S3_UnsortedvEarly,"S3rep1_unsorted,S3rep2_unsorted","S3rep1_early,S3rep2_early"
+L29_TopvUnsorted,"L29rep1_unsorted,L29rep2_unsorted","L29rep1_top,L29rep2_top"
+L29_UnsortedvBottom,"L29rep1_bottom,L29rep2_bottom","L29rep1_unsorted,L29rep2_unsorted"
+S3_TopvUnsorted,"S3rep1_unsorted,S3rep2_unsorted","S3rep1_top,S3rep2_top"
+S3_UnsortedvBottom,"S3rep1_bottom,S3rep2_bottom","S3rep1_unsorted,S3rep2_unsorted"
+L29_TopvBottom_growing,L29rep1growing_bottom,L29rep1growing_top
+S3_TopvBottom_growing,S3rep1growing_bottom,S3rep1growing_top
+L29_TopvUnsorted_growing,L29rep1growing_unsorted,L29rep1growing_top
+L29_UnsortedvBottom_growing,L29rep1growing_bottom,L29rep1growing_unsorted
+S3_TopvUnsorted_growing,S3rep1growing_unsorted,S3rep1growing_top
+S3_UnsortedvBottom_growing,S3rep1growing_bottom,S3rep1growing_unsorted
+L29_UnsortedvEarly_growing,L29rep1growing_unsorted,L29rep1_early
+S3_UnsortedvEarly_growing,S3rep1growing_unsorted,S3rep1_early

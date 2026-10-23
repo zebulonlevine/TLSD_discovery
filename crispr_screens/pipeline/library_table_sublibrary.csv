@@ -1,0 +1,2 @@
+library_name,sequence_file,annotation_file,no_g,preset,gene_column,sequence_column
+sublibrary,${TLSD_DATA}/Sublibrary_results/libraryInfo/sublibrary_spacers.csv,${TLSD_DATA}/Sublibrary_results/libraryInfo/sublibrary.csv,TRUE,mU6,Gene_Single,sgRNA_Seq

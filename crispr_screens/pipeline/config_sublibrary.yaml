@@ -1,0 +1,47 @@
+# CRISPRi Screen Pipeline Configuration
+# ======================================
+#
+# Usage: 
+#   python screen_pipeline.py run --config config.yaml --wait
+#   python screen_pipeline.py run --config config.yaml --dry-run
+#
+# Individual stages:
+#   python screen_pipeline.py count --config config.yaml
+#   python screen_pipeline.py aggregate --config config.yaml
+#   python screen_pipeline.py mageck --config config.yaml
+#   python screen_pipeline.py results --config config.yaml
+#   python screen_pipeline.py status --config config.yaml
+
+# Project name (used in logging)
+project_name: "RPE1_RiboScreen_sublibrary"
+
+# Input files
+sample_table: "${TLSD_REPO}/crispr_screens/pipeline/sample_table_sublibrary.csv"        # Maps sample names to FASTQ files
+library_table: "${TLSD_REPO}/crispr_screens/pipeline/library_table_sublibrary.csv"      # Library reference files for counting
+comparisons_table: "${TLSD_REPO}/crispr_screens/pipeline/comparisons_sublibrary.csv"    # Defines treatment vs control comparisons
+
+# Directories
+fastq_dir: "${TLSD_DATA}/fastq/sublibrary"    # FASTQs from GEO; sample_table paths are relative to this
+output_dir: "${TLSD_OUT}/Sublibrary_results/results"
+counts_dir: "${TLSD_OUT}/Sublibrary_results/counts"
+jobs_dir: "${TLSD_OUT}/Sublibrary_results/jobs"
+logs_dir: "${TLSD_OUT}/Sublibrary_results/logs"
+
+# Path to counting script
+count_script: "${TLSD_REPO}/crispr_screens/pipeline/count_spacers.py"
+
+# Analysis parameters
+fdr: 0.05                               # False discovery rate threshold
+counts_threshold: 50                    # Min combined counts per replicate pair
+min_treat_mean: 5                      # Minimum treatment mean for U-test
+
+# SLURM settings
+slurm:
+  partition: "20"
+  mem: "8gb"
+  cpus: 4
+  time: "4:00:00"
+  mail_type: "FAIL"                     # NONE, BEGIN, END, FAIL, ALL
+
+# Execution control
+dry_run: false                          # Generate scripts without submitting
