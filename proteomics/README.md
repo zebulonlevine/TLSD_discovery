@@ -101,11 +101,14 @@ RPL/RPS-dependent outputs changed.
 - **Fig 4A/S5B** are grouped by `category_locAdj`, like Fig 3B and S4D/E. The notebook grouped
   them by the unadjusted categories. The significance stars are unchanged.
 - **Fig 4E/S5C title** now reads "by membrane topology" (it said "by localization").
-- **Ribosomal gene lists** (`settings.py`) use the current symbols: RPLP0 (was `RPP0`) and RPS4X
-  (was `RPS4`). Before the fix, neither protein was assigned to RPL/RPS. This affects Fig 3B, 4A,
-  S4D–F and S5B, and the category columns of Tables S8/S9. No label, tick or star in the placed
-  panels changes. The one exception is the Fig S4E sgNT lysosome test, which sits at the 0.05
-  boundary: BH p is 0.054 with the fixed seed, and the median over 20 seeds is 0.047.
+- **Ribosomal gene lists** (`settings.py`), 2026-10-24:
+  - Current symbols: RPLP0 (was `RPP0`) and RPS4X (was `RPS4`). Under the old names, neither
+    protein was assigned to RPL/RPS.
+  - RPL7L1 removed from RPL. It is a 60S assembly factor, not a ribosomal protein.
+  - Affected: Fig 3B, 4A, S4D–F, S5B and the category columns of Tables S8/S9.
+  - Text changes in the placed panels: only the RPL7L1 label in S4F is gone.
+  - The subsampled MWU shares one random stream across categories, so changing a group size
+    shifts every later category's draws. Calls near a threshold can move for that reason alone.
 - **Table S8:**
   - The Fig 7C columns (`light_8d_sgDDRGK1_vs_NT_log2FC*`) carry the test plotted in Fig 7C;
     `_sem` is the pooled standard error.
