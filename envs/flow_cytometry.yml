@@ -1,0 +1,16 @@
+# Flow cytometry post-processing (flow_cytometry/*.py). Versions as installed (conda list, 2026-10-24).
+# fcsparser is needed only to rebuild the Fig 5G per-well table from FCS files.
+name: flow
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.15
+  - numpy=1.26.4
+  - pandas=2.3.3
+  - scipy=1.17.1
+  - matplotlib=3.11.2
+  - seaborn=0.13.2
+  - statsmodels=0.15.0
+  - openpyxl=3.1.5
+  - uncertainties=3.2.3
+  - fcsparser=0.2.8
