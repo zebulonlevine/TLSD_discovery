@@ -87,7 +87,9 @@ A fresh run queries the current UniProt release. The run used in the paper (rele
 recorded in each `<output>.meta.txt`.
 
 ## Verification
-All runs used the original analysis notebook (cells 0–123) as the reference, on 2026-10-23.
+All runs used the original analysis notebook (cells 0–123) as the reference, on 2026-10-23, with the
+notebook's ribosomal gene lists. The list fix below was applied afterwards (2026-10-24), and only the
+RPL/RPS-dependent outputs changed.
 - **Tables and statistics.** Every statistic and every shared table column is identical
   (max |Δ| = 0).
 - **Figures.** Every figure PDF renders pixel-identical at 100 dpi. The one exception is the
@@ -99,6 +101,11 @@ All runs used the original analysis notebook (cells 0–123) as the reference, o
 - **Fig 4A/S5B** are grouped by `category_locAdj`, like Fig 3B and S4D/E. The notebook grouped
   them by the unadjusted categories. The significance stars are unchanged.
 - **Fig 4E/S5C title** now reads "by membrane topology" (it said "by localization").
+- **Ribosomal gene lists** (`settings.py`) use the current symbols: RPLP0 (was `RPP0`) and RPS4X
+  (was `RPS4`). Before the fix, neither protein was assigned to RPL/RPS. This affects Fig 3B, 4A,
+  S4D–F and S5B, and the category columns of Tables S8/S9. No label, tick or star in the placed
+  panels changes. The one exception is the Fig S4E sgNT lysosome test, which sits at the 0.05
+  boundary: BH p is 0.054 with the fixed seed, and the median over 20 seeds is 0.047.
 - **Table S8:**
   - The Fig 7C columns (`light_8d_sgDDRGK1_vs_NT_log2FC*`) carry the test plotted in Fig 7C;
     `_sem` is the pooled standard error.
