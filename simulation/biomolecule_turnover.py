@@ -1,4 +1,4 @@
-"""Cohort simulation of biomolecule turnover (Fig S2A).
+"""Cohort simulation of biomolecule turnover (Fig S3A).
 
 Zero-order synthesis and first-order degradation,
 

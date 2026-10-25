@@ -1,4 +1,4 @@
-"""Shared helpers for the RiboHalo knockdown strip plots (Fig 3H, 4B, 4D, 7A; Fig S4I, S8B–D).
+"""Shared helpers for the RiboHalo knockdown strip plots (Fig 3H, 4B, 4D, 7A; Fig S5I, S9B–D).
 
 Each well is one point: the FlowJo median fluorescence of HaloTag-positive, GFP+/BFP+ singlets
 (old ribosomes = first label, JF549, channel YL1-A; new ribosomes = chase label, JF646, RL1-A),

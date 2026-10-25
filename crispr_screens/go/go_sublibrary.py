@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Sublibrary-background GO enrichment (decoupler v2 ULM) of the synthesis and
-degradation gene scores for both subunits (60S = L29, 40S = S3): Fig S2E and
+degradation gene scores for both subunits (60S = L29, 40S = S3): Fig S3E and
 Table S6.
 
 Same method and GMT as go_genomewide.py. The difference is that the input is a

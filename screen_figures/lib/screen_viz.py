@@ -498,7 +498,7 @@ def plot_correlation_heatmap(
     """Correlation heatmap.
 
     mask_upper=True hides the strict upper triangle (diagonal kept), for the
-    triangle-only layout used in Fig S1C. Ignored when cluster=True, since a
+    triangle-only layout used in Fig S1D. Ignored when cluster=True, since a
     clustermap reorders rows and columns and a fixed triangle would be
     meaningless.
     """
@@ -2722,7 +2722,7 @@ def plot_go_enrichment_diverging(
     strip_go_id: bool = True,
     wrap_width: int = 22,
 ) -> pd.DataFrame:
-    """Diverging horizontal bar chart of GO enrichment for two screens (Fig 1G).
+    """Diverging horizontal bar chart of GO enrichment for two screens (Fig 1F).
 
     Each screen contributes `top_n` terms per direction. A row pairs the i-th
     decreased term (bar growing left from the centre) with the i-th increased
@@ -2740,7 +2740,7 @@ def plot_go_enrichment_diverging(
         between 10**-160 and 10**-60, which is otherwise mostly empty. The
         break is drawn on the axis and across any bar crossing it.
     categories
-        Optional (gene, category) table -- the same one Fig 1F uses. Each term's
+        Optional (gene, category) table -- the same one Fig 1E uses. Each term's
         gene list is scored against every category and the label takes that
         category's colour when the overlap fraction reaches `min_overlap_frac`.
     term_colors
@@ -3001,16 +3001,16 @@ def plot_go_score_panels(
     strip_go_id: bool = True,
     wrap_width: int = 26,
 ) -> pd.DataFrame:
-    """Multi-panel diverging GO bar chart for score-level enrichment (Fig S3C).
+    """Multi-panel diverging GO bar chart for score-level enrichment (Fig S3E).
 
-    Same visual grammar as plot_go_enrichment_diverging (Fig 1G) but laid out as
-    several side-by-side panels that share a row grid, which is what S3C needs:
+    Same visual grammar as plot_go_enrichment_diverging (Fig 1F) but laid out as
+    several side-by-side panels that share a row grid, which is what S3E needs:
     one panel per score type (Degradation, Synthesis), each with its own x axis,
     and row groups (60S-enriched, 40S-enriched) shared down the figure.
 
-    Kept as a separate function rather than generalising the Fig 1G one: this
+    Kept as a separate function rather than generalising the Fig 1F one: this
     repo's convention is parallel duplicated blocks over shared plotting helpers,
-    so each figure's output stays independently reproducible, and the Fig 1G code
+    so each figure's output stays independently reproducible, and the Fig 1F code
     path is not disturbed.
 
     panels
@@ -3023,7 +3023,7 @@ def plot_go_score_panels(
         Append the gene-overlap count to each term label, e.g. "Protein
         UFMylation (5)" -- the draft labels carry these.
     categories / colors / min_dominance
-        Term-label colouring by gene overlap, identical rule to Fig 1G: a term
+        Term-label colouring by gene overlap, identical rule to Fig 1F: a term
         takes a category's colour only if that category's overlap fraction is at
         least `min_overlap_frac` AND at least `min_dominance` times the runner-up,
         so terms straddling two categories stay black.

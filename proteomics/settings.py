@@ -55,7 +55,7 @@ T_TEST_DF = 4                   # 3 + 3 replicates - 2
 # Total-abundance TMT plex
 # ---------------------------------------------------------------------------
 # Column names given to all_ttest_results.csv on load. The table arrives with its own
-# fold changes and tests (columns 3-50, unused except the three log2FC columns in Fig S4C);
+# fold changes and tests (columns 3-50, unused except the three log2FC columns in Fig S5C);
 # the analysis recomputes the comparisons from the replicate columns.
 TOTAL_COLUMNS = [
     'Reference', 'Gene', 'Annotation',
@@ -126,7 +126,7 @@ ADJ_CATEGORY = 'category_locAdj'
 MWU = dict(alternative='two-sided', fdr=True, max_n=50, n_resamples=1000)
 
 # ---------------------------------------------------------------------------
-# Membrane topology (total-abundance data; Fig 4E, S5C)
+# Membrane topology (total-abundance data; Fig 4E, S6C)
 # ---------------------------------------------------------------------------
 TOPOLOGY_CATEGORIES = ['soluble (cytosolic)', 'soluble (secreted/lumenal)', 'single-pass TM', 'multi-pass TM',
                        'TA', 'soluble (mito)', 'multi-pass TM (mito)', 'single-pass TM (mito)', 'TA (mito)']
@@ -147,11 +147,11 @@ TOPOLOGY_MAP = {   # uniprot_topology_pipeline class (+ '_mito' if in MitoCarta 
 # ---------------------------------------------------------------------------
 # Gene sets
 # ---------------------------------------------------------------------------
-# highlighted in the Fig S5D/E volcanoes (Table S9 column isTransloconOrUPR)
+# highlighted in the Fig S6D/E volcanoes (Table S9 column isTransloconOrUPR)
 TRANSLOCON = ['SEC61B', 'SEC61A1', 'SEC61G', 'SEC61A2']
 UPR_ER = ['HSPA5', 'DNAJB9', 'HERPUD1', 'HYOU1', 'PDIA4', 'PDIA6', 'SDF2L1', 'CALR', 'HSP90B1']
 
-# Fig S4F strip plot (Table S8 column ER_GeneSets_delta)
+# Fig S5F strip plot (Table S8 column ER_GeneSets_delta)
 GENE_SETS = {
     'Sec61': ['SEC61A1', 'SEC61B', 'SEC61G', 'SEC61A2'],
     'TRAP': ['SSR1', 'SSR2', 'SSR3', 'SSR4'],

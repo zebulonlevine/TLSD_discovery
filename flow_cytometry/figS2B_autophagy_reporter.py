@@ -1,4 +1,4 @@
-"""Fig S1G: GFP-LC3-RFP-LC3ΔG autophagic-flux reporter in the RPS3 (S3) and RPL29 (L29) screening lines.
+"""Fig S2B: GFP-LC3-RFP-LC3ΔG autophagic-flux reporter in the RPS3 (S3) and RPL29 (L29) screening lines.
 
 GFP-LC3 is degraded in the lysosome during autophagy while RFP-LC3ΔG is not, so blocking autophagy
 raises the GFP/RFP ratio. Each well is one value: the median per-cell GFP/RFP ratio of single cells,
@@ -16,11 +16,11 @@ exported from FlowJo (column `Ratio`). 3 wells per clone x medium x perturbation
 The BafA1 and EBSS + STLC wells in the export are not analysed.
 
 Outputs (output root, flow_cytometry/):
-  figS1G_autophagy_flux.pdf
-  figS1G_effects.csv     per clone and pooled: arm means, absolute and percent effects, SE, df, p
-  figS1G_contrasts.csv   starvation - 10% FBS contrasts of the percent effect, pooled and per clone
+  figS2B_autophagy_flux.pdf
+  figS2B_effects.csv     per clone and pooled: arm means, absolute and percent effects, SE, df, p
+  figS2B_contrasts.csv   starvation - 10% FBS contrasts of the percent effect, pooled and per clone
 
-    python flow_cytometry/figS1G_autophagy_reporter.py
+    python flow_cytometry/figS2B_autophagy_reporter.py
 """
 import csv
 import math
@@ -41,7 +41,7 @@ from scipy import stats as sp_stats
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common import paths  # noqa: E402
 
-INPUT = ('flow_cytometry', 'S1G', 'autophagyData.csv')     # FlowJo per-well export
+INPUT = ('flow_cytometry', 'S2B', 'autophagyData.csv')     # FlowJo per-well export
 OUT_DIR = 'flow_cytometry'
 
 BASES = ['10%', 'EBSS', '1%']
@@ -296,9 +296,9 @@ def plot(eff, pooled, contrast, path):
 
 def main():
     eff, pooled, pooled_abs, contrast, contrast_clone = effects(load_wells())
-    effects_table(eff, pooled, pooled_abs).to_csv(out('figS1G_effects.csv'), index=False)
-    contrasts_table(contrast, contrast_clone).to_csv(out('figS1G_contrasts.csv'), index=False)
-    plot(eff, pooled, contrast, out('figS1G_autophagy_flux.pdf'))
+    effects_table(eff, pooled, pooled_abs).to_csv(out('figS2B_effects.csv'), index=False)
+    contrasts_table(contrast, contrast_clone).to_csv(out('figS2B_contrasts.csv'), index=False)
+    plot(eff, pooled, contrast, out('figS2B_autophagy_flux.pdf'))
     for f in FACTORS:
         print(f'{FACTOR_LABELS[f]:>10s}: ' + '  '.join(
             f'{b} {pooled[(f, b)].val:+.1f}% {sig(pval(contrast[(f, b)])) if b != "10%" else ""}'.rstrip()

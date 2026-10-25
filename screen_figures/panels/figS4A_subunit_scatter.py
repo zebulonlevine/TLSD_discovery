@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Figure S3A (40S vs 60S degradation, and 40S vs 60S synthesis) coloured with
+"""Figure S4A (40S vs 60S degradation, and 40S vs 60S synthesis) coloured with
 the bioBySubunit scheme used by Fig 2C/D (Fig2.ipynb cells 47/48).
 
 Fig2 cells 23/29 plot these two comparisons with the flat 3-category
 GenomeWideCats_threeOptions palette. This script keeps their geometry (diagonal,
 axis labels, point size, per-axis top-5 labelling) but swaps in the
-bioBySubunit category table and three-shades-of-green palette, so S3A is
+bioBySubunit category table and three-shades-of-green palette, so S4A is
 consistent with 2C/D.
 
 Category construction is copied verbatim from cell 47 so the two panels can't

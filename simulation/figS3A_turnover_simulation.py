@@ -1,4 +1,4 @@
-"""Fig S2A: increased synthesis and increased degradation raise new/old alike.
+"""Fig S3A: increased synthesis and increased degradation raise new/old alike.
 
 Two perturbations from steady state (t1/2 = 7 d, synthesis 100 molecules/day):
 
@@ -11,11 +11,11 @@ otherwise. Each run settles for 120 days at the initial rates first; time is
 reported relative to the rate change.
 
 Writes, under the output root (common/paths.py), in simulation/:
-  figS2A_ratio_and_abundance.pdf  the two panels of Fig S2A (new/old ratio; log2 new and old)
-  figS2A_curves.csv               source data for both scenarios
+  figS3A_ratio_and_abundance.pdf  the two panels of Fig S3A (new/old ratio; log2 new and old)
+  figS3A_curves.csv               source data for both scenarios
   increased_ratio_summary.pdf     diagnostic figure with every quantity for both scenarios
 
-    python figS2A_turnover_simulation.py        # ~1 min
+    python figS3A_turnover_simulation.py        # ~1 min
 """
 import os
 import sys
@@ -53,7 +53,7 @@ T_MAX = T_SETTLE + T_PRE + T_POST
 
 SYN_FACTOR = 3.0
 
-# Fig S2A colours (degradation as the lysosome/autophagy magenta used throughout)
+# Fig S3A colours (degradation as the lysosome/autophagy magenta used throughout)
 DEG_COLOR = '#C51B7D'
 SYN_COLOR = '#4E9442'
 
@@ -74,7 +74,7 @@ def value_at(results, series, t_rel):
 
 
 def run_both():
-    """The two scenarios of Fig S2A, plus the matched degradation factor."""
+    """The two scenarios of Fig S3A, plus the matched degradation factor."""
     syn, syn_p = run_scenario(k_syn_final=K_SYN_BASE * SYN_FACTOR)
     target = value_at(syn, syn.ratio_new_to_old, T_MATCH)
 
@@ -99,8 +99,8 @@ def write_curves(sim, path):
     pd.concat(rows).to_csv(path, index=False, float_format='%.6g')
 
 
-def plot_figS2A(sim, path):
-    """The two panels as laid out in Fig S2A."""
+def plot_figS3A(sim, path):
+    """The two panels as laid out in Fig S3A."""
     fig, (ax_r, ax_a) = plt.subplots(1, 2, figsize=(7.2, 2.8))
     deg_lab = f'↑ degradation ({sim["deg_factor"]:.2f}x)'
     syn_lab = f'↑ synthesis ({SYN_FACTOR:g}x)'
@@ -243,8 +243,8 @@ def main():
     print(f'degradation x{sim["deg_factor"]:.3f}: new/old at +{T_MATCH:.0f} d = '
           f'{value_at(sim["deg"], sim["deg"].ratio_new_to_old, T_MATCH):.3f}, new steady state = {deg_ss:.0f}')
 
-    write_curves(sim, paths.outp('simulation', 'figS2A_curves.csv', mkdir=True))
-    plot_figS2A(sim, paths.outp('simulation', 'figS2A_ratio_and_abundance.pdf'))
+    write_curves(sim, paths.outp('simulation', 'figS3A_curves.csv', mkdir=True))
+    plot_figS3A(sim, paths.outp('simulation', 'figS3A_ratio_and_abundance.pdf'))
     plot_summary(sim, paths.outp('simulation', 'increased_ratio_summary.pdf'))
     print('wrote', paths.outp('simulation'))
 

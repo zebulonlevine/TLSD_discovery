@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build CommonEssentials.csv (Fig S1D/E highlight, Table S2 CommonEssential column)
+"""Build CommonEssentials.csv (Fig S1E/F highlight, Table S2 CommonEssential column)
 from the DepMap Achilles common-essential gene list.
 
 Input (not committed; download from DepMap, https://depmap.org/portal/download/):

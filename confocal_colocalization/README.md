@@ -1,4 +1,4 @@
-# Confocal colocalization (Fig 7D)
+# Confocal colocalization (Fig 7D, S10)
 
 Whole-cell Pearson correlation between GFP-R3HDM4 (TLSD1), Sec61β (ER, JF552) and L29 (60S, JFX650)
 in live L29 cells, DMSO vs PT-179 (23 h files). Methods, acquisition settings and the channel map are
@@ -9,10 +9,11 @@ in `METHODS.md`.
 | 1 | `segment_cells.py`: Cellpose-SAM (`cpsam`), 2D per plane + IoU stitching | `<seg-out>/cell_masks/`, `channels/`, `cell_qc/` |
 | 2 | `wholecell_pearson.py`: per-cell Pearson r for each channel pair | `per_cell/*_wholecell_pearson.csv` |
 | 3 | `plot_pearson_swarm.py`: swarm plot, medians, two-sided Mann-Whitney U | `figures/pearson_L29_swarm_DMSO_vs_PT179_23h.{pdf,_stats.csv}` |
-| inset | `build_fig7D_outline_stacks.py`: Fiji hyperstacks with the Cellpose outlines as a 4th channel | `fig7D_outline_stacks/*.tif` |
+| 7D inset, S10 | `build_fig7D_figS10_outline_stacks.py`: Fiji hyperstacks with the Cellpose outlines as a 4th channel | `fig7D_figS10_outline_stacks/*.tif` |
 
-`build_fig7D_outline_stacks.py` was written after draft5 and is likely the source of the 7D image inset.
-It does not re-segment; it reads the step-1 masks.
+`build_fig7D_figS10_outline_stacks.py` makes the stacks behind the Fig S10 full view (single z-slice with
+the cell outlines) and the Fig 7D inset; the images were assembled in Fiji. It does not re-segment; it
+reads the step-1 masks.
 
 ## Environment
 - Conda env: `envs/nd2_coloc.yml`. Step 1 needs a GPU.
@@ -29,7 +30,7 @@ It does not re-segment; it reads the step-1 masks.
 bash submit_pearson_repro.sh                      # steps 2-3 on the original masks
 bash submit_pearson_repro.sh --start-step 1 \
      --seg-out /path/to/new_segmentation          # full rerun incl. Cellpose-SAM (GPU)
-python build_fig7D_outline_stacks.py              # inset stacks; ~4 GB written, run under Slurm
+python build_fig7D_figS10_outline_stacks.py       # 7D inset / S10 stacks; ~4 GB written, run under Slurm
 ```
 
 ## Expected numbers (`*_stats.csv`)

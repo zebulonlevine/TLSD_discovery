@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fig 2D (degradation) and Fig S3B (synthesis): category violins of gene
+"""Fig 2D (degradation) and Fig S4B (synthesis): category violins of gene
 scores, 60S and 40S; outlined points pass 5% FDR.
 
 Extracted from Fig2.ipynb cell(s) 41, 42, 43, 44. Cell code is verbatim except for paths:
@@ -8,7 +8,7 @@ screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
 
-Run with envs/crispri-screen.yml:  python fig2D_figS3B_category_violins.py
+Run with envs/crispri-screen.yml:  python fig2D_figS4B_category_violins.py
 """
 import os
 import sys

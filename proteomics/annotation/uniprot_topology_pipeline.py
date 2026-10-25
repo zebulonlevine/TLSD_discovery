@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Membrane topology from UniProt feature annotations (Fig 4E, S5C)
+Membrane topology from UniProt feature annotations (Fig 4E, S6C)
 ================================================================
 
 Classifies each protein by its curated UniProt TRANSMEM / SIGNAL / TOPO_DOM

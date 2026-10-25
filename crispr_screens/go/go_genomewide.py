@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GO-term enrichment of the genome-wide new/old-ratio gene scores (Fig 1G, Table S3).
+"""GO-term enrichment of the genome-wide new/old-ratio gene scores (Fig 1F, Table S3).
 
 Univariate linear model (decoupler v2 `dc.mt.ulm`, tmin = 3) of gene epsilon on
 membership in each GO term (Enrichr 2025 GO Biological Process + Molecular

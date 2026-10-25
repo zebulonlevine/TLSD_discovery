@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fig S2D (genome-wide vs sublibrary) and Fig S7A (sgNT vs sgUBA5): Pearson
+"""Fig S3D (genome-wide vs sublibrary) and Fig S8A (sgNT vs sgUBA5): Pearson
 correlation heatmaps of gene-level log2 fold changes.
 
 Extracted from Fig2.ipynb cell(s) 6, 7. Cell code is verbatim except for paths:
@@ -8,7 +8,7 @@ screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
 
-Run with envs/crispri-screen.yml:  python figS2D_figS7A_lfc_correlation.py
+Run with envs/crispri-screen.yml:  python figS3D_figS8A_lfc_correlation.py
 """
 import os
 import sys

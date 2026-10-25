@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fig 6B (degradation) and Fig S7B/C (synthesis): suppressor-screen gene scores,
+"""Fig 6B (degradation) and Fig S8B/C (synthesis): suppressor-screen gene scores,
 sgNT (x) vs sgUBA5 (y), 60S and 40S.
 
 Extracted from Fig5.ipynb cell(s) 1, 3, 5, 7, 10 (cell 1 = path setup). Cell code is verbatim except for paths:
@@ -8,7 +8,7 @@ screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
 
-Run with envs/crispri-screen.yml:  python fig6B_figS7BC_suppressor_scatter.py
+Run with envs/crispri-screen.yml:  python fig6B_figS8BC_suppressor_scatter.py
 """
 import os
 import sys

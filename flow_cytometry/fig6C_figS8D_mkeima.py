@@ -1,4 +1,4 @@
-"""RPL29-mKeima ribophagy assay (Fig 6C, Fig S7D).
+"""RPL29-mKeima ribophagy assay (Fig 6C, Fig S8D).
 
 RPE1 CRISPRi cells expressing RPL29-mKeima in three backgrounds:
   - polyclonal (L29_mKeima);
@@ -19,11 +19,11 @@ bafilomycin A1 (BafA1), 6 wells per arm. The input is the FlowJo export: per-wel
 
 Outputs (output root, flow_cytometry/):
   fig6C_acidic_bafA1_effect.pdf      acidic signal (Fig 6C)
-  figS7D_neutral_bafA1_effect.pdf    neutral signal (Fig S7D)
-  fig6C_figS7D_bafA1_effect.csv      effects, combined SDs, BafA1 vs untreated tests
-  fig6C_figS7D_between_groups.csv    between-group tests
+  figS8D_neutral_bafA1_effect.pdf    neutral signal (Fig S8D)
+  fig6C_figS8D_bafA1_effect.csv      effects, combined SDs, BafA1 vs untreated tests
+  fig6C_figS8D_between_groups.csv    between-group tests
 
-    python flow_cytometry/fig6C_figS7D_mkeima.py
+    python flow_cytometry/fig6C_figS8D_mkeima.py
 """
 import os
 import sys
@@ -41,11 +41,11 @@ from statsmodels.stats.multitest import multipletests
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common import paths  # noqa: E402
 
-DATA = ('flow_cytometry', '6C_S7D', 'DataWorkup_L29_mKeima_CJZ18.xlsx')
+DATA = ('flow_cytometry', '6C_S8D', 'DataWorkup_L29_mKeima_CJZ18.xlsx')
 OUT_DIR = 'flow_cytometry'
 SIGNALS = {'acidic': 'Acidic', 'neutral': 'Neutral'}       # column prefix -> plot label
 UNTREATED, TREATED = 0, '16 nM'                             # BafA column values in the export
-PANELS = {'acidic': 'fig6C_acidic_bafA1_effect.pdf', 'neutral': 'figS7D_neutral_bafA1_effect.pdf'}
+PANELS = {'acidic': 'fig6C_acidic_bafA1_effect.pdf', 'neutral': 'figS8D_neutral_bafA1_effect.pdf'}
 
 
 def out(name):
@@ -118,8 +118,8 @@ def effect_bars(eff, sig, path):
 
 def main():
     eff = bafA1_effects(load())
-    eff.to_csv(out('fig6C_figS7D_bafA1_effect.csv'), index=False)
-    between_groups(eff).to_csv(out('fig6C_figS7D_between_groups.csv'), index=False)
+    eff.to_csv(out('fig6C_figS8D_bafA1_effect.csv'), index=False)
+    between_groups(eff).to_csv(out('fig6C_figS8D_between_groups.csv'), index=False)
     for sig, name in PANELS.items():
         effect_bars(eff, sig, out(name))
     print(eff[['group', 'acidic_effect', 'acidic_p_bh', 'neutral_effect', 'neutral_p_bh']].to_string(index=False))

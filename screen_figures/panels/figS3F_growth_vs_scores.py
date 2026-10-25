@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fig S2F: Pearson correlation of growth, synthesis and degradation gene scores
+"""Fig S3F: Pearson correlation of growth, synthesis and degradation gene scores
 (sgNT; cell 50 also writes the sgNT + sgUBA5 variant).
 
 Extracted from Fig2.ipynb cell(s) 49, 50. Cell code is verbatim except for paths:
@@ -8,7 +8,7 @@ screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
 
-Run with envs/crispri-screen.yml:  python figS2F_growth_vs_scores.py
+Run with envs/crispri-screen.yml:  python figS3F_growth_vs_scores.py
 """
 import os
 import sys

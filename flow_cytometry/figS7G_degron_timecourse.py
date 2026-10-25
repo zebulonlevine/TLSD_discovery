@@ -1,4 +1,4 @@
-"""Fig S6G: old, new and total ribosomes after UBA5 degradation (SD40-UBA5 degron, PT-179).
+"""Fig S7G: old, new and total ribosomes after UBA5 degradation (SD40-UBA5 degron, PT-179).
 
 RPE1 HaloTag-RPS24 (40S, line 'S24') and RPL29-HaloTag (60S, line 'L29') cells carrying
 SNAP-Sec61b-2A-SD40-UBA5 over sgUBA5 were pulse-labelled with JF549 (old ribosomes) and chased with
@@ -17,15 +17,15 @@ GFP/BFP gating.
      error = replicate SEM and the SEM of the normalizing mean, combined in quadrature.
   5. DMSO vs PT-179 at each day: Welch's t-test, BH across all 96 comparisons of the experiment
      (2 lines x 4 genotypes x old/new/total x 4 days). The total test pools single-dye and
-     pulse-chase wells (n = 12). Fig S6G shows the 'Base' genotype (degron only); the stars on the
+     pulse-chase wells (n = 12). Fig S7G shows the 'Base' genotype (degron only); the stars on the
      panel are the BH-adjusted values.
 
 Outputs (output root, flow_cytometry/):
-  figS6G_S24_Base.pdf, figS6G_L29_Base.pdf     40S (top row) and 60S (bottom row) of the panel
-  figS6G_summary.csv                           plotted means and errors, all genotypes
-  figS6G_welch_tests.csv                       all 96 tests, raw and BH-adjusted p
+  figS7G_S24_Base.pdf, figS7G_L29_Base.pdf     40S (top row) and 60S (bottom row) of the panel
+  figS7G_summary.csv                           plotted means and errors, all genotypes
+  figS7G_welch_tests.csv                       all 96 tests, raw and BH-adjusted p
 
-    python flow_cytometry/figS6G_degron_timecourse.py
+    python flow_cytometry/figS7G_degron_timecourse.py
 """
 import os
 import sys
@@ -75,7 +75,7 @@ def out(name):
 # ---------------------------------------------------------------------------
 
 def load():
-    df = pd.read_excel(paths.inp('flow_cytometry', 'S6G', DATA_FILE))
+    df = pd.read_excel(paths.inp('flow_cytometry', 'S7G', DATA_FILE))
     df['PT179'] = df['PT179'].astype(int)
     df['SampleType'] = df['SampleType'].astype(str)
     return df
@@ -216,12 +216,12 @@ def main():
     df = drop_outlier(subtract_background(load()))
     d = normalize(df, normalization_table(df))
     summ = summaries(d)
-    pd.concat(summ.values(), ignore_index=True).to_csv(out('figS6G_summary.csv'), index=False)
+    pd.concat(summ.values(), ignore_index=True).to_csv(out('figS7G_summary.csv'), index=False)
     tests = welch_tests(d)
-    tests.to_csv(out('figS6G_welch_tests.csv'), index=False)
+    tests.to_csv(out('figS7G_welch_tests.csv'), index=False)
     for cl in sorted(d['Cell Line'].unique()):
         for gen in PANEL_GENETICS:
-            plot_line(summ, cl, gen, out(f'figS6G_{cl}_{gen}.pdf'))
+            plot_line(summ, cl, gen, out(f'figS7G_{cl}_{gen}.pdf'))
     shown = tests[tests['Genetics'].isin(PANEL_GENETICS)]
     print(f'{len(tests)} DMSO vs PT-179 tests; panel ({", ".join(PANEL_GENETICS)}):')
     print(shown.pivot_table(index=['Cell Line', 'Metric'], columns='Day', values='sig', aggfunc='first').to_string())

@@ -10,8 +10,8 @@ Levine *et al.* (in preparation). Analysis and figure code.
 | `crispr_screens/` | sgRNA counting → MAGeCK → gene scores → synthesis/degradation line scores → per-sgRNA p-values → GO → supplementary tables |
 | `screen_figures/` | Plotting library and one script per screen-derived figure panel |
 | `ricin_reanalysis/` | Reanalysis of Morgens *et al.* 2017 ricin screen (Fig 7F) |
-| `single_molecule/` | Single-particle tracking (quot + saSPT), ER masking, resampling statistics (Fig 5, S6, Table S12) |
-| `confocal_colocalization/` | Cellpose segmentation and per-cell colocalization (Fig 7D) |
+| `single_molecule/` | Single-particle tracking (quot + saSPT), ER masking, resampling statistics (Fig 5, S7, Table S12) |
+| `confocal_colocalization/` | Cellpose segmentation and per-cell colocalization (Fig 7D, S10) |
 | `proteomics/`, `flow_cytometry/`, `gels/`, `sucrose_gradients/`, `simulation/` | Remaining quantitative panels |
 | `common/` | Path configuration shared by all scripts |
 | `envs/` | Conda environment files |

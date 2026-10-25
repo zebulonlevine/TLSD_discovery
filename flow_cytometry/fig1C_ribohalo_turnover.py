@@ -1,4 +1,4 @@
-"""Fig 1D: RiboHalo turnover curves in quiescent RPE1 cells (exponential fit, t1/2).
+"""Fig 1C: RiboHalo turnover curves in quiescent RPE1 cells (exponential fit, t1/2).
 
 Quiescent (confluent, 1% serum, 20 uM STLC) RPE1 cells with HaloTag knocked into RPL29 (60S, clone
 L29A2) or RPS3 (40S, clone S3F10) were pulse-labelled with JF549-Halo or JF646-Halo, chased, and at
@@ -16,18 +16,18 @@ median fluorescence were done in FlowJo; this script starts from the FlowJo expo
   4. A * exp(-k t) fitted to the daily means, weighted by that error (absolute sigma);
      t1/2 = ln 2 / k, shown with its 95% confidence interval (1.96 SE), and a 95% band on the curve.
 
-The per-cell new/old histograms in Fig 1D were drawn in FlowJo (no code).
+The per-cell new/old histograms in Fig 1C were drawn in FlowJo (no code).
 
-Inputs (data root, flow_cytometry/1D/): day{1,3,5,7,9,11,13,15}.csv (FlowJo exports; day 5 was
+Inputs (data root, flow_cytometry/1C/): day{1,3,5,7,9,11,13,15}.csv (FlowJo exports; day 5 was
 acquired in tubes and is annotated from the file names), PlateMap_Feb.xlsx (plate layout).
 
 Outputs (output root, flow_cytometry/):
-  fig1D_RPL29_turnover_fit.pdf, fig1D_RPS3_turnover_fit.pdf   large (left) and small (right) subunit
-  fig1D_turnover_fits.csv      A, k, t1/2 (SE and 95% CI) per line
-  fig1D_turnover_points.csv    daily means and errors plotted
-  fig1D_turnover_wells.csv     per-well normalized values
+  fig1C_RPL29_turnover_fit.pdf, fig1C_RPS3_turnover_fit.pdf   large (left) and small (right) subunit
+  fig1C_turnover_fits.csv      A, k, t1/2 (SE and 95% CI) per line
+  fig1C_turnover_points.csv    daily means and errors plotted
+  fig1C_turnover_wells.csv     per-well normalized values
 
-    python flow_cytometry/fig1D_ribohalo_turnover.py
+    python flow_cytometry/fig1C_ribohalo_turnover.py
 """
 import os
 import re
@@ -46,7 +46,7 @@ import uncertainties.unumpy as unp
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common import paths  # noqa: E402
 
-DATA = ('flow_cytometry', '1D')
+DATA = ('flow_cytometry', '1C')
 DAYS = [1, 3, 5, 7, 9, 11, 13, 15]       # days 17 and 19 were collected but most cells were dead
 PLATE_MAP = 'PlateMap_Feb.xlsx'
 LINES = {'L29A2': 'RPL29', 'S3F10': 'RPS3'}   # clone -> tagged protein (60S, 40S)
@@ -178,14 +178,14 @@ def main():
     for clone, protein in LINES.items():
         w = fraction_old(wells.loc[(wells['Cell Line'] == clone) & (wells.Day < 16)].reset_index(drop=True))
         points = daily_points(w)
-        fit = fit_and_plot(points, clone, out(f'fig1D_{protein}_turnover_fit.pdf'))
+        fit = fit_and_plot(points, clone, out(f'fig1C_{protein}_turnover_fit.pdf'))
         fits.append({'clone': clone, 'protein': protein, 'n_days': len(points), **fit})
         points_all.append(points.reset_index().assign(clone=clone, protein=protein))
         wells_all.append(w.assign(protein=protein))
         print(f'{protein} ({clone}): t1/2 = {fit["t_half_days"]:.3f} +/- {1.96 * fit["t_half_se"]:.3f} days (95% CI)')
-    pd.DataFrame(fits).to_csv(out('fig1D_turnover_fits.csv'), index=False)
-    pd.concat(points_all, ignore_index=True).to_csv(out('fig1D_turnover_points.csv'), index=False)
-    pd.concat(wells_all, ignore_index=True).to_csv(out('fig1D_turnover_wells.csv'), index=False)
+    pd.DataFrame(fits).to_csv(out('fig1C_turnover_fits.csv'), index=False)
+    pd.concat(points_all, ignore_index=True).to_csv(out('fig1C_turnover_points.csv'), index=False)
+    pd.concat(wells_all, ignore_index=True).to_csv(out('fig1C_turnover_wells.csv'), index=False)
     print('wrote', paths.outp('flow_cytometry'))
 
 

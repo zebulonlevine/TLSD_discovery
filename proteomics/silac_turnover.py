@@ -14,10 +14,10 @@ shift (3 replicates each), then multiplexed by TMT. Heavy = old protein, light =
 Outputs (output root, proteomics/):
   TableS8_SILAC_annotated.csv / .xlsx
   fig3B_delta_old_by_category.pdf             + fig3B_delta_old_mwu.csv
-  figS4B_intensity_violins.pdf
-  figS4D_old_turnover_by_category.pdf,        + figS4DE_turnover_{old,new}_{NT,sgDDRGK1}_mwu.csv
-  figS4E_new_turnover_by_category.pdf
-  figS4F_er_gene_sets_strip.pdf               + figS4F_values.csv
+  figS5B_intensity_violins.pdf
+  figS5D_old_turnover_by_category.pdf,        + figS5DE_turnover_{old,new}_{NT,sgDDRGK1}_mwu.csv
+  figS5E_new_turnover_by_category.pdf
+  figS5F_er_gene_sets_strip.pdf               + figS5F_values.csv
   fig7C_new_protein_volcano.pdf               + fig7C_new_protein_stats.csv
 
     python proteomics/silac_turnover.py
@@ -100,7 +100,7 @@ def build_silac(loc_df=None):
         df = sp.difference_with_error(df, a, b, a_sem=a + '_sem', b_sem=b + '_sem', out=name)
         df = sp.two_sided_t_test(df, name, name + '_sem', df_resid=T_TEST_DF)
 
-    # sgDDRGK1 / sgNT per day and label (used in the Fig S4C correlations)
+    # sgDDRGK1 / sgNT per day and label (used in the Fig S5C correlations)
     for day in DAYS:
         for label in LABELS:
             df = sp.ratio_with_error(df, f'{BAIT}_sgDDRGK1_{day}_{label}_norm_avg', f'{BAIT}_NT_{day}_{label}_norm_avg',
@@ -115,7 +115,7 @@ def build_silac(loc_df=None):
     df = sp.collapse_categories(df, keep=KEEP_CATEGORIES, source_col='category', out_col='category_simplified')
     df = df.rename(columns={'Gene Symbol': 'Gene', 'Protein Id': 'Reference'})
 
-    # Fig S4F point size: total-normalized H+L signal averaged over both days, one global scale
+    # Fig S5F point size: total-normalized H+L signal averaged over both days, one global scale
     abundance_cols = [f'{BAIT}_{c}_{t}_{lab}_norm_avg' for c in ('NT', 'sgDDRGK1') for t in DAYS for lab in LABELS]
     df[ABUNDANCE_COL] = (df[abundance_cols] / df[abundance_cols].stack().median()).mean(axis=1)
 
@@ -179,7 +179,7 @@ def fig3B(df):
                                categories=KEEP_CATEGORIES, **MWU).to_csv(out('fig3B_delta_old_mwu.csv'), index=False)
 
 
-def figS4B(df):
+def figS5B(df):
     """Heavy (old) and light (new) intensity distributions, day 3 vs day 8."""
     plot_df = pd.melt(df, value_vars=[f'{BAIT}_{c}_{t}_{lab}_norm_avg' for lab in LABELS
                                       for c in ('NT', 'sgDDRGK1') for t in DAYS],
@@ -190,13 +190,13 @@ def figS4B(df):
     plt.figure()
     sns.violinplot(data=plot_df, x='Genetics_x_mass', y='log_intensity', hue='timepoint', split=True,
                    palette=['lightgrey', 'orange'], inner='quartile')
-    plt.savefig(out('figS4B_intensity_violins.pdf'), dpi=300, bbox_inches='tight')
+    plt.savefig(out('figS5B_intensity_violins.pdf'), dpi=300, bbox_inches='tight')
     plt.close('all')
 
 
-def figS4DE(df):
-    """Old (S4D) and new (S4E) protein day-8/day-3 ratios, sgNT vs sgDDRGK1, by localization."""
-    for age, panel in (('old', 'figS4D'), ('new', 'figS4E')):
+def figS5DE(df):
+    """Old (S5D) and new (S5E) protein day-8/day-3 ratios, sgNT vs sgDDRGK1, by localization."""
+    for age, panel in (('old', 'figS5D'), ('new', 'figS5E')):
         nt, ko = f'turnover_{age}_NT_log2', f'turnover_{age}_sgDDRGK1_log2'
         path = out(f'{panel}_{age}_turnover_by_category.pdf')
         sp.category_violin(df, category_col=ADJ_CATEGORY, value_cols=[nt, ko], value_labels=('NT', 'sgDDRGK1'),
@@ -209,10 +209,10 @@ def figS4DE(df):
         plt.close('all')
         for cond, col in (('NT', nt), ('sgDDRGK1', ko)):
             sp.mann_whitney_subsampled(df, category_col=ADJ_CATEGORY, value_col=col, categories=KEEP_CATEGORIES,
-                                       **MWU).to_csv(out(f'figS4DE_turnover_{age}_{cond}_mwu.csv'), index=False)
+                                       **MWU).to_csv(out(f'figS5DE_turnover_{age}_{cond}_mwu.csv'), index=False)
 
 
-def figS4F(df):
+def figS5F(df):
     """Change in old (top) and new (bottom) protein for translocon complexes and ribosomal subunits."""
     fig, axes = plt.subplots(2, 1, figsize=(10, 6.4), sharex=True, sharey=True)
     tidy_all = []
@@ -223,10 +223,10 @@ def figS4F(df):
                                     label_mode='outliers', title=f'$\\Delta$ {age}',
                                     ylabel='$\\Delta$log2(d8/d3)  sgDDRGK1 - sgNT', ylim=(-1.4, 1.2), ax=ax)
         tidy_all.append(tidy.assign(comparison=col))
-    plt.savefig(out('figS4F_er_gene_sets_strip.pdf'), dpi=300, bbox_inches='tight')
+    plt.savefig(out('figS5F_er_gene_sets_strip.pdf'), dpi=300, bbox_inches='tight')
     plt.close('all')
     values = pd.concat(tidy_all, ignore_index=True)
-    values[~values.is_background].to_csv(out('figS4F_values.csv'), index=False)
+    values[~values.is_background].to_csv(out('figS5F_values.csv'), index=False)
 
 
 def fig7C(tests, days=('8d',), path=None, fdr=0.05):
@@ -269,9 +269,9 @@ def main():
     tests[['Gene', 'day', 'log2FC', 'p', 'padj']].to_csv(out('fig7C_new_protein_stats.csv'), index=False)
     write_table(table_S8(df, tests), 'TableS8_SILAC_annotated', sheet='SupplementaryTable8_SILAC')
     fig3B(df)
-    figS4B(df)
-    figS4DE(df)
-    figS4F(df)
+    figS5B(df)
+    figS5DE(df)
+    figS5F(df)
     fig7C(tests)
     r = tests[(tests.day == '8d') & (tests.Gene == FOCUS_GENE)].iloc[0]
     print(f'{len(df)} proteins; {FOCUS_GENE} day-8 new protein: log2FC {r.log2FC:+.3f}, BH p {r.padj:.2g}')

@@ -11,9 +11,9 @@ and for the phenotype averaged between the two reporter lines:
   * averaged scatter + epistasis waterfall          -> growth_avgLines_{scatter,waterfall_epistasis}.pdf
 plus a between-line QC scatter that motivates the averaging.
 
-Fig S7E = growth_avgLines_scatter*.pdf, Fig S7F = growth_avgLines_waterfall_epistasis.pdf
+Fig S8E = growth_avgLines_scatter*.pdf, Fig S8F = growth_avgLines_waterfall_epistasis.pdf
 (written to fixed_NotI/plots/growth/ under the output root).
-Run:  python figS7EF_growth_epistasis.py      (envs/crispri-screen.yml)
+Run:  python figS8EF_growth_epistasis.py      (envs/crispri-screen.yml)
 """
 import os
 import sys

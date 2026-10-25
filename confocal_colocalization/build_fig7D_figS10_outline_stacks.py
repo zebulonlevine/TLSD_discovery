@@ -1,6 +1,6 @@
 """
-build_fig7D_outline_stacks.py -- Figure 7D: the 23 h GFP-R3HDM4 confocal
-stacks as Fiji hyperstacks with the Cellpose cell boundaries added as an
+build_fig7D_figS10_outline_stacks.py -- Figure 7D inset and Fig S10: the 23 h
+GFP-R3HDM4 confocal stacks as Fiji hyperstacks with the Cellpose cell boundaries added as an
 extra channel.
 
 ND2 can't be written back reliably, so the "modified ND2" is an ImageJ
@@ -13,7 +13,7 @@ diameter 260, 2D + stitch 0.5, channels 0-2 combined) -- the same labels
 wholecell_pearson.py quantifies, so the outlines drawn are the
 cells that were measured.
 
-Per file, two outputs in <output root>/confocal_colocalization/fig7D_outline_stacks/:
+Per file, two outputs in <output root>/confocal_colocalization/fig7D_figS10_outline_stacks/:
   {tag}_outlines_hyperstack.tif  Z x C(4) x Y x X. Outline channel holds
       each slice's own cross-section boundary, so any single slice is
       correct. (A max projection of this channel overlays every slice's
@@ -25,7 +25,7 @@ Per file, two outputs in <output root>/confocal_colocalization/fig7D_outline_sta
 Outline pixels = 65535, else 0 (single dtype across a hyperstack).
 Calibration: 0.1625 um/px, 0.4 um z-step (ND2 metadata).
 
-Run:  python build_fig7D_outline_stacks.py   (nd2_coloc env; ~4 GB written, run under Slurm)
+Run:  python build_fig7D_figS10_outline_stacks.py   (nd2_coloc env; ~4 GB written, run under Slurm)
 """
 
 import os
@@ -41,7 +41,7 @@ from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roo
 
 SRC = tlsd_paths.confocal('Denoised')
 MASKS = tlsd_paths.confocal('output', 'cell_masks')
-OUT = tlsd_paths.outp('confocal_colocalization', 'fig7D_outline_stacks')
+OUT = tlsd_paths.outp('confocal_colocalization', 'fig7D_figS10_outline_stacks')
 
 TAGS = [
     'Batch Denoise_000_L29_GFP-R3HDM4_DMSO_23h_40x_live_immediate_003',

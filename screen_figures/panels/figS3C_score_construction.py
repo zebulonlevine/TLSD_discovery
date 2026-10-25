@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fig S2C: sgRNA-level score construction scatters (flat grey and coloured by
+"""Fig S3C: sgRNA-level score construction scatters (flat grey and coloured by
 line score), 60S and 40S, synthesis and degradation.
 
 Extracted from Fig2.ipynb cell(s) 51, 52. Cell code is verbatim except for paths:
@@ -8,7 +8,7 @@ screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
 
-Run with envs/crispri-screen.yml:  python figS2C_score_construction.py
+Run with envs/crispri-screen.yml:  python figS3C_score_construction.py
 """
 import os
 import sys

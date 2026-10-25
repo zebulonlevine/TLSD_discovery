@@ -22,6 +22,6 @@ Run in this order after the pipeline's MAGeCK stage (`../pipeline/`). Environmen
    - Re-runs the per-comparison gene-level U-test with the same 53 guides removed (text-filtered
      `sgrna_summary.txt`; MAGeCK itself is not re-run).
    - Output: `fixed_NotI/results/`, used for the log2FC and growth blocks of Tables S5/S11 and for
-     Figs S2C/D/F and S7A/E/F.
+     Figs S3C/D/F and S8A/E/F.
 
 All draws are seeded (seed 42); re-running reproduces the published files byte-for-byte.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure S3C -- GO enrichment of the sublibrary synthesis / degradation scores.
+"""Figure S3E -- GO enrichment of the sublibrary synthesis / degradation scores.
 
 Backed by the same tables as Supplementary Table S6
 (Sublibrary_results/GO_decoupler/*_GO_decoupler*.csv, produced by
@@ -82,7 +82,7 @@ def main():
 
     sfx = args.suffix if args.suffix is not None else ('' if args.published else '_fixedNotI')
     GO_DIR = args.go_dir or (GO_JULY if args.published else GO)
-    out = os.path.join(args.outdir, f'FigS3C_GO_scores{sfx or "_published"}.pdf')
+    out = os.path.join(args.outdir, f'FigS3E_GO_scores{sfx or "_published"}.pdf')
     os.makedirs(os.path.dirname(out), exist_ok=True)
 
     def p(name):

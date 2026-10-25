@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Regenerate Figure S2B -- genes selected into the sublibrary, shown on the
+Regenerate Figure S3B -- genes selected into the sublibrary, shown on the
 genome-wide new/old ratio axes.
 
 Equivalent to Fig2.ipynb cells 0, 1, 3, 4. Lifted into a script so it can be

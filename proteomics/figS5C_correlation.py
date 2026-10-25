@@ -1,4 +1,4 @@
-"""Fig S4C: correlation between the SILAC and total-protein comparisons (sgDDRGK1 vs sgNT).
+"""Fig S5C: correlation between the SILAC and total-protein comparisons (sgDDRGK1 vs sgNT).
 
 Proteins quantified in both experiments (matched on accession and gene) with both turnover deltas;
 Pearson correlation of nine comparisons, clustered.
@@ -11,9 +11,9 @@ Pearson correlation of nine comparisons, clustered.
 Note: the four SILAC sgDDRGK1 / sgNT columns are the linear ratios (named log2_* in the notebook);
 the published panel was drawn from these.
 
-Outputs (output root, proteomics/): figS4C_correlation_heatmap.pdf, figS4C_correlation.csv
+Outputs (output root, proteomics/): figS5C_correlation_heatmap.pdf, figS5C_correlation.csv
 
-    python proteomics/figS4C_correlation.py
+    python proteomics/figS5C_correlation.py
 """
 import os
 import sys
@@ -53,9 +53,9 @@ def main():
     warnings.filterwarnings('ignore', message='After omitting NaNs')   # SEM of proteins seen in < 2 replicates = NaN
     loc_df = load_localization()
     corr, n = correlation(build_silac(loc_df), build_total(loc_df, topology=False))
-    corr.to_csv(paths.outp(OUT_DIR, 'figS4C_correlation.csv', mkdir=True))
+    corr.to_csv(paths.outp(OUT_DIR, 'figS5C_correlation.csv', mkdir=True))
     sns.clustermap(corr, cmap='vlag', vmin=-1, vmax=1, center=0)
-    plt.savefig(paths.outp(OUT_DIR, 'figS4C_correlation_heatmap.pdf'), dpi=300, bbox_inches='tight')
+    plt.savefig(paths.outp(OUT_DIR, 'figS5C_correlation_heatmap.pdf'), dpi=300, bbox_inches='tight')
     plt.close('all')
     print(f'{n} proteins in both experiments; wrote', paths.outp(OUT_DIR))
 

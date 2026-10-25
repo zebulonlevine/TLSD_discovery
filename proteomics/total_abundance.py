@@ -11,9 +11,9 @@ sgNT / sgDDRGK1, growing / quiescent, and RPL29-HaloTag sgDDRGK1 quiescent).
 
 Outputs (output root, proteomics/):
   TableS9_nonSILAC_proteomics.csv / .xlsx
-  fig4A_figS5B_total_by_category.pdf          + fig4A_figS5B_{growing,quiescent}_mwu.csv
-  fig4E_figS5C_total_by_topology.pdf          + fig4E_figS5C_{growing,quiescent}_mwu.csv
-  figS5D_volcano_quiescent.pdf, figS5E_volcano_growing.pdf
+  fig4A_figS6B_total_by_category.pdf          + fig4A_figS6B_{growing,quiescent}_mwu.csv
+  fig4E_figS6C_total_by_topology.pdf          + fig4E_figS6C_{growing,quiescent}_mwu.csv
+  figS6D_volcano_quiescent.pdf, figS6E_volcano_growing.pdf
 
     python proteomics/total_abundance.py
 """
@@ -146,24 +146,24 @@ def mwu_by_group(df, group_col, groups, stem):
                                    **MWU).to_csv(out(f'{stem}_{cond}_mwu.csv'), index=False)
 
 
-def fig4A_S5B(df, category_col=ADJ_CATEGORY):
+def fig4A_S6B(df, category_col=ADJ_CATEGORY):
     """Total protein change by localization; Fig 4A shows the RPL / RPS groups."""
     split_box(df, category_col, KEEP_CATEGORIES, 'changes quiescent vs growing by localization',
-              out('fig4A_figS5B_total_by_category.pdf'))
-    mwu_by_group(df, category_col, KEEP_CATEGORIES, 'fig4A_figS5B')
+              out('fig4A_figS6B_total_by_category.pdf'))
+    mwu_by_group(df, category_col, KEEP_CATEGORIES, 'fig4A_figS6B')
 
 
-def fig4E_S5C(df):
+def fig4E_S6C(df):
     """Total protein change by membrane topology."""
     split_box(df, 'simplifiedTopology', TOPOLOGY_CATEGORIES, 'changes quiescent vs growing by membrane topology',
-              out('fig4E_figS5C_total_by_topology.pdf'))
-    mwu_by_group(df, 'simplifiedTopology', TOPOLOGY_CATEGORIES, 'fig4E_figS5C')
+              out('fig4E_figS6C_total_by_topology.pdf'))
+    mwu_by_group(df, 'simplifiedTopology', TOPOLOGY_CATEGORIES, 'fig4E_figS6C')
 
 
-def figS5DE(df):
-    """Volcanoes, quiescent (S5D) and growing (S5E): Sec61 translocon and ER UPR genes highlighted;
+def figS6DE(df):
+    """Volcanoes, quiescent (S6D) and growing (S6E): Sec61 translocon and ER UPR genes highlighted;
     dashed lines at 1.5-fold and p = 0.05."""
-    for panel, cond in (('figS5D', 'quiescent'), ('figS5E', 'growing')):
+    for panel, cond in (('figS6D', 'quiescent'), ('figS6E', 'growing')):
         col = CONDITIONS[cond]
         sp.volcano(df, effect_col=col, pvalue_col=col + '_p', title=f'S3 {cond} log2FC sgDDRGK1 vs NT',
                    category_col=GENE_SET_COL, highlight={'Other': 'lightgrey', 'Translocon': 'blue', 'UPR': 'orange'})
@@ -178,9 +178,9 @@ def main():
     warnings.filterwarnings('ignore', message='After omitting NaNs')   # SEM of proteins seen in < 2 replicates = NaN
     df = build_total()
     write_table(table_S9(df), 'TableS9_nonSILAC_proteomics', sheet='SupplementaryTable9')   # xlsx keeps MARCH5 etc. as text
-    fig4A_S5B(df)
-    fig4E_S5C(df)
-    figS5DE(df)
+    fig4A_S6B(df)
+    fig4E_S6C(df)
+    figS6DE(df)
     print(f'{len(df)} proteins; wrote', paths.outp(OUT_DIR))
 
 

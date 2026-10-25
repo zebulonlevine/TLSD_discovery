@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Regenerate the screen-derived panels of Figure 1 / S1 / S5A from the current
+Regenerate the screen-derived panels of Figure 1 / S1 / S2A / S6A from the current
 genome-wide scores.
 
 Equivalent to running Fig1.ipynb cells 0, 2, 4, 5, 6, 7, 11, 12, 25 -- lifted
@@ -9,10 +9,10 @@ into a script because several other cells in that notebook cannot be executed
 make live network calls, and cell 40 rewrites decoupler inside site-packages).
 Every output path here is absolute, so this is safe to run from anywhere.
 
-Adds the two panels that had no code: S1C (correlation heatmap) and 1G (GO
+Adds the two panels that had no code: S1D (correlation heatmap) and 1F (GO
 enrichment).
 
-    python fig1_figS1_figS5A.py [--panels 1F,S1C,S1D,S1E,S1F,S5A,1G]
+    python fig1_figS1_figS2A_figS6A.py [--panels 1E,S1D,S1E,S1F,S2A,S6A,1F]
 """
 
 import argparse
@@ -45,8 +45,8 @@ os.makedirs(PLOTS_ESS, exist_ok=True)
 L29NewOld, S3NewOld = 'L29_TopvBottom', 'S3_TopvBottom'
 L29Growth, S3Growth = 'L29_UnsortedvEarly', 'S3_UnsortedvEarly'
 
-# Fig 1F palette, reused for the 1G label colours so the two panels agree.
-FIG1F_COLORS = {
+# Fig 1E palette, reused for the 1F label colours so the two panels agree.
+FIG1E_COLORS = {
     'Biogenesis': '#4e9342',
     'Lysosome/Autophagy': '#c51b7d',
     'UFMylation': '#E69F00',
@@ -100,7 +100,7 @@ def three_ways(fn, outdir, stem, **kw):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--panels', default='1F,S1C,S1D,S1E,S1F,S5A,1G')
+    ap.add_argument('--panels', default='1E,S1D,S1E,S1F,S2A,S6A,1F')
     args = ap.parse_args()
     want = {p.strip().upper() for p in args.panels.split(',')}
 
@@ -109,15 +109,15 @@ def main():
 
     from functools import partial
 
-    need_scatter = want & {'1F', 'S1D', 'S1E', 'S5A'}
+    need_scatter = want & {'1E', 'S1E', 'S1F', 'S6A'}
     if need_scatter:
         L29NewOld_comp = comp(L29NewOld, 'L29 NewOld')
         S3NewOld_comp = comp(S3NewOld, 'S3 NewOld')
         L29Growth_comp = comp(L29Growth, 'L29 Growth')
         S3Growth_comp = comp(S3Growth, 'S3 Growth')
 
-    if 'S5A' in want:
-        print('\n=== Fig S5A: growth scores, Hippo pathway ===')
+    if 'S6A' in want:
+        print('\n=== Fig S6A: growth scores, Hippo pathway ===')
         three_ways(
             partial(screen_viz.plot_comparison_scatter,
                     L29Growth_comp, S3Growth_comp,
@@ -127,8 +127,8 @@ def main():
                     figsize=(6, 4), show_correlation=False),
             PLOTS_ESS, 'GrowthL29_S3comparisonHippo')
 
-    if 'S1D' in want:
-        print('\n=== Fig S1D: growth scores, common essentials ===')
+    if 'S1E' in want:
+        print('\n=== Fig S1E: growth scores, common essentials ===')
         three_ways(
             partial(screen_viz.plot_comparison_scatter,
                     L29Growth_comp, S3Growth_comp,
@@ -137,8 +137,8 @@ def main():
                     figsize=(6, 4), show_correlation=False),
             PLOTS_ESS, 'GrowthL29_S3comparisonEssentials')
 
-    if 'S1E' in want:
-        print('\n=== Fig S1E: new/old ratio, common essentials ===')
+    if 'S1F' in want:
+        print('\n=== Fig S1F: new/old ratio, common essentials ===')
         three_ways(
             partial(screen_viz.plot_comparison_scatter,
                     L29NewOld_comp, S3NewOld_comp,
@@ -147,22 +147,22 @@ def main():
                     figsize=(6, 4), show_correlation=False),
             PLOTS_ESS, 'NewOldL29_S3comparisonEssentials')
 
-    if '1F' in want:
-        print('\n=== Fig 1F: new/old ratio, three categories ===')
+    if '1E' in want:
+        print('\n=== Fig 1E: new/old ratio, three categories ===')
         cats3 = cat('GenomeWideCats_threeOptions.csv')
         three_ways(
             partial(screen_viz.plot_comparison_scatter,
                     L29NewOld_comp, S3NewOld_comp,
-                    categories=cats3, colors=FIG1F_COLORS,
+                    categories=cats3, colors=FIG1E_COLORS,
                     title='NewOld Comparison Quiescent Screen',
                     figsize=(5, 5), show_correlation=False),
             PLOTS_FIG1, 'NewOldL29_S3comparison3cats')
-        print('  Fig 1F category sizes:')
+        print('  Fig 1E category sizes:')
         for c, n in cats3['category'].value_counts().items():
             print(f'    {c:24s} {n}')
 
-    if 'S1F' in want:
-        print('\n=== Fig S1F: category violins ===')
+    if 'S2A' in want:
+        print('\n=== Fig S2A: category violins ===')
         catsMany = cat('manyCats2.csv')
         grey = {x: 'darkgrey' for x in catsMany.category.unique()}
         for screen, stem, title in ((S3NewOld, 'S3boxplot_many', '40S degradation pathways'),
@@ -192,7 +192,7 @@ def main():
             is_p = screen_viz.is_ntc(allg['gene_id'])
             real = allg[~is_p].copy()
             real['_cats'] = real['gene'].astype(str).map(lambda g: g2cs.get(g, ()))
-            print(f'  S1F category counts, {lab} screen:')
+            print(f'  S2A category counts, {lab} screen:')
             print(f'    {"category":28s} {"symbols":>8s} {"pts drawn":>10s}')
             print(f'    {"All genes":28s} {real.gene.nunique():8d} {len(real):10d}')
             print(f'    {"NTC":28s} {int(is_p.sum()):8d} {int(is_p.sum()):10d}')
@@ -201,8 +201,8 @@ def main():
                 print(f'    {c:28s} {sub.gene.nunique():8d} {len(sub):10d}')
             print()
 
-    if 'S1C' in want:
-        print('\n=== Fig S1C: fold-change correlation heatmap ===')
+    if 'S1D' in want:
+        print('\n=== Fig S1D: fold-change correlation heatmap ===')
         order = [('L29_TopvBottom', '60S New/Old (quiescent)'),
                  ('S3_TopvBottom', '40S New/Old (quiescent)'),
                  ('L29_TopvBottom_growing', '60S New/Old (growing)'),
@@ -212,23 +212,23 @@ def main():
         screen_viz.plot_foldchange_heatmap(
             results_files=[os.path.join(RES, c, c + '_all_genes.csv') for c, _ in order],
             comparison_names=[n for _, n in order],
-            output_file=os.path.join(PLOTS_FIG1, 'S1C_foldchange_correlation.pdf'),
+            output_file=os.path.join(PLOTS_FIG1, 'S1D_foldchange_correlation.pdf'),
             cluster=False, annot=False, mask_upper=True,
             cmap='RdBu_r', vmin=0.0, vmax=1.0,
             title='Pearson Correlation of $\\log_2$ Fold Change',
             figsize=(4.5, 3.6))
 
-    if '1G' in want:
-        print('\n=== Fig 1G: GO enrichment ===')
-        out = os.path.join(PLOTS_FIG1, 'GO_enrichment_1G.pdf')
+    if '1F' in want:
+        print('\n=== Fig 1F: GO enrichment ===')
+        out = os.path.join(PLOTS_FIG1, 'GO_enrichment_1F.pdf')
         df = screen_viz.plot_go_enrichment_diverging(
             screen_results=[('40S Screen', paths.inp('GSEA_Fig1/S3/final_resultsS3Genomewide.csv')),
                             ('60S Screen', paths.inp('GSEA_Fig1/L29/decoupler_results60S.csv'))],
             output_file=out, top_n=4,
             categories=cat('GenomeWideCats_threeOptions.csv'),
-            colors=FIG1F_COLORS, term_labels=TERM_LABELS,
+            colors=FIG1E_COLORS, term_labels=TERM_LABELS,
             break_range=(160, 60), figsize=(7.2, 5.0))
-        df.to_csv(os.path.join(PLOTS_FIG1, 'GO_enrichment_1G_terms.csv'), index=False)
+        df.to_csv(os.path.join(PLOTS_FIG1, 'GO_enrichment_1F_terms.csv'), index=False)
 
     print('\nDone.')
 
