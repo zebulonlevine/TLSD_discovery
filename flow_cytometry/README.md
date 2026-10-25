@@ -12,10 +12,10 @@ and Fig S1B.
 |---|---|---|---|
 | 1D | `fig1D_ribohalo_turnover.py` | `1D/day{1,3,…,15}.csv`, `1D/PlateMap_Feb.xlsx` | A·exp(−kt), weighted fit; t½ = ln2/k with 95% CI |
 | S1G | `figS1G_autophagy_reporter.py` | `S1G/autophagyData.csv` | % change vs matched control; delta-method SE; t at Welch–Satterthwaite df, unadjusted |
-| 3H, S4I | `fig3H_figS4I_riok3_uba5.py` | `3H_S4I/RIOK3.xlsx` | Welch's t, BH within each panel |
+| 3H, S4I | `fig3H_figS4I_riok3_uba5.py` | `3H_S4I/RIOK3.xlsx` (sheet `guide2`, sgRIOK3-g3) | Welch's t, BH within each panel |
 | 4B, 4D | `fig4BD_serum_confluence_gne.py` | `4B_4D/Confluence_GNE_5d.xlsx` | Welch's t sgUBA5 vs sgNT per condition, BH across the 4 conditions |
 | 5G | `fig5G_lov_birA.py` (+ `fcs_gating.py`) | `5G/channel_statistics_dark.csv` (or FCS files: `--fcs-dir`, `--metadata`) | t with propagated error, Welch–Satterthwaite df |
-| 6C, S7D | `fig6C_figS7D_mkeima.py` | `6C_S7D/DataWorkup_L29_mKeima_CJZ18.xlsx` | Welch's t, Holm-adjusted |
+| 6C, S7D | `fig6C_figS7D_mkeima.py` | `6C_S7D/DataWorkup_L29_mKeima_CJZ18.xlsx` | Welch's t; BH across the 6 BafA1 tests and across the 15 between-group pairs |
 | 7A, S8B–D | `fig7A_figS8BD_uba5_tlsd1.py` | `7A_S8B-D/R3HDM4_L29_knockdown_cover_3xHA.xlsx` | Welch's t, BH within each panel |
 | S6G | `figS6G_degron_timecourse.py` | `S6G/flow_timecourse_2603.xlsx` | Welch's t, DMSO vs PT-179, BH across the experiment's 96 tests |
 
@@ -41,14 +41,21 @@ panels are pixel-identical at 100 dpi, with these exceptions:
   differently. Values are identical.
 - **Fig S6G Total.** The placed panel was drawn without the notebook's final per-day adjustment; the
   script reproduces the placed panel. No star changes either way.
-- **Fig S1G.** Only the panel shown in the paper is drawn: the top row of the original figure.
+- **Fig S1G.** Only the panel shown in the paper is drawn: the RB1CC1 and ATG7 columns of the
+  original figure's top row. The BafA1 column and its table rows were dropped on 2026-10-25; the
+  remaining values are unchanged.
+- **Fig 6C, S7D (changed 2026-10-25).** The original corrected with Holm over all 30 ordered pairs, so
+  each pair was counted twice. The script uses BH over the 15 unique pairs, as the legends and
+  Methods state. Raw p-values are unchanged.
 
 ## Removed from the uploaded notebooks (not in the paper)
 - Old/new ratio, CV and raw-median plots.
 - The 3xHA-TLSD1 rescue lines.
+- The second RIOK3 sgRNA experiment (sheet `guide1`, sgRIOK3-2), which is not shown in 3H/S4I.
+- The S1G BafA1 column, the basal-normalized row, and v1 of the S1G script (`make_figure.py`), which
+  the placed panel does not use.
 - The 40S confluence plots.
 - Earlier trials in the 1D notebook (RPS25 line, RPE1 background, viability, unweighted fits).
-- The S1G basal-normalized row.
 - The overview and genotype-comparison plots from S6G, plus an earlier draft notebook and an
   exploratory script.
 - Gate QC plots in `fcs_gating.py`, and the rest of the original 2,451-line FCS library.

@@ -12,9 +12,10 @@ bafilomycin A1 (BafA1), 6 wells per arm. The input is the FlowJo export: per-wel
      medium.
   2. BafA1 effect per background x medium = mean(BafA1) - mean(untreated) of the normalized values;
      error bar = combined SD, sqrt(var_BafA1 + var_untreated).
-  3. BafA1 vs untreated: Welch's t-test for each background x medium, Holm-adjusted across the 6.
+  3. BafA1 vs untreated: Welch's t-test for each background x medium, Benjamini-Hochberg-adjusted
+     across the 6.
   4. Between background x medium groups: Welch's t-test on the BafA1 effects from their summary
-     statistics, Holm-adjusted across all ordered pairs.
+     statistics, Benjamini-Hochberg-adjusted across the 15 pairs.
 
 Outputs (output root, flow_cytometry/):
   fig6C_acidic_bafA1_effect.pdf      acidic signal (Fig 6C)
@@ -26,6 +27,7 @@ Outputs (output root, flow_cytometry/):
 """
 import os
 import sys
+from itertools import combinations
 
 import numpy as np
 import pandas as pd
@@ -79,28 +81,25 @@ def bafA1_effects(df):
                                  equal_var=False) for g in eff.group]
         eff[f'{sig}_t'] = [r.statistic for r in tests]
         eff[f'{sig}_p'] = [r.pvalue for r in tests]
-        eff[f'{sig}_p_holm'] = multipletests(eff[f'{sig}_p'], alpha=0.05, method='holm')[1]
+        eff[f'{sig}_p_bh'] = multipletests(eff[f'{sig}_p'], method='fdr_bh')[1]
     return eff
 
 
 def between_groups(eff):
-    """Welch's t-test between the BafA1 effects of every ordered pair of groups (each effect's SD is
-    the combined SD, n = wells per arm), Holm-adjusted per signal."""
+    """Welch's t-test between the BafA1 effects of every pair of groups (each effect's SD is the
+    combined SD, n = wells per arm), Benjamini-Hochberg-adjusted per signal."""
     rows = []
-    for i, a in eff.iterrows():
-        for j, b in eff.iterrows():
-            if i == j:
-                continue
-            row = {'group1': a.group, 'group2': b.group}
-            for sig in SIGNALS:
-                m1, v1, m2, v2 = a[f'{sig}_effect'], a[f'{sig}_effect_var'], b[f'{sig}_effect'], b[f'{sig}_effect_var']
-                r = stats.ttest_ind_from_stats(m1, np.sqrt(v1), a.n_bafA1, m2, np.sqrt(v2), b.n_bafA1, equal_var=False)
-                row.update({f'{sig}_effect_diff': m1 - m2, f'{sig}_effect_diff_var': v1 + v2,
-                            f'{sig}_t': r.statistic, f'{sig}_p': r.pvalue})
-            rows.append(row)
+    for (_, a), (_, b) in combinations(eff.iterrows(), 2):
+        row = {'group1': a.group, 'group2': b.group}
+        for sig in SIGNALS:
+            m1, v1, m2, v2 = a[f'{sig}_effect'], a[f'{sig}_effect_var'], b[f'{sig}_effect'], b[f'{sig}_effect_var']
+            r = stats.ttest_ind_from_stats(m1, np.sqrt(v1), a.n_bafA1, m2, np.sqrt(v2), b.n_bafA1, equal_var=False)
+            row.update({f'{sig}_effect_diff': m1 - m2, f'{sig}_effect_diff_var': v1 + v2,
+                        f'{sig}_t': r.statistic, f'{sig}_p': r.pvalue})
+        rows.append(row)
     pairs = pd.DataFrame(rows)
     for sig in SIGNALS:
-        pairs[f'{sig}_p_holm'] = multipletests(pairs[f'{sig}_p'], alpha=0.05, method='holm')[1]
+        pairs[f'{sig}_p_bh'] = multipletests(pairs[f'{sig}_p'], method='fdr_bh')[1]
     return pairs
 
 
@@ -123,7 +122,7 @@ def main():
     between_groups(eff).to_csv(out('fig6C_figS7D_between_groups.csv'), index=False)
     for sig, name in PANELS.items():
         effect_bars(eff, sig, out(name))
-    print(eff[['group', 'acidic_effect', 'acidic_p_holm', 'neutral_effect', 'neutral_p_holm']].to_string(index=False))
+    print(eff[['group', 'acidic_effect', 'acidic_p_bh', 'neutral_effect', 'neutral_p_bh']].to_string(index=False))
     print('wrote', paths.outp(OUT_DIR))
 
 

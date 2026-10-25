@@ -5,15 +5,15 @@ raises the GFP/RFP ratio. Each well is one value: the median per-cell GFP/RFP ra
 exported from FlowJo (column `Ratio`). 3 wells per clone x medium x perturbation, one experiment
 (2024-06-25). Media: 10% FBS (growing), overnight EBSS (amino-acid starvation), 1% FBS (quiescent).
 
-  1. Each perturbation is compared with its matched control arm in the same clone and medium:
-     RB1CC1 or ATG7 knockdown vs non-targeting (vehicle), and BafA1 vs vehicle (non-targeting).
+  1. Each knockdown (RB1CC1 or ATG7) is compared with the non-targeting control arm in the same
+     clone and medium (vehicle wells).
   2. Effect = 100 x (mean_test / mean_control - 1), delta-method SE of the ratio of two independent
      means; effective df by Welch-Satterthwaite.
   3. Clone-pooled effect = unweighted mean of the S3 and L29 effects, SE in quadrature.
   4. Brackets: (EBSS - 10% FBS) and (1% FBS - 10% FBS) contrasts of the pooled effect, in percentage
      points; t = contrast / SE at the Welch-Satterthwaite df, two-sided, not adjusted for multiple
      comparisons. * p < 0.05, ** p < 0.01, *** p < 0.001.
-The EBSS + STLC wells in the export are not analysed.
+The BafA1 and EBSS + STLC wells in the export are not analysed.
 
 Outputs (output root, flow_cytometry/):
   figS1G_autophagy_flux.pdf
@@ -46,16 +46,12 @@ OUT_DIR = 'flow_cytometry'
 
 BASES = ['10%', 'EBSS', '1%']
 CLONES = ['S3', 'L29']
-FACTORS = ['RB1CC1', 'ATG7', 'BafA1']
-FACTOR_LABELS = {'RB1CC1': 'RB1CC1 KD', 'ATG7': 'ATG7 KD', 'BafA1': '+BafA1'}
-# export Treatment -> (medium, BafA1); EBSS + STLC is not analysed
-TREATMENTS = {
-    '10p_noBaf': ('10%', False), '10p_Baf': ('10%', True),
-    'EBSS ON': ('EBSS', False), 'EBSS ON Baf': ('EBSS', True),
-    '1p': ('1%', False), '1p Baf': ('1%', True),
-}
+FACTORS = ['RB1CC1', 'ATG7']
+FACTOR_LABELS = {'RB1CC1': 'RB1CC1 KD', 'ATG7': 'ATG7 KD'}
+# export Treatment (vehicle wells) -> medium; BafA1 and EBSS + STLC wells are not analysed
+TREATMENTS = {'10p_noBaf': '10%', 'EBSS ON': 'EBSS', '1p': '1%'}
 
-COLORS = ['#534AB7', '#BA7517', '#993556']
+COLORS = ['#534AB7', '#BA7517']
 CTRL_COL = '#888880'
 S3_COL, L29_COL = '#3266ad', '#c94040'
 
@@ -130,24 +126,20 @@ def sig(p):
 # ---------------------------------------------------------------------------
 
 def load_wells():
-    """(clone, medium, knockdown, BafA1) -> per-well median GFP/RFP ratios."""
+    """(clone, medium, knockdown) -> per-well median GFP/RFP ratios."""
     wells = defaultdict(list)
     with open(paths.inp(*INPUT), "r", encoding="utf-8-sig", newline="") as f:
         for row in csv.DictReader(f):
             d = {k.strip(): v.strip() for k, v in row.items()}
-            base, is_baf = TREATMENTS.get(d["Treatment"], (None, None))
+            base = TREATMENTS.get(d["Treatment"])
             if base:
-                wells[(d["CellLine"], base, d["KD"], is_baf)].append(float(d["Ratio"]))
+                wells[(d["CellLine"], base, d["KD"])].append(float(d["Ratio"]))
     return wells
 
 
 def arms(wells, factor, clone, base):
-    """(test wells, control wells) for a factor in one clone and medium."""
-    if factor == "BafA1":
-        return (wells[(clone, base, "None", True)],
-                wells[(clone, base, "None", False)])
-    return (wells[(clone, base, factor, False)],
-            wells[(clone, base, "None",  False)])
+    """(knockdown wells, non-targeting wells) for a factor in one clone and medium."""
+    return wells[(clone, base, factor)], wells[(clone, base, "None")]
 
 
 def effects(wells):
@@ -217,15 +209,13 @@ def contrasts_table(contrast, contrast_clone):
 
 def plot(eff, pooled, contrast, path):
     """Percent effect per medium, clones pooled (bars) with each clone's estimate (open markers)."""
-    fig = plt.figure(figsize=(8.5, 7.5))
-    # two-row grid of the original layout (the lower row is not part of the panel), so the
-    # panel's geometry matches the placed version
-    gs = fig.add_gridspec(2, 3, hspace=0.45, wspace=0.08,
-                          left=0.11, right=0.97, bottom=0.10, top=0.90)
+    fig = plt.figure(figsize=(6.0, 3.6))
+    gs = fig.add_gridspec(1, len(FACTORS), wspace=0.08,
+                          left=0.156, right=0.958, bottom=0.17, top=0.85)
 
-    axes_top = [fig.add_subplot(gs[0, i]) for i in range(3)]
-    for i in range(1, 3):
-        axes_top[i].sharey(axes_top[0])
+    axes_top = [fig.add_subplot(gs[0, i]) for i in range(len(FACTORS))]
+    for ax in axes_top[1:]:
+        ax.sharey(axes_top[0])
 
     for ax_i, (ax, f, col) in enumerate(zip(axes_top, FACTORS, COLORS)):
         x = np.arange(len(BASES))
@@ -296,9 +286,8 @@ def plot(eff, pooled, contrast, path):
     axes_top[0].legend(handles=handles, loc="upper left", frameon=False,
                        fontsize=8, handletextpad=0.3, borderpad=0.2)
 
-    fig.text(0.5, 0.935,
-             "Autophagy-block effect by medium "
-             "(per-clone mean - mean, pooled; brackets = Welch's t vs 10% FBS)",
+    fig.text(0.557, 0.965,
+             "Knockdown effect by medium (clones pooled; brackets = t vs 10% FBS)",
              ha="center", fontsize=10, fontweight="medium")
 
     fig.savefig(path, dpi=300, bbox_inches="tight", pad_inches=0.15)
