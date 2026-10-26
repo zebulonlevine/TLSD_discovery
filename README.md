@@ -27,6 +27,7 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
    README list them).
 
 ## Data availability
+- **Code:** this repository, archived on Zenodo as a Software record (DOI TBD).
 - **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
