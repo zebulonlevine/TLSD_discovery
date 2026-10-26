@@ -9,9 +9,9 @@ Which panels this touches, and which it deliberately does not:
 
   NEEDS redrawing -- error bars and significance stars change, because
   refitting widens the intervals (1.2-2.7x measured):
-      Fig S7C    claim-1 60S per-bin difference
-      Fig S7A    claim-1 60S/40S W1 against the null
-      Fig S7D    claim-2 drug per-bin effects
+      Fig S7C    60S per-bin difference, sgUBA5 - sgNT
+      Fig S7A    60S/40S W1 against the null
+      Fig S7D    drug per-bin effects
       Fig 5F-r   zone per-bin effect
 
   DOES NOT need redrawing -- these show point estimates only, and the refit
@@ -96,10 +96,10 @@ def figS7D_combined():
     and marker separate drug within each genotype. plot_bin_effect spaces k
     series across +-0.16 bin widths, so four fit without overlapping.
     """
-    specs = [('claim2_NT_HHT',   'sgNT + HHT',    ps.CONTROL,        '^'),
-             ('claim2_NT_eme',   'sgNT + eme',    ps.CONTROL_LIGHT,  'o'),
-             ('claim2_UBA5_HHT', 'sgUBA5 + HHT',  ps.PERTURBED,      '^'),
-             ('claim2_UBA5_eme', 'sgUBA5 + eme',  ps.PERTURBED_LIGHT,'o')]
+    specs = [('figS7D_NT_HHT',   'sgNT + HHT',    ps.CONTROL,        '^'),
+             ('figS7D_NT_eme',   'sgNT + eme',    ps.CONTROL_LIGHT,  'o'),
+             ('figS7D_UBA5_HHT', 'sgUBA5 + HHT',  ps.PERTURBED,      '^'),
+             ('figS7D_UBA5_eme', 'sgUBA5 + eme',  ps.PERTURBED_LIGHT,'o')]
     series = []
     for key, label, color, marker in specs:
         df = as_bin_frame(key)
@@ -124,17 +124,17 @@ def figS7E():
 
     Redrawn from the pmfs stored by aggregate_panel_refit, so no refitting:
     every condition appears as the reference arm or the perturbed arm of one of
-    the claim-2 contrasts.
+    the Fig S7D contrasts.
     """
     from submit_panel_refit import NSUB
     from region_schemes import SCHEME_60S
     # condition -> (contrast, which arm of it)
-    SRC = {'S3_NT_none':   ('claim2_NT_HHT', 'pmf_a'),
-           'S3_NT_HT10':   ('claim2_NT_HHT', 'pmf_b'),
-           'S3_NT_eme360': ('claim2_NT_eme', 'pmf_b'),
-           'S3_UBA5_none':   ('claim2_UBA5_HHT', 'pmf_a'),
-           'S3_UBA5_HT10':   ('claim2_UBA5_HHT', 'pmf_b'),
-           'S3_UBA5_eme360': ('claim2_UBA5_eme', 'pmf_b')}
+    SRC = {'60S_NT_none':   ('figS7D_NT_HHT', 'pmf_a'),
+           '60S_NT_HT10':   ('figS7D_NT_HHT', 'pmf_b'),
+           '60S_NT_eme360': ('figS7D_NT_eme', 'pmf_b'),
+           '60S_UBA5_none':   ('figS7D_UBA5_HHT', 'pmf_a'),
+           '60S_UBA5_HT10':   ('figS7D_UBA5_HHT', 'pmf_b'),
+           '60S_UBA5_eme360': ('figS7D_UBA5_eme', 'pmf_b')}
     FAMILY = {'NT':   [ps.BLACK, ps.CONTROL, ps.CONTROL_LIGHT],
               'UBA5': [ps.PERTURBED_DARK, ps.PERTURBED, ps.PERTURBED_LIGHT]}
     LABEL = {'none': 'untreated', 'HT10': 'harringtonine', 'eme360': 'emetine'}
@@ -144,7 +144,7 @@ def figS7E():
     for geno in ('NT', 'UBA5'):
         curves = []
         for i, drug in enumerate(('none', 'HT10', 'eme360')):
-            cond = f'S3_{geno}_{drug}'
+            cond = f'60S_{geno}_{drug}'
             key, arm = SRC[cond]
             f = os.path.join(OUT_ROOT, key, f'{key}_refit_draws.npz')
             if not os.path.exists(f):
@@ -159,7 +159,7 @@ def figS7E():
             # but a grid change would then silently mis-plot the x-axis
             import pickle
             from submit_panel_refit import TIERS
-            _s = pickle.load(open(pc.settings_path(TIERS['claim2']), 'rb'))
+            _s = pickle.load(open(pc.settings_path(TIERS['2026_07_08']), 'rb'))
             dc = np.asarray((_s.get('saspt') or _s)['diff_coefs'])
             assert len(dc) == len(curves[0]['pmf']), (
                 f'grid is {len(dc)} states but the stored pmf has '
@@ -173,13 +173,13 @@ def figS7E():
 def figS7D_genotype():
     """S7D third sub-panel: sgUBA5 - sgNT at each drug level, one axis.
 
-    Colour separates drug, matching DRUG_COLOR in build_claim2_panels
+    Colour separates drug, matching DRUG_COLOR in build_figS7DE_panels
     (untreated black, harringtonine orange, emetine blue), so this reads as
     "does the genotype effect survive each perturbation".
     """
-    specs = [('claim2_geno_none', 'untreated',     ps.BLACK,     'o'),
-             ('claim2_geno_HHT',  'harringtonine', ps.PERTURBED, '^'),
-             ('claim2_geno_eme',  'emetine',       ps.BLUE,      's')]
+    specs = [('figS7D_geno_none', 'untreated',     ps.BLACK,     'o'),
+             ('figS7D_geno_HHT',  'harringtonine', ps.PERTURBED, '^'),
+             ('figS7D_geno_eme',  'emetine',       ps.BLUE,      's')]
     series = []
     for key, label, color, marker in specs:
         df = as_bin_frame(key)
@@ -231,10 +231,10 @@ PANELS = {
     'figS7D_genotype': figS7D_genotype,
     'figS7E': figS7E,
     'figS7A': lambda: w1_panel(
-        [('claim1_60S', 'RPL29-Halo (60S)'), ('claim1_40S', 'Halo-RPS24 (40S)')],
+        [('figS7AC_60S', 'RPL29-Halo (60S)'), ('figS7A_40S', 'Halo-RPS24 (40S)')],
         f'{OUT}/figureS7/A/figS7A_W1_60S_40S_refit.pdf'),
     'figS7C': lambda: bin_panel(
-        [('claim1_60S', 'sgUBA5 - sgNT', ps.PERTURBED)],
+        [('figS7AC_60S', 'sgUBA5 - sgNT', ps.PERTURBED)],
         f'{OUT}/figureS7/C/figS7C_60S_bin_difference_refit.pdf',
         ps.YLABEL_DELTA),
     'figS7D': lambda: [
@@ -242,13 +242,13 @@ PANELS = {
                   f'{OUT}/figureS7/D/figS7D_{name}_refit.pdf', ps.YLABEL_DELTA,
                   title=title)
         for k, lab, col, name, title in [
-            ('claim2_NT_HHT', 'HHT - untreated', ps.PERTURBED,
+            ('figS7D_NT_HHT', 'HHT - untreated', ps.PERTURBED,
              'drug_shift_sgNT_HHT', 'sgNT: harringtonine'),
-            ('claim2_NT_eme', 'emetine - untreated', ps.BLUE,
+            ('figS7D_NT_eme', 'emetine - untreated', ps.BLUE,
              'drug_shift_sgNT_eme', 'sgNT: emetine'),
-            ('claim2_UBA5_HHT', 'HHT - untreated', ps.PERTURBED,
+            ('figS7D_UBA5_HHT', 'HHT - untreated', ps.PERTURBED,
              'drug_shift_sgUBA5_HHT', 'sgUBA5: harringtonine'),
-            ('claim2_UBA5_eme', 'emetine - untreated', ps.BLUE,
+            ('figS7D_UBA5_eme', 'emetine - untreated', ps.BLUE,
              'drug_shift_sgUBA5_eme', 'sgUBA5: emetine')]]
              + [figS7D_combined()],
 }

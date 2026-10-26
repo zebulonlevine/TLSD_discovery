@@ -31,7 +31,7 @@ SEC_PER_SUBTRACK = 121.1 / 192701
 def infer_batch(key, scheme, default):
     """Read the batch size back off an existing npz.
 
-    Contrasts were not all run at the same batch size -- claim1_60S was the
+    Contrasts were not all run at the same batch size -- figS7AC_60S was the
     pilot at 10, the rest at 20 -- and assuming one global value flags every
     pilot batch as inconsistent. Batch index k covers [k*batch, (k+1)*batch),
     so `batch` is recoverable as the span of any stored k_indices.
@@ -84,7 +84,7 @@ def main():
     ap.add_argument('--batch', type=int, default=20,
                     help='MUST match the original run')
     ap.add_argument('--skip', action='append', default=[],
-                    help='contrast keys to ignore (e.g. dropped claims)')
+                    help="contrast keys to ignore (e.g. dropped contrasts)")
     ap.add_argument('--throttle', type=int, default=24,
                     help='low, since timeouts were caused by contention')
     ap.add_argument('--time', default='8:00:00')

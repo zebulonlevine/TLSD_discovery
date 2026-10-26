@@ -68,17 +68,15 @@ import occupancy_compare as oc
 from saspt_likelihood_cache import (load_likelihood_cache, _load_saspt_settings,
                                     _grid_checksum, _GRID_KEYS, FORCED_SAMPLE_SIZE)
 
-ROOT = tlsd_paths.spt('all_data')
-
-# One dataset entry per paper claim that has a standalone cache. `traj` is a
-# pooled trajectory CSV a production cache was built from.
+# One dataset entry per experiment that has a standalone cache (Fig 5C 60S,
+# Fig 5F ER). `traj` is a pooled trajectory CSV a production cache was built from.
 DATASETS = {
-    'claim1_60S': dict(
-        tier=f'{ROOT}/2025_06_06_zeb/tracking_output_q=15p0_splitsize10',
+    'fig5C_60S': dict(
+        tier=tlsd_paths.spt('all_data', '2025_06_06_zeb', 'tracking_output_q=15p0_splitsize10'),
         traj='traj_combinations/sgNT_60S_pooled_traj.csv',
         cache='occupancy_compare_cache/_standalone_sgNT_60S_likelihood_cache.npz'),
-    'claim3_ER': dict(
-        tier=f'{ROOT}/2025_09_15_zeb_ER/tracking_output_q=15p0',
+    'fig5F_ER': dict(
+        tier=tlsd_paths.spt('all_data', '2025_09_15_zeb_ER', 'tracking_output_q=15p0'),
         traj='traj_combinations/noDegron_pooled_traj.csv',
         cache='occupancy_compare_cache/_standalone_noDegron_likelihood_cache.npz'),
 }

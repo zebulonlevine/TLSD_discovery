@@ -57,14 +57,15 @@ Two TMT experiments.
 Fig 7C labels TLSD1 by its gene symbol, R3HDM4.
 
 ## Inputs (`<data>/proteomics/`)
-| File | Content |
-|---|---|
-| `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) |
-| `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) |
-| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`; ref. 170) |
-| `silac_topology.tsv`, `total_topology.tsv` | Output of `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01) |
+| File | Content | Source |
+|---|---|---|
+| `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) | PRIDE (TBD), processed tables of the submission |
+| `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) | PRIDE (TBD), processed tables of the submission |
+| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | Download: ref. 170, supplementary file mmc4 |
+| `silac_topology.tsv`, `total_topology.tsv` | Membrane topology and MitoCarta flags | `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
 
-The raw data are deposited at ProteomeXchange/PRIDE (accession TBD).
+The raw data are deposited at ProteomeXchange/PRIDE (accession TBD). The per-protein results are
+Supplementary Tables S8 and S9.
 
 ## Run
 ```

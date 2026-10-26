@@ -1,5 +1,5 @@
 """
-build_claim3_panels.py -- Figure 5F and Supplementary Figure S7J.
+build_fig5F_figS7J_panels.py -- Figure 5F and Supplementary Figure S7J.
 
 Dataset `2025_09_15_zeb_ER`, tier `q=15p0`, 15.091 ms / 0.11 um.
 RPL29-Halo (60S) co-imaged with SNAP-Sec61B. `noDegron` = DMSO (10 FOV),
@@ -25,7 +25,7 @@ sub-trajectories moving together) -- `forkb_er_zone.zone_refit_permutation`.
 Permuting at the sub-trajectory level is anticonservative and produced a real
 calibration failure that `run_v4_forkb_zone_negctrl.py` caught.
 
-Run:  sbatch call_build_panels.slurm build_claim3_panels.py
+Run:  sbatch call_build_panels.slurm build_fig5F_figS7J_panels.py
 """
 
 import os

@@ -4,7 +4,10 @@
 #   Sublibrary_results/   sublibrary screens: counts/, results/, scores/ (line scores), libraryInfo/
 #   fixed_NotI/           sublibrary re-scored without the 53 NotI/BamHI guides (the published scores)
 #   GSEA_Fig1/            genome-wide GO (decoupler) inputs/outputs
-# End-to-end run: set data and out to the same directory.
+#   proteomics/           TMT tables (PRIDE), organelle-IP table (download), topology tables
+#   flow_cytometry/, gels/, ricin_data_reanalysis/   from the Zenodo deposit (its data/ folder)
+# The screen folders are built from the GEO count tables by crispr_screens/ (see its READMEs);
+# they are not on Zenodo. End-to-end run: set data and out to the same directory.
 data: /path/to/tlsd_data
 out:  /path/to/tlsd_data
 # Imaging inputs (read only), each with its own layout:
@@ -12,4 +15,7 @@ out:  /path/to/tlsd_data
 #                  traj_combinations/, occupancy_compare_cache_36state/ likelihood caches)
 #   confocal_data  the GFP-TLSD1 confocal experiment (Denoised/*.nd2, output/cell_masks/)
 spt_data: /path/to/spt_tree
+# Optional: one SPT experiment under its own root (a directory holding all_data/<experiment>/).
+# Not needed with the Zenodo deposit, which unpacks all three experiments under spt_data.
+# spt_data_2026_07_08: /path/to/other_spt_tree
 confocal_data: /path/to/confocal_experiment

@@ -36,9 +36,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import panel_core as pc
 from occupancy_compare import _make_likelihood_from_cache
 import er_zone_naive_cache as ezc
-import build_claim3_panels as c3
+import build_fig5F_figS7J_panels as f5f
 
-ZONE_ON, ZONE_OFF = c3.ZONE_ON, c3.ZONE_OFF
+ZONE_ON, ZONE_OFF = f5f.ZONE_ON, f5f.ZONE_OFF
 
 
 def pooled_fit(ctx, L_sub, jumps):
@@ -89,9 +89,9 @@ def main():
         return
 
     cache, traj_zone = ezc.build_zone_labeled_cache(
-        c3.ROOT, c3.SETTINGS_PKL, a.condition, [ZONE_ON, ZONE_OFF],
-        c3.CACHE_DIR, cache_name=c3.CACHE_NAME(a.condition), verbose=False)
-    zone = c3.zone_masks(cache, traj_zone)
+        f5f.ROOT, f5f.SETTINGS_PKL, a.condition, [ZONE_ON, ZONE_OFF],
+        f5f.CACHE_DIR, cache_name=f5f.CACHE_NAME(a.condition), verbose=False)
+    zone = f5f.zone_masks(cache, traj_zone)
     keep = np.isin(zone, [ZONE_ON, ZONE_OFF])
     L = cache['L'][keep]
     jumps = np.asarray(cache['jumps_per_track'])[keep].astype(np.float32)

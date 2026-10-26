@@ -34,12 +34,12 @@ OUT = tlsd_paths.outp('PaperFigures_updated')
 
 # panel dir -> (sidecar basename, contrasts, the no-refit file it supersedes)
 SIDECARS = {
-    'figureS7/A': ('figS7A_W1_refit_stats', ['claim1_60S', 'claim1_40S'], ''),
-    'figureS7/C': ('figS7C_60S_bin_difference_refit_stats', ['claim1_60S'], ''),
+    'figureS7/A': ('figS7A_W1_refit_stats', ['figS7AC_60S', 'figS7A_40S'], ''),
+    'figureS7/C': ('figS7C_60S_bin_difference_refit_stats', ['figS7AC_60S'], ''),
     'figureS7/D': ('figS7D_refit_stats',
-                   ['claim2_NT_HHT', 'claim2_NT_eme', 'claim2_UBA5_HHT',
-                    'claim2_UBA5_eme', 'claim2_geno_none', 'claim2_geno_HHT',
-                    'claim2_geno_eme'],
+                   ['figS7D_NT_HHT', 'figS7D_NT_eme', 'figS7D_UBA5_HHT',
+                    'figS7D_UBA5_eme', 'figS7D_geno_none', 'figS7D_geno_HHT',
+                    'figS7D_geno_eme'],
                    'figS7D_stats_36state.csv'),
 }
 

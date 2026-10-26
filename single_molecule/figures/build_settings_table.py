@@ -49,11 +49,11 @@ import panel_core as pc
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
-ROOT = tlsd_paths.spt_root()
 OUT = tlsd_paths.outp('PaperFigures_updated', 'supplementary')
 
 # Dataset -> (tier, the panels it produces). Tier paths are copied from the
-# builders themselves; keep them in step if a builder is repointed.
+# builders themselves; keep them in step if a builder is repointed. They are
+# resolved through tlsd_paths.spt, so a per-experiment data root applies.
 DATASETS = [
     ('2025_06_06_zeb', 'all_data/2025_06_06_zeb/tracking_output_q=15p0_splitsize10',
      'Fig 5C, S7A, S7B, S7C'),
@@ -110,8 +110,8 @@ def _dig(d, path):
     return d
 
 
-# Region scheme per dataset, as the builders import it. Claim 1 runs both
-# subunits against different schemes, so its cell carries both.
+# Region scheme per dataset, as the builders import it. 2025_06_06_zeb (Fig 5C,
+# S7A-C) runs both subunits against different schemes, so its cell carries both.
 from region_schemes import SCHEME_60S, SCHEME_40S  # noqa: E402
 
 SCHEMES = {
@@ -280,8 +280,8 @@ def main():
     resampling_counts()
     loaded = []
     for name, tier, panels in DATASETS:
-        base = pickle.load(open(os.path.join(ROOT, tier, 'settings.pkl'), 'rb'))
-        var = pickle.load(open(os.path.join(ROOT, tier, VARIANT_REL), 'rb'))
+        base = pickle.load(open(tlsd_paths.spt(*tier.split('/'), 'settings.pkl'), 'rb'))
+        var = pickle.load(open(tlsd_paths.spt(*tier.split('/'), *VARIANT_REL.split('/')), 'rb'))
         loaded.append((name, tier, panels, base, var))
 
     header = ['Section', 'Parameter Name', 'Value', 'Units', 'Description']
@@ -293,7 +293,7 @@ def main():
         if len(set(vals)) == 1:
             val = vals[0]
         elif section == 'Diffusion bins':
-            # claim 1 runs both subunit schemes; the other datasets use its 60S one
+            # 2025_06_06_zeb runs both subunit schemes; the others use its 60S one
             val = max(vals, key=len)
             assert all(x in val for x in vals), (param, vals)
         else:

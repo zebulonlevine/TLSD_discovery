@@ -301,12 +301,12 @@ def sweep_dz(cache_path, settings_pkl, group_a, group_b, name_a='A', name_b='B',
 # ---------------------------------------------------------------------------
 
 DATASETS = {
-    'claim1_60S': dict(
+    'fig5C_60S': dict(
         tier=tlsd_paths.spt('all_data', '2025_06_06_zeb', 'tracking_output_q=15p0_splitsize10'),
         cache='occupancy_compare_cache/60S_bothgeno_likelihood_cache.npz',
         group_a={'source_member': 'sgNT_60S'}, group_b={'source_member': 'sgUBA5_60S'},
         name_a='sgNT_60S', name_b='sgUBA5_60S'),
-    'claim3_ER': dict(
+    'fig5F_ER': dict(
         tier=tlsd_paths.spt('all_data', '2025_09_15_zeb_ER', 'tracking_output_q=15p0'),
         cache='occupancy_compare_cache/_standalone_noDegron_likelihood_cache.npz',
         group_a=None, group_b=None, name_a='noDegron', name_b=None),

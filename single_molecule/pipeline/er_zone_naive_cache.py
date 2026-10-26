@@ -3,7 +3,7 @@ er_zone_naive_cache.py
 ========================
 
 Zone-mapping utility for the ER dataset's on-ER-vs-off-ER contrast
-(Figure4_4 Claim 3). Reuses saspt_likelihood_cache.build_likelihood_cache
+(Fig 5F). Reuses saspt_likelihood_cache.build_likelihood_cache
 on the all-zone (unfiltered) combinationwise pool, then derives each
 trajectory's zone label by joining against the zone-specific combos
 (*_on_structure, *_on_ER_broad, *_off_ER) on (fov_basename, x, y, frame) --

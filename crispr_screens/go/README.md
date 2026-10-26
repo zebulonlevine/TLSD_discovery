@@ -16,7 +16,9 @@ Environment `envs/dc.yml` (decoupler 2.1.6), except `build_tableS6.py`, which ne
 - The background is the genes in the screen: genome-wide for Fig 1F, the 715-gene sublibrary for
   Fig S3E and Table S6.
 
-**Gene sets** (not committed). Enrichr 2025 GO Biological Process, GO Molecular Function and GO
+**Inputs.** The gene tables come from `../pipeline/` (genome-wide) and `../scoring/` (sublibrary).
+
+**Gene sets** (not committed; not on Zenodo). Enrichr 2025 GO Biological Process, GO Molecular Function and GO
 Cellular Component, concatenated into `${TLSD_DATA}/GSEA_Fig1/S3/gene_sets.gmt` (6,922 terms; 1.9 MB).
 Download from https://maayanlab.cloud/Enrichr/#libraries (`GO_Biological_Process_2025`,
 `GO_Molecular_Function_2025`, `GO_Cellular_Component_2025`).

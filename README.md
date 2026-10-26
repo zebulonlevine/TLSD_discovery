@@ -23,11 +23,24 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 1. Create the conda environments in `envs/`.
 2. Copy `config/paths.example.yaml` to `config/paths.yaml`, and point `data` and `out` at the data
    directory (see Data availability).
+3. Place the inputs under `data:` at the relative paths the scripts read (the module READMEs and the Zenodo
+   README list them).
 
 ## Data availability
-- CRISPRi screen sequencing: GEO (accession TBD).
-- Proteomics: ProteomeXchange/PRIDE (TBD).
-- Single-particle trajectories: Zenodo (TBD).
+- **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
+  (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
+  scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
+  to place the count tables.
+- **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and the processed quantification tables; the
+  per-protein results are Tables S8 and S9 (see `proteomics/README.md`).
+- **Zenodo (TBD).** Single-particle tracking inputs and resampling draws, the confocal stacks and masks,
+  flow-cytometry exports, gel quantification sheets and raw scans, and the ricin reanalysis output.
+- **Third-party downloads** (not redistributed):
+  - Enrichr `GO_Biological_Process_2025`, `GO_Molecular_Function_2025` and `GO_Cellular_Component_2025`;
+  - the OpenCell organelle-IP table (ref. 170, supplementary file mmc4);
+  - Morgens *et al.* 2017 Supplementary Data 4;
+  - the DepMap Achilles common essentials;
+  - MitoCarta 3.0.
 
 ## License
 MIT; see `LICENSE`. Copyright (c) 2026 Whitehead Institute for Biomedical Research. Third-party tools

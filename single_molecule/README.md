@@ -29,6 +29,12 @@ The inputs are on Zenodo: DOI **TBD**. That deposit has:
 
 Point `TLSD_SPT_DATA` at the unpacked tree, which holds `all_data/<experiment>/...`.
 
+**Subunit labels (2026_07_08).** The 2026_07_08 movies were acquired with the two tag labels swapped:
+raw `halo=S3` is RPL29 (60S) and raw `halo=L29` is RPS3 (40S), confirmed from the constructs
+(2026-08-03). The deposited data use the true identity. The 60S arm is renamed `halo=60S_...` (conditions)
+and `60S_*` (combinations, caches), and the raw-filename typo `UBA5drug=eme360` is normalised to
+`UBA5_drug=eme360`. The 40S arm is used by no panel and is not deposited.
+
 Three experiments feed the panels:
 
 | Experiment | Tier | Panels |
@@ -49,25 +55,25 @@ module versions it ran with:
 | `validation/` | — | focal-depth calibration and saSPT-equivalence checks cited in `docs/METHODS.md` |
 
 ## Panels
-Outputs go under `$TLSD_OUT`. Panel files carry the `_36state` suffix. The ER builders write to
-`PaperFigures/figure4_claim3/`; everything else writes to `PaperFigures_updated/`.
+Outputs go under `$TLSD_OUT/PaperFigures_updated/`, one directory per panel. Panel files from the
+36-state fits carry the `_36state` suffix.
 
 | Panel | Script | Output |
 |---|---|---|
 | 5B | `figures/build_fig5B_snapshot.py --render` (FOVs/frames/crops: `figures/fig5B_snapshot_spec.json`) ¹ | `figure5/B/fig5B_snapshot.pdf` |
-| 5C | `figures/build_claim1_panels.py` | `figure5/C/fig5C_60S_posterior_overlay_36state.pdf` |
-| 5E | `pipeline/build_er_costain_figure.py line=L29_degron=000_HHT=000_001` ² | `costain/costain_line=L29_degron=000_HHT=000_001_T300.pdf` |
-| 5F left | `figures/build_claim3_panels.py` | `figure5/F/fig5F_left_zone_posterior_overlay_36state.pdf` |
+| 5C | `figures/build_fig5C_figS7B_panels.py` | `figure5/C/fig5C_60S_posterior_overlay_36state.pdf` |
+| 5E | `pipeline/build_er_costain_figure.py line=L29_degron=000_HHT=000_001` ² | `figure5/E/costain_line=L29_degron=000_HHT=000_001_T300.pdf` |
+| 5F left | `figures/build_fig5F_figS7J_panels.py` | `figure5/F/fig5F_left_zone_posterior_overlay_36state.pdf` |
 | 5F right | refit chain: `run_zone_refit_batch.py` → `aggregate_zone_refit.py` → `replot_refit_panels.py` | `figure5/F/fig5F_right_zone_bin_effect_refit_36state.pdf`, `fig5F_refit_stats_36state.csv` |
 | S7A | refit chain: `run_panel_refit_batch.py` → `aggregate_panel_refit.py` → `replot_refit_panels.py` | `figureS7/A/figS7A_W1_60S_40S_refit_36state.pdf`, `figS7A_W1_refit_stats_36state.csv` |
-| S7B | `figures/build_claim1_panels.py` | `figureS7/B/figS7B_40S_posterior_overlay_36state.pdf` |
+| S7B | `figures/build_fig5C_figS7B_panels.py` | `figureS7/B/figS7B_40S_posterior_overlay_36state.pdf` |
 | S7C | refit chain (as S7A) | `figureS7/C/figS7C_60S_bin_difference_refit_36state.pdf` and its stats CSV |
 | S7D | refit chain (as S7A) | `figureS7/D/figS7D_drug_shift_both_genotypes_refit_36state.pdf`, `figS7D_refit_stats_36state.csv` |
 | S7E | `figures/replot_refit_panels.py` (overlays) | `figureS7/E/figS7E_overlay_{sgNT,sgUBA5}_refit_36state.pdf` |
-| S7E table | `figures/build_claim2_panels.py` | `figureS7/E/figS7E_translation_state_assignment_36state.csv` |
-| S7H | `pipeline/build_er_boundary_profile_qc.py` | `er_boundary_profile_qc.pdf` |
-| S7I | `pipeline/build_er_area_fraction_strip.py` | `er_area_fraction_strip.pdf`, `er_area_fraction_stats.csv` |
-| S7J | `figures/build_claim3_panels.py` | `figureS7/J/figS7J_total_posterior_overlay_36state.pdf` |
+| S7E table | `figures/build_figS7DE_panels.py` | `figureS7/E/figS7E_translation_state_assignment_36state.csv` |
+| S7H | `pipeline/build_er_boundary_profile_qc.py` | `figureS7/H/er_boundary_profile_qc.pdf` |
+| S7I | `pipeline/build_er_area_fraction_strip.py` | `figureS7/I/er_area_fraction_strip.pdf`, `er_area_fraction_stats.csv` |
+| S7J | `figures/build_fig5F_figS7J_panels.py` | `figureS7/J/figS7J_total_posterior_overlay_36state.pdf` |
 | Table S12 | `figures/build_settings_table.py` | `supplementary/TableS12_SPT_settings.{csv,md}` |
 
 **Fits.** Every panel fits each condition independently.
@@ -79,7 +85,7 @@ Outputs go under `$TLSD_OUT`. Panel files carry the `_36state` suffix. The ER bu
 - The 5F zone-label permutation needs no refit; it uses 2000 draws, and the treatment permutation uses
   10 000.
 
-**No-refit companion outputs.** `build_claim2_panels.py` and `build_claim3_panels.py` also write no-refit
+**No-refit companion outputs.** `build_figS7DE_panels.py` and `build_fig5F_figS7J_panels.py` also write no-refit
 versions of the S7D, S7E and 5F-right statistics, using 2000 resamples without refitting. These are not
 the placed panels.
 
@@ -118,6 +124,7 @@ Use `envs/SPT_env.yml`. Set these variables, or the matching keys in `config/pat
 |---|---|
 | `TLSD_REPO` | repository root (used by the Slurm wrappers) |
 | `TLSD_SPT_DATA` | SPT data root: holds `all_data/<experiment>/...` (movies, tracking tiers, likelihood caches) |
+| `TLSD_SPT_DATA_<experiment>` | optional: a separate root (holding `all_data/<experiment>/...`) for one experiment; config key `spt_data_<experiment>` |
 | `TLSD_OUT` | output root |
 | `PANEL_VARIANT` | `36state` for every panel |
 | `TLSD_PYTHON` | interpreter used by the Slurm wrappers (default `python3`) |
@@ -126,9 +133,9 @@ Use `envs/SPT_env.yml`. Set these variables, or the matching keys in `config/pat
 **Slurm.** The wrappers carry no partition or account; pass them to `sbatch`
 (e.g. `sbatch -p <partition> ...`). The panel builders take 5–20 min and up to ~40 GB RAM each.
 
-**Writes into the data tree.** Only `merge_contrast_cache.py` writes there, adding the joint cache to the
-tier's `occupancy_compare_cache_36state/`. Every other script only reads the data tree and writes under
-`TLSD_OUT`.
+**Writes into the data tree.** Steps 3–6 only read the data tree and write under `TLSD_OUT`. The joint caches
+of step 3 go to `$TLSD_OUT/spt_joint_caches/<experiment>/<tier>/`. Steps 1 and 2 regenerate inputs from the
+raw movies and write into the experiment's own tree (tracking outputs, per-condition caches).
 
 ## Run order
 With the deposited caches and refit draws, only steps 3, 4 and 6 are needed. Step 3 rebuilds the joint caches,
@@ -143,13 +150,22 @@ regenerate the other inputs from the raw movies. The deposit holds trajectories 
      - ER zones: `er/generate_er_combinations.py` + `er/combo_array.sh`.
      - Re-zoning: `er/rezone_array.sh --pct-floor 60 --require-broad false --min-frames 2`.
    - Then run `call_megapool_operations.slurm` (2026_07_08).
+   - The 2026_07_08 raw movies carry the 60S names (see Subunit labels); that experiment's
+     `combinations.yaml` maps `60S_*` to the `halo=60S_...` conditions.
+   - Two inputs depend on directory order, so re-tracking a copied tree can differ from the deposited
+     trajectories:
+     - `run_filewise.py` takes `camera_bg` and `dt` from the first file `glob` returns for a condition;
+     - pooling takes the per-FOV files in `os.listdir` order.
+
+     The trajectories of each FOV are unaffected by the pooling order.
 2. **36-state likelihood caches.** Run `pipeline/submit_36state_caches.py`, which calls
    `call_variant_cache.slurm` → `build_variant_cache_one.py`.
 3. **Joint caches for the permutation nulls.** For each contrast in `figures/submit_panel_refit.py`, run
-   `figures/merge_contrast_cache.py --tier <tier> --cond-a A --cond-b B`.
+   `figures/merge_contrast_cache.py --tier <tier> --cond-a A --cond-b B`. Contrast keys name their panel
+   (`figS7AC_60S`, `figS7A_40S`, `figS7D_*`).
 4. **Panels.**
-   - `sbatch pipeline/call_build_panels.slurm build_claim1_panels.py`, and the same for
-     `build_claim2_panels.py` and `build_claim3_panels.py`.
+   - `sbatch pipeline/call_build_panels.slurm build_fig5C_figS7B_panels.py`, and the same for
+     `build_figS7DE_panels.py` and `build_fig5F_figS7J_panels.py`.
    - `pipeline/build_er_boundary_profile_qc.py`, `pipeline/build_er_area_fraction_strip.py`,
      `pipeline/build_er_costain_figure.py line=L29_degron=000_HHT=000_001`.
    - `sbatch pipeline/call_build_panels.slurm build_fig5B_snapshot.py --render`.

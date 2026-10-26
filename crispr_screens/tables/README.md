@@ -1,6 +1,7 @@
 # Supplementary tables S1–S6, S10, S11
 
-Environment `envs/crispri-screen.yml`. Run after `../pipeline`, `../scoring` and `../go`.
+Environment `envs/crispri-screen.yml`. Run after `../pipeline`, `../scoring` and `../go`, which build
+their inputs under the data root from the GEO count tables (see `../pipeline/README.md`).
 
 | Table | Command | Output (under the output root) |
 |---|---|---|

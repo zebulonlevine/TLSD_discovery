@@ -29,7 +29,7 @@ Welch (unequal-variance) t-test is the headline; Mann-Whitney U is reported
 alongside because n = 10 / 14 is small enough that normality is not testable.
 
 FOV set: untreated only (HHT=000 + HHT=005_t=000), the same 24 fields as
-build_er_boundary_profile_qc.py and the claim-3 contrasts. Asserted at runtime.
+build_er_boundary_profile_qc.py and the Fig 5F contrasts. Asserted at runtime.
 
 ============ WHAT THIS PANEL DOES AND DOES NOT SHOW -- READ THIS ============
 run_filewise_er._three_class_mask applies pct_floor=50: a pixel must exceed the
@@ -70,7 +70,7 @@ import matplotlib.pyplot as plt
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
 SEG_DIR = os.path.join(tlsd_paths.spt('all_data', '2025_09_15_zeb_ER'), 'tracking_output_q=15p0', 'er_segmentation')
-OUT_DIR = tlsd_paths.outp('PaperFigures', 'figure4_claim3')
+OUT_DIR = tlsd_paths.outp('PaperFigures_updated', 'figureS7', 'I')
 
 CONDITIONS = ['noDegron', 'Degron']
 COLORS = {'noDegron': '#4d4d4d', 'Degron': '#e6550d'}

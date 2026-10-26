@@ -17,11 +17,11 @@ a `%throttle`. One array over (contrast x scheme x batch) can.
 
 Skips contrasts that already have aggregated stats, so it is safe to re-run.
 """
-import argparse, hashlib, json, os, subprocess, sys
+import argparse, json, os, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from submit_panel_refit import (CONTRASTS, TIERS, NSUB, OUT_ROOT, CODE, FIG,
-                                SEC_PER_SUBTRACK, THREADS, sizing, sbatch)
+                                SEEDS, SEC_PER_SUBTRACK, THREADS, sizing, sbatch)
 
 # Re-measured after the einsum change, alone on a node (see
 # diagnostics/check_einsum_regression.py): 121 s/draw at 192,701 pooled
@@ -31,14 +31,14 @@ PY = sys.executable
 
 
 # Figure order, not alphabetical: tasks run in manifest order, so this is
-# what decides which panel's statistics are finishable first. Fig 5C
-# (claim1_60S) is already complete; 5F needs the trajectory-level zone
-# machinery and is queued separately.
+# what decides which panel's statistics are finishable first. The Fig S7A/S7C
+# 60S contrast (figS7AC_60S) is already complete; 5F needs the trajectory-level
+# zone machinery and is queued separately.
 PRIORITY = [
-    'claim1_40S',                              # Fig S7A (60S done)
-    'claim2_NT_HHT', 'claim2_NT_eme',          # Fig S7D/E
-    'claim2_UBA5_HHT', 'claim2_UBA5_eme',
-    'claim2_geno_none', 'claim2_geno_HHT', 'claim2_geno_eme',
+    'figS7A_40S',                              # Fig S7A (60S done)
+    'figS7D_NT_HHT', 'figS7D_NT_eme',          # Fig S7D/E
+    'figS7D_UBA5_HHT', 'figS7D_UBA5_eme',
+    'figS7D_geno_none', 'figS7D_geno_HHT', 'figS7D_geno_eme',
 ]
 
 
@@ -51,8 +51,12 @@ def seed_for(key):
     Each contrast is individually valid, but any statistic formed ACROSS
     contrasts -- a difference-in-differences built from two arms, say --
     inherits a correlation that is an artefact of the RNG, not of the data.
+
+    The seeds are fixed in submit_panel_refit.SEEDS: each is the sha256 of the
+    contrast's original key, fixed when the deposited draws were made, so
+    renaming a contrast does not change its draws.
     """
-    return int(hashlib.sha256(key.encode()).hexdigest()[:8], 16) % (2 ** 31)
+    return SEEDS[key]
 
 
 def already_done(key):
@@ -164,8 +168,8 @@ def main():
     for key in keys:
         # The aggregator reloads the MERGED cache to recompute the observed
         # statistic, so it needs memory on the same scale as a refit task, not
-        # a flat 12G. Two claim-2 aggregates were OOM-killed at 12G: pooled L
-        # is 8-11 GiB there against 3.9 GiB for claim 1. Peak is about
+        # a flat 12G. Two Fig S7D aggregates were OOM-killed at 12G: pooled L
+        # is 8-11 GiB there against 3.9 GiB for Fig S7A. Peak is about
         # 1.5 x L (the array plus one group's slice copy) plus the marginals.
         _, _ca, _cb, _ = CONTRASTS[key]
         _l = (NSUB[_ca] + NSUB[_cb]) * 150 * 36 * 4 / 2 ** 30

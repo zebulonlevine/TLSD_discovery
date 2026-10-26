@@ -3,7 +3,7 @@ forkb_er_zone.py
 ==================
 
 Fork-B-style (VBEM-refit) zone comparator for the ER on-ER-vs-off-ER
-contrast (Figure4_4 Claim 3). Replaces er_zone_naive_cache.py's naive/
+contrast (Fig 5F). Replaces er_zone_naive_cache.py's naive/
 no-refit approach per Zeb's correction (Fork B is the default statistic,
 not naive occupancy) -- and independently fixes a real calibration bug
 V4's negative control caught in that module: zone labels must be permuted

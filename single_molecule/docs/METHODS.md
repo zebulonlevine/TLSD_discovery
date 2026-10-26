@@ -175,7 +175,7 @@ piling up against an edge; it was too narrow (a 28% range) for the data to
 discriminate within, and in practice acted as a **fixed localization error of
 ≈0.0285 µm** for every experiment rather than as something inferred. On the
 intensity-filtered set saSPT actually sees, the measured fit uncertainty is
-0.029 / 0.035 / 0.028 µm for claims 1–3 — above that grid for the drug
+0.029 / 0.035 / 0.028 µm for 2025_06_06 / 2026_07_08 / 2025_09_15 — above that grid for the drug
 experiment.
 
 The consequence was measured before the change, by refitting one headline
@@ -187,13 +187,13 @@ The cutoff-free statistic was stable; the per-bin calls were not uniformly so:
 
 | contrast | W₁ narrow grid | W₁ wide grid | bin calls flipping |
 |---|---|---|---|
-| claim 1, sgNT vs sgUBA5 | 0.271 | 0.240 | 2 of 6 (immobile, medium) |
-| claim 2, none vs harringtonine | 0.465 | 0.522 | 0 of 6 |
-| claim 3, noDegron vs Degron | 0.133 | 0.148 | 0 of 6 |
+| 2025_06_06 (Fig 5C), sgNT vs sgUBA5 | 0.271 | 0.240 | 2 of 6 (immobile, medium) |
+| 2026_07_08 (Fig S7D), none vs harringtonine | 0.465 | 0.522 | 0 of 6 |
+| 2025_09_15 (Fig 5F), noDegron vs Degron | 0.133 | 0.148 | 0 of 6 |
 
 Five of 24 bin calls moved. Two points on how to read that. First, W₁ did not
 weaken on the wide grid in the two datasets whose error sat outside the narrow
-one — it *increased* (claim 2, 0.465→0.522) — so the distributional
+one — it *increased* (2026_07_08, 0.465→0.522) — so the distributional
 difference between conditions was never an artefact of the grid.
 Second, the flips are boundary mis-registration, and the mechanism is measured
 (`verification/grid_shift_mechanism.csv`). saSPT's jump variance along one axis
@@ -242,14 +242,14 @@ read together:
 
 | dataset | AOTF 640 | Genesis 640 | Ilas2 preset | median I0 |
 |---|---|---|---|---|
-| claim 1 | 100% | 35% | TIRF 561 | 598 |
-| claim 2 | 100% | **50%** | **TIRF 640** | **339** |
-| claim 3 | 100% | 30% | TIRF 561 | 615 |
+| 2025_06_06 | 100% | 35% | TIRF 561 | 598 |
+| 2026_07_08 | 100% | **50%** | **TIRF 640** | **339** |
+| 2025_09_15 | 100% | 30% | TIRF 561 | 615 |
 
-Brightness does not track delivered power: claim 2 receives the most 640 nm
+Brightness does not track delivered power: 2026_07_08 receives the most 640 nm
 light of the three and is the dimmest. (With three datasets a rank correlation
 is not worth quoting.) The leading
-remaining candidate is the illumination angle — claim 2 is the only experiment
+remaining candidate is the illumination angle — 2026_07_08 is the only experiment
 whose Ilas2 preset is `TIRF 640` rather than `TIRF 561`, and a steeper,
 more TIRF-like sheet brightly illuminates only molecules close to the coverslip,
 so molecules sampled deeper in the cell would appear dimmer despite high power.

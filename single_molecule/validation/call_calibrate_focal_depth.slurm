@@ -6,7 +6,7 @@
 #SBATCH --time=4:00:00
 # Empirical focal-depth fit + dz sweep. Measured 1.48 GB (job 10938892,
 # 100 bootstrap draws over the 60S_bothgeno cache). 8G at ~5x headroom
-# for the larger claim-2 caches.
+# for the larger 2026_07_08 (Fig S7D) caches.
 set -euo pipefail
 CODE_DIRECTORY=${TLSD_REPO:?set TLSD_REPO to the repository root}/single_molecule/pipeline
 export PYTHONPATH="$CODE_DIRECTORY:${PYTHONPATH:-}"

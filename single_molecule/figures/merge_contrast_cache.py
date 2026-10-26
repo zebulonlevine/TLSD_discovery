@@ -8,6 +8,8 @@ per-sub-trajectory likelihood depends only on that sub-trajectory's own jumps
 and the shared grid, so concatenation gives byte-identical L to one joint
 saSPT call (saspt_likelihood_cache.merge_likelihood_caches).
 
+Reads the two per-condition caches from the tier and writes the joint cache
+under the output root (panel_core.joint_cache_dir), never into the data tree.
 Idempotent -- skips if the merged cache already exists.
 """
 import argparse, os, sys
@@ -22,13 +24,14 @@ ap.add_argument('--cond-b', required=True)
 a = ap.parse_args()
 
 cdir = os.path.join(a.tier, pc.CACHE_SUBDIR)
+jdir = pc.joint_cache_dir(a.tier)
 name = f'_joint_{a.cond_a}_vs_{a.cond_b}'
-out = os.path.join(cdir, f'{name}_likelihood_cache.npz')
+out = os.path.join(jdir, f'{name}_likelihood_cache.npz')
 if os.path.exists(out):
     print(f'already present, skipping: {out}')
     sys.exit(0)
 p = merge_likelihood_caches(
     {a.cond_a: os.path.join(cdir, f'{a.cond_a}_likelihood_cache.npz'),
      a.cond_b: os.path.join(cdir, f'{a.cond_b}_likelihood_cache.npz')},
-    cdir, name, force=False, verbose=True)
+    jdir, name, force=False, verbose=True)
 print(f'wrote {p}  ({os.path.getsize(p)/2**30:.2f} GiB)')

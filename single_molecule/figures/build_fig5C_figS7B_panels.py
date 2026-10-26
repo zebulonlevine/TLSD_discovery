@@ -1,5 +1,5 @@
 """
-build_claim1_panels.py -- Figure 5C and Supplementary Figure S7B.
+build_fig5C_figS7B_panels.py -- Figure 5C and Supplementary Figure S7B.
 
 Dataset `2025_06_06_zeb`, tier `q=15p0_splitsize10`, 15.091 ms / 0.11 um.
 RPL29-Halo (60S) and Halo-RPS24 (40S), sgNT vs sgUBA5, 10 FOV per condition.
@@ -17,7 +17,7 @@ same contrasts, S7A (W1 against the FOV-relabelling null) and S7C (per-bin
 refit chain: run_panel_refit_batch.py -> aggregate_panel_refit.py ->
 replot_refit_panels.py.
 
-Run:  sbatch call_build_panels.slurm build_claim1_panels.py
+Run:  sbatch call_build_panels.slurm build_fig5C_figS7B_panels.py
 """
 
 import os

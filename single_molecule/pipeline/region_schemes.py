@@ -14,29 +14,30 @@ same scheme can be carried across the 60S experiments rather than tuned per
 figure.
 
 60S -- [0.004, 0.025, 0.35, 3.0], five bins (frozen 2026-09-16).
-  Claims 1, 2 and 3 all image a 60S tag at 15.091 ms / 0.11 um, so their
-  diffusion axes are directly comparable and share this scheme.
+  All three experiments (2025_06_06_zeb: Fig 5C, S7A-C; 2026_07_08: Fig S7D/E;
+  2025_09_15_zeb_ER: Fig 5F, S7J) image a 60S tag at 15.091 ms / 0.11 um, so
+  their diffusion axes are directly comparable and share this scheme.
     0.004  minimum in all three datasets (observed 0.0029-0.0037).
     0.025  NOT a density minimum anywhere -- no 60S dataset has a minimum
            between 0.004 and 0.19. Retained from the previous scheme, and
            kept for resolution: homoharringtonine depletes occupancy below
            ~0.05 and refills above it, so without a boundary in that window
            the run-off redistribution cancels within a single bin and ~37% of
-           the claim-2 effect goes unmeasured. Any boundary in 0.025-0.1
+           the Fig S7D drug effect goes unmeasured. Any boundary in 0.025-0.1
            recovers 98-102% of it, so the result does not depend on the exact
            position.
-    0.35   minimum in claims 1 and 3 (0.3551 in both); claim 2's nearest is
-           0.2816.
-    3.0    minimum in claims 1 and 3 (3.09, 2.86); separates the ~0.8 and
+    0.35   minimum in 2025_06_06 and 2025_09_15 (0.3551 in both); 2026_07_08's
+           nearest is 0.2816.
+    3.0    minimum in 2025_06_06 and 2025_09_15 (3.09, 2.86); separates the ~0.8 and
            ~4-5 peaks, which are resolved in all three datasets.
   Dropped from the previous six-bin scheme: 0.1, which sat on the CREST of
-  the ~0.08 shoulder in claims 1 and 2 rather than in a minimum.
+  the ~0.08 shoulder in 2025_06_06 and 2026_07_08 rather than in a minimum.
 
 40S -- [0.004, 0.04, 0.3, 2.0], five bins. Chosen for 40S's own broader
   structure; deliberately NOT the 60S boundaries.
 
-60S is used for the 60S contrasts (claim 1 60S, claim 2 S3, claim 3 ER=L29).
-40S is used for the 40S contrasts (claim 1 40S, claim 2 L29).
+60S is used for every 60S (RPL29) contrast: 2025_06_06 60S, 2026_07_08 and
+2025_09_15_zeb_ER. 40S is used for the 2025_06_06 40S (RPS24) contrast.
 """
 
 SCHEME_60S = {

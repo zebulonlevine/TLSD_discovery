@@ -11,14 +11,17 @@ Variant
              (PANEL_VARIANT=36state).
 
 Why per-condition rather than the merged multi-condition caches used before:
-at 36 localization-error states the merged claim-2 cache would be ~25 GB
+at 36 localization-error states the merged 2026_07_08 (Fig S7D) cache would be ~25 GB
 stored and ~50 GB during saSPT's float64 build. Nothing is lost -- every
 downstream statistic fits each condition over its own sub-trajectories only
 (panel_core.per_fov_occupancy), so a merged cache buys only a shared-grid
 guarantee that the stored checksum already provides.
 
 Usage (one condition per SLURM job, memory sized per condition):
-    python build_variant_cache_one.py --dataset claim1 --condition sgNT_60S --variant 36state
+    python build_variant_cache_one.py --dataset 2025_06_06_zeb --condition sgNT_60S --variant 36state
+
+The cache is written into the tier's occupancy_compare_cache_<variant>/, i.e.
+into the data tree; --out-dir writes it elsewhere (e.g. to check a rebuild).
 """
 import argparse
 import os
@@ -33,24 +36,28 @@ from saspt_likelihood_cache import build_likelihood_cache
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
-A = tlsd_paths.spt('all_data')
 FOCAL_DEPTH = 0.7
 
 VARIANTS = {
     '36state':    lambda ds: np.arange(0.0, 0.072, 0.002),
 }
 
+# One entry per experiment: Fig 5C/S7A-C (2025_06_06_zeb), Fig S7D/E
+# (2026_07_08, 60S arm) and Fig 5F/S7J (2025_09_15_zeb_ER).
 DATASETS = {
-    'claim1': dict(tier=f'{A}/2025_06_06_zeb/tracking_output_q=15p0_splitsize10',
-                   tc='traj_combinations',
-                   conditions=['sgNT_60S', 'sgUBA5_60S', 'sgNT_40S', 'sgUBA5_40S']),
-    'claim2': dict(tier=f'{A}/2026_07_08/tracking_output_q=15p0',
-                   tc='traj_combinations',
-                   conditions=['S3_NT_none', 'S3_NT_HT10', 'S3_NT_eme360',
-                               'S3_UBA5_none', 'S3_UBA5_HT10', 'S3_UBA5_eme360']),
-    'claim3': dict(tier=f'{A}/2025_09_15_zeb_ER/tracking_output_q=15p0',
-                   tc='traj_combinations',
-                   conditions=['noDegron', 'Degron']),
+    '2025_06_06_zeb': dict(
+        tier=tlsd_paths.spt('all_data', '2025_06_06_zeb', 'tracking_output_q=15p0_splitsize10'),
+        tc='traj_combinations',
+        conditions=['sgNT_60S', 'sgUBA5_60S', 'sgNT_40S', 'sgUBA5_40S']),
+    '2026_07_08': dict(
+        tier=tlsd_paths.spt('all_data', '2026_07_08', 'tracking_output_q=15p0'),
+        tc='traj_combinations',
+        conditions=['60S_NT_none', '60S_NT_HT10', '60S_NT_eme360',
+                    '60S_UBA5_none', '60S_UBA5_HT10', '60S_UBA5_eme360']),
+    '2025_09_15_zeb_ER': dict(
+        tier=tlsd_paths.spt('all_data', '2025_09_15_zeb_ER', 'tracking_output_q=15p0'),
+        tc='traj_combinations',
+        conditions=['noDegron', 'Degron']),
 }
 
 
@@ -77,10 +84,11 @@ def main():
     ap.add_argument('--dataset', required=True, choices=list(DATASETS))
     ap.add_argument('--condition', required=True)
     ap.add_argument('--variant', required=True, choices=list(VARIANTS))
+    ap.add_argument('--out-dir', help='write here instead of the tier cache directory')
     args = ap.parse_args()
     cfg = DATASETS[args.dataset]
     tier, cond = cfg['tier'], args.condition
-    out_dir = os.path.join(tier, f'occupancy_compare_cache_{args.variant}')
+    out_dir = args.out_dir or os.path.join(tier, f'occupancy_compare_cache_{args.variant}')
     spkl = variant_settings(tier, out_dir, args.variant, args.dataset)
     tc = os.path.join(tier, cfg['tc'])
     grid = VARIANTS[args.variant](args.dataset)

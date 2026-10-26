@@ -2,7 +2,7 @@
 multiplicity.py
 ===============
 
-Shared multiple-comparison helpers for the Figure 4 claims.
+Shared multiple-comparison helpers for the SPT panels.
 
 Exists because seven near-identical `holm()` implementations had accumulated
 across the HMM/rate and topology scripts. The canonical one here is lifted

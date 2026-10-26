@@ -2,7 +2,7 @@
 build_er_boundary_profile_qc.py
 =================================
 
-ER mask QC (Figure4_4 Claim 3): boundary-crossing intensity profile.
+ER mask QC (Fig S7H): boundary-crossing intensity profile.
 
 The on_ER_broad mask is an adaptive LOCAL-brightness threshold on the
 deconvolved ER image (run_filewise_er.py::_three_class_mask), so a raw
@@ -45,13 +45,13 @@ import viz_tools as vt  # noqa: F401 (kept for ExpPaths/PIXEL_SIZE parity with s
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
-OUT_DIR = tlsd_paths.outp('PaperFigures', 'figure4_claim3')
+OUT_DIR = tlsd_paths.outp('PaperFigures_updated', 'figureS7', 'H')
 SEG_DIR = os.path.join(tlsd_paths.spt('all_data', '2025_09_15_zeb_ER'), 'tracking_output_q=15p0', 'er_segmentation')
 CORR_DIR = os.path.join(tlsd_paths.spt('all_data', '2025_09_15_zeb_ER'), 'preprocessed_corrected')
 
 PIXEL_SIZE = 0.11  # um/px, matches viz_tools.PIXEL_SIZE
 
-# Grey = noDegron, orange = Degron, using the same two shades as the claim-3
+# Grey = noDegron, orange = Degron, using the same two shades as the Fig 5F
 # zone posterior overlay's condition curves so the QC panel reads with the rest
 # of the figure. (Was blue/red, which collided with the #3366cc/#cc3333 that
 # encodes "CI excludes 0" in the region-effect panels.)
@@ -68,7 +68,7 @@ DEGRON_COLORS = {'noDegron': '#4d4d4d', 'Degron': '#e6550d'}
 #
 # This is exactly the FOV set combinations.yaml pools as `noDegron` / `Degron`
 # (both list HHT=000 + HHT=005_t=000), so it should reproduce the 10 / 14 FOV
-# split the claim-3 contrasts and the DiD use -- checked at runtime below.
+# split the Fig 5F contrasts and the DiD use -- checked at runtime below.
 UNTREATED_ONLY = True
 EXPECTED_FOV = {'noDegron': 10, 'Degron': 14}
 
@@ -159,11 +159,11 @@ def main():
     print(f'FOVs used by condition: {counts}')
     if UNTREATED_ONLY and counts != EXPECTED_FOV:
         # Not fatal -- but it means this panel's FOV set has drifted from the
-        # one combinations.yaml pools for the claim-3 contrasts, so the QC would
+        # one combinations.yaml pools for the Fig 5F contrasts, so the QC would
         # no longer be describing the masks those contrasts actually used.
         print(f'  WARNING: expected {EXPECTED_FOV} (the combinations.yaml '
               f'noDegron/Degron pools). This panel no longer matches the FOV set '
-              f'behind the claim-3 contrasts.')
+              f'behind the Fig 5F contrasts.')
 
     df = pd.DataFrame(rows)
     os.makedirs(OUT_DIR, exist_ok=True)

@@ -38,9 +38,9 @@ range), so a plain percentile stretch renders as a flat green wash instead of
 visible ER structure -- this is why the older notebook composite looked
 saturated.
 
-Crops: taken from CROPS below when present (FOV 001 reuses the two crops the
-existing figure4_claim3 panels already use, so the new figure lines up with
-what is already in the deck). Any FOV without an entry falls back to
+Crops: taken from CROPS below when present (FOV 001 reuses the two crops of
+the earlier ER snapshot panels, so the new figure lines up with what is
+already in the deck). Any FOV without an entry falls back to
 viz_tools.build_zoom_table contrast_score selection.
 """
 
@@ -59,7 +59,7 @@ import viz_tools as vt
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
-OUT = tlsd_paths.outp('PaperFigures', 'figure4_claim3', 'costain')
+OUT = tlsd_paths.outp('PaperFigures_updated', 'figure5', 'E')
 os.makedirs(OUT, exist_ok=True)
 
 paths = vt.ExpPaths(

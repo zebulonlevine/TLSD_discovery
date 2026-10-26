@@ -4,6 +4,14 @@ Plotting library: `lib/screen_viz.py`. Category tables: `categories/`. Environme
 `envs/crispri-screen.yml`. Render everything with `bash run_all_figures.sh` (under Slurm,
 `--ntasks=1`). Outputs go to the output root, at the same relative paths as the published files.
 
+**Inputs.** The panels read the screen outputs under the data root:
+- `GenomeWide_results/results/`, `Sublibrary_results/results/` and `fixed_NotI/` (scores, results and
+  GO);
+- `GSEA_Fig1/`.
+
+Build these from the GEO count tables with `../crispr_screens/` (pipeline → scoring → go); they are not on
+Zenodo. The same values are in Supplementary Tables S1–S6, S10 and S11.
+
 | Panel | Script (`panels/`) | Output |
 |---|---|---|
 | 1E, 1F, S1D, S1E, S1F, S2A, S6A | `fig1_figS1_figS2A_figS6A.py [--panels ...]` | `GenomeWide_results/plots/{Fig1,EssentialsScatter}/` |

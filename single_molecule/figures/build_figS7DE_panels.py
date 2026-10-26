@@ -1,11 +1,10 @@
 """
-build_claim2_panels.py -- Supplementary Figures S7D and S7E.
+build_figS7DE_panels.py -- Supplementary Figures S7D and S7E.
 
-Dataset `2026_07_08`, tier `q=15p0`, 15.091 ms / 0.11 um. ENDOGENOUSLY tagged
-subunits. IMPORTANT: the on-disk tag labels are swapped relative to their
-names -- tag `S3` is RPL29 (60S) and tag `L29` is RPS3 (40S); see
-`docs/HANDOFF_label_swap_2026_07_08.md`. These panels use the 60S arm, i.e.
-the `S3` tag.
+Dataset `2026_07_08`, tier `q=15p0`, 15.091 ms / 0.11 um. Endogenously tagged
+RPL29 (60S); conditions `60S_{NT,UBA5}_{none,HT10,eme360}`. The raw acquisition
+labels of this experiment were swapped; the names here are the true identity
+(see "Subunit labels" in single_molecule/README.md).
 
 Drugs, added 1 h before imaging: harringtonine (`HT10`, 10 ug/mL, initiation
 inhibitor -> run-off to free subunits) and emetine (`eme360`, 360 uM, traps
@@ -25,7 +24,7 @@ Per the draft legend, comparisons are made only drug-vs-untreated within a
 genotype, and genotype-vs-genotype at matched treatment. BH correction is
 applied across the bins of each panel.
 
-Run:  sbatch call_build_panels.slurm build_claim2_panels.py
+Run:  sbatch call_build_panels.slurm build_figS7DE_panels.py
 """
 
 import os
@@ -44,7 +43,9 @@ from region_schemes import SCHEME_60S
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
 from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
 TIER = tlsd_paths.spt('all_data', '2026_07_08', 'tracking_output_q=15p0')
-CACHE = 'occupancy_compare_cache/S3_did_merged_likelihood_cache.npz'
+# merged multi-condition cache of the default (non-36state) layout; with
+# PANEL_VARIANT=36state each condition has its own cache and this is unused
+CACHE = 'occupancy_compare_cache/60S_did_merged_likelihood_cache.npz'
 OUT = tlsd_paths.outp('PaperFigures_updated')
 SCHEME = SCHEME_60S
 
@@ -56,7 +57,7 @@ DRUG_LABEL = {'none': 'untreated', 'HT10': 'harringtonine',
 DRUG_COLOR = {'none': ps.BLACK, 'HT10': ps.PERTURBED, 'eme360': ps.BLUE}
 GENO_LABEL = {'NT': 'sgNT', 'UBA5': 'sgUBA5'}
 GENO_COLOR = {'NT': ps.CONTROL, 'UBA5': ps.PERTURBED}
-MEMBER = 'S3_{geno}_{drug}'
+MEMBER = '60S_{geno}_{drug}'
 
 
 def contrast(ctx, occ, a, b, kind, seed=0):
@@ -132,8 +133,8 @@ def main():
             o, fovs, per_fov = pc.per_fov_occupancy(c, grp)
             occ[m], n_fov[m], n_sub[m] = o, len(fovs), int(per_fov.sum())
             # Keep only a lightweight context. Retaining one ctx per condition
-            # would hold every per-condition cache resident -- the six claim-2
-            # L arrays are 25.4 GB between them -- and nothing downstream needs
+            # would hold every per-condition cache resident -- the six
+            # 2026_07_08 L arrays are 25.4 GB between them -- and nothing downstream needs
             # more than the D grid and the settings block.
             ctx = dict(diff_coefs=c['diff_coefs'], settings=c['settings'])
             del c

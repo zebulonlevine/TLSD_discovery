@@ -25,7 +25,7 @@ from region_schemes import SCHEME_60S, SCHEME_40S
 from multiplicity import bh, holm, perm_p_addone
 from submit_panel_refit import CONTRASTS, TIERS, OUT_ROOT
 
-SCHEME_FOR = {'claim1_40S': SCHEME_40S}
+SCHEME_FOR = {'figS7A_40S': SCHEME_40S}
 
 
 def load_scheme_batches(out_dir, scheme, n_draws):

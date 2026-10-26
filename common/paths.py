@@ -83,13 +83,23 @@ def repo(*parts):
 #                  likelihood caches), i.e. the single-molecule tree
 #   confocal_data  holds the GFP-TLSD1 confocal experiment (Denoised/, output/)
 
-def spt_root():
+def spt_root(experiment=None):
+    """The SPT data root. One experiment can live under its own root:
+    TLSD_SPT_DATA_<experiment> (or config key spt_data_<experiment>) names a
+    directory holding all_data/<experiment>/... and wins for that experiment."""
+    if experiment:
+        v = (os.environ.get(f'TLSD_SPT_DATA_{experiment}')
+             or _from_config(f'spt_data_{experiment}'))
+        if v:
+            return os.path.abspath(os.path.expanduser(os.path.expandvars(v)))
     return _root('TLSD_SPT_DATA', 'spt_data')
 
 
 def spt(*parts):
-    """Path to a single-molecule input under the SPT data root (read only)."""
-    return os.path.join(spt_root(), *parts)
+    """Path to a single-molecule input under the SPT data root (read only).
+    spt('all_data', <experiment>, ...) honours that experiment's own root."""
+    experiment = parts[1] if len(parts) > 1 and parts[0] == 'all_data' else None
+    return os.path.join(spt_root(experiment), *parts)
 
 
 def confocal_root():

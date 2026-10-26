@@ -42,12 +42,29 @@ these comparisons against `comparisons_*.csv`, not against the name.
 | `config_*.yaml`, `sample_table_*.csv`, `library_table_*.csv`, `comparisons_*.csv` | Screen definitions |
 
 ## Inputs not in this repository
-- FASTQs (GEO) go under `${TLSD_DATA}/fastq/{genomewide,sublibrary}/`, at the paths given in
+- **FASTQs (GEO).** Place them under `${TLSD_DATA}/fastq/{genomewide,sublibrary}/`, at the paths given in
   `sample_table_*.csv`.
-- Library annotations (Zenodo) go under `${TLSD_DATA}/GenomeWide_results/libraryInfo/`:
-  `221010_Weissman_Lib1A_targets.csv`, `221111_lib1_targets.csv`,
-  `230215_extra_isoforms_oligos_single.csv`.
-- Under `${TLSD_DATA}/Sublibrary_results/libraryInfo/`: `sublibrary.csv`, `sublibrary_spacers.csv`.
+- **Count tables (GEO).** To start at the MAGeCK stage (stage 4), build `counts_for_mageck.txt` from the
+  GEO count tables. Rows are in the same order and the counts are the ones the published results used.
+  - Genome-wide, `${TLSD_DATA}/GenomeWide_results/results/`:
+    - `counts_for_mageck.txt` from `genomewide_aggregated_counts.csv`: tab-separated; columns `sgRNA`,
+      `Gene` (the sgRNA name without its `_sg<n>` suffix), then the 22 sample columns.
+    - For Table S1, save the GEO table itself as `aggregated_counts.csv`; it supplies `Library` and
+      `sgRNA Sequence`, row-aligned.
+    - Also write `sgrna_annotation.csv` with the columns `sgRNA`, `Gene`, `sgRNA Sequence`.
+  - Sublibrary, `${TLSD_DATA}/Sublibrary_results/results/`:
+    - `counts_for_mageck.txt` from `sublibrary_aggregated_counts.csv`: rename `sgrna` → `sgRNA` and
+      `gene` → `Gene`, then add the sample columns.
+    - GEO omits the eight `outgrown` samples; no figure or table uses them.
+  - The published per-comparison results and gene scores are Supplementary Tables S1–S6, S10 and S11.
+- **Library design files.** These are not deposited:
+  - `${TLSD_DATA}/GenomeWide_results/libraryInfo/`: `221010_Weissman_Lib1A_targets.csv`,
+    `221111_lib1_targets.csv`, `230215_extra_isoforms_oligos_single.csv` (counting from FASTQs only);
+  - `${TLSD_DATA}/Sublibrary_results/libraryInfo/`: `sublibrary.csv`, `sublibrary_spacers.csv` (read by
+    `restriction_sites.py`).
+
+  Guide names, genes and spacers are in the GEO count tables, which also flag the 53 NotI/BamHI-site
+  sublibrary guides, and in Tables S1, S4 and S10.
 
 ## Notes
 - For comparisons with one replicate per arm (the growing-condition genome-wide screens), MAGeCK fits

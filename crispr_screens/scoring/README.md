@@ -3,6 +3,10 @@
 Run in this order after the pipeline's MAGeCK stage (`../pipeline/`). Environment
 `envs/crispri-screen.yml`. Run every step under Slurm (`srun --ntasks=1`).
 
+Inputs: the MAGeCK outputs under `${TLSD_DATA}/Sublibrary_results/results/` (built from the GEO count
+table; see `../pipeline/README.md`) and the sublibrary library files. The published scores are
+Supplementary Tables S4, S5, S10 and S11.
+
 1. `bash run_line_scores.sh`
    - Per-sgRNA line scores for the 8 sublibrary screens (60S/40S × synthesis/degradation × sgNT/sgUBA5),
      written to `Sublibrary_results/scores/<dir>/<dir>_sgrna_scores.csv`.

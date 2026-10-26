@@ -61,6 +61,9 @@ from saspt.defoc import f_remain_rbm
 
 import paperfig_style as ps
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
+from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
+
 # saSPT's own weighting: occupancy is a fraction of DISPLACEMENTS. Set
 # PANEL_EQUAL_WEIGHT=1 in the environment to rebuild everything under the
 # equal-per-sub-trajectory weighting the previous figure build used, which is
@@ -75,8 +78,8 @@ EQUAL_WEIGHT = os.environ.get('PANEL_EQUAL_WEIGHT', '') == '1'
 #   PANEL_VARIANT=36state   saSPT's default 36-state localization-error grid
 #                           (0-0.070 um) and focal_depth 0.7 um, with caches
 #                           built PER CONDITION rather than merged -- at 36
-#                           states a merged claim-2 cache would be ~25 GB
-#                           stored and ~50 GB during saSPT's float64 build.
+#                           states a merged Fig S7D (2026_07_08) cache would be
+#                           ~25 GB stored and ~50 GB during saSPT's float64 build.
 #
 # The variant also carries its own settings.pkl, written next to its caches, so
 # load_likelihood_cache's grid-checksum assertion has the matching reference
@@ -114,18 +117,28 @@ def settings_path(tier):
     return os.path.join(tier, SETTINGS_REL)
 
 
+def joint_cache_dir(tier):
+    """Where a contrast's joint (two-condition) cache lives. Joint caches are
+    derived by merge_contrast_cache.py, so they go under the output root, never
+    into the data tree: <out>/spt_joint_caches/<experiment>/<tier>/<cache dir>."""
+    tier = os.path.normpath(tier)
+    return tlsd_paths.outp('spt_joint_caches', os.path.basename(os.path.dirname(tier)),
+                           os.path.basename(tier), CACHE_SUBDIR)
+
+
 def load(tier, cache_rel):
     """Load a likelihood cache with its grid checksum asserted against the
     settings block that matches it, plus the likelihood object and the D grid.
 
     `cache_rel` may be given relative to the tier with any cache subdirectory;
     under an active PANEL_VARIANT the subdirectory is rewritten to the
-    variant's, so callers can keep passing one path.
+    variant's, so callers can keep passing one path. Joint caches (`_joint_*`)
+    are read from joint_cache_dir(tier).
     """
     spkl = settings_path(tier)
     base = os.path.basename(cache_rel)
-    cache = load_likelihood_cache(os.path.join(tier, CACHE_SUBDIR, base),
-                                  settings_pkl=spkl)
+    cdir = joint_cache_dir(tier) if base.startswith('_joint_') else os.path.join(tier, CACHE_SUBDIR)
+    cache = load_likelihood_cache(os.path.join(cdir, base), settings_pkl=spkl)
     return dict(cache=cache,
                 likelihood=_make_likelihood_from_cache(cache),
                 settings=_load_saspt_settings(spkl),

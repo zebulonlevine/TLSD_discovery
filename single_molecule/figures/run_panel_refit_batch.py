@@ -35,6 +35,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import panel_core as pc
 from occupancy_compare import _w1_logD, _resolve_group
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')))
+from common import paths as tlsd_paths  # noqa: E402  repo root; data/output roots
+
 
 def resolve_draw(scheme, fovs_a, fovs_b, seed, n_draws, k):
     """The FOV draw for index k. Keyed only by (seed, k) via SeedSequence."""
@@ -76,6 +79,12 @@ def main():
     with open(args.spec_file) as f:
         spec = json.load(f)
     scheme, n_draws = spec['scheme'], spec['n_draws']
+    # The deposited specs give the tier relative to the SPT data root and the
+    # output directory relative to the output root.
+    if not os.path.isabs(spec['tier']):
+        spec['tier'] = tlsd_paths.spt(spec['tier'])
+    if not os.path.isabs(spec['out_dir']):
+        spec['out_dir'] = tlsd_paths.outp(spec['out_dir'])
 
     batch_size = -(-n_draws // args.n_batches)
     start = args.batch_index * batch_size
