@@ -26,6 +26,11 @@ Levine *et al.* (in preparation). Analysis and figure code.
 - Proteomics: ProteomeXchange/PRIDE (TBD).
 - Single-particle trajectories: Zenodo (TBD).
 
+## License
+MIT; see `LICENSE`. Copyright (c) 2026 Whitehead Institute for Biomedical Research. Third-party tools
+(MAGeCK, saSPT, quot, Cellpose and others) are installed separately under their own licenses and are not
+included here.
+
 ## AI disclosure
 Claude Opus models 4–5 were used in the generation of analysis and plotting code during this work. All
 workflows were generated as directed by humans, and the code was verified for accuracy.
