@@ -8,8 +8,10 @@ Pearson correlation of nine comparisons, clustered.
   total:  log2FC columns supplied with all_ttest_results.csv (growing; quiescent; RPL29 sgDDRGK1
           quiescent vs RPS3 sgNT quiescent)
 
-Note: the four SILAC sgDDRGK1 / sgNT columns are the linear ratios (named log2_* in the notebook);
-the published panel was drawn from these.
+The four SILAC sgDDRGK1 / sgNT columns enter as log2 ratios (`<name>_log2`). The columns without the
+suffix hold the linear ratios (`ratio_with_error` names its output `out` and the log2 `out_log2`); the
+first draft of the panel was drawn from those. Switched to log2 on 2026-10-26 so that all nine
+comparisons are log2: the four rows' correlations rise by up to 0.16, and the clustering is unchanged.
 
 Outputs (output root, proteomics/): figS5C_correlation_heatmap.pdf, figS5C_correlation.csv
 
@@ -41,9 +43,11 @@ TOTAL_COLS = ['log2FC_S3_sgDDRGK1_growing-S3_sgNT_growing',
               'log2FC_S3_sgDDRGK1_quiescent-S3_sgNT_quiescent',
               'log2FC_L29_sgDDRGK1_quiescent-S3_sgNT_quiescent']
 KEY = ['Reference', 'Gene']
+LOG2_OF = {c: c + '_log2' for c in SILAC_COLS[:4]}   # panel column -> log2 ratio column
 
 
 def correlation(silac, total):
+    silac = silac.assign(**{c: silac[src] for c, src in LOG2_OF.items()})
     combined = pd.merge(total[KEY + TOTAL_COLS], silac[KEY + SILAC_COLS], on=KEY, how='inner')
     combined = combined.dropna(subset=['delta_old_log2', 'delta_new_log2'])
     return combined[SILAC_COLS + TOTAL_COLS].corr(), len(combined)
