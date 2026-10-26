@@ -61,7 +61,7 @@ Fig 7C labels TLSD1 by its gene symbol, R3HDM4.
 |---|---|---|
 | `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) | ships with the code: `input/` |
 | `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) | ships with the code: `input/` |
-| `silac_topology.tsv`, `total_topology.tsv` | Membrane topology and MitoCarta flags | ships with the code: `input/`; written by `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
+| `total_topology.tsv` | Membrane topology and MitoCarta flags for the total-protein table | ships with the code: `input/`; written by `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
 | `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | download (ref. 170, supplementary file mmc4) to `<data>/proteomics/` |
 
 The two quantification tables are the processed outputs of the searches deposited at
@@ -83,11 +83,10 @@ is the `Human.MitoCarta3.0.xls` download from the Broad Institute.
 python proteomics/annotation/export_accessions.py --outdir topo/
 python proteomics/annotation/uniprot_topology_pipeline.py --input topo/total_uniprotIDS.csv \
     --mitocarta Human.MitoCarta3.0.xls --output total_topology.tsv --workdir topo/work
-# and the same for topo/silac_uniprotIDs.csv -> silac_topology.tsv
 ```
-A fresh run queries the current UniProt release and records it in `<output>.meta.txt`. The tables in
-`input/` come from release 2026_01 (run 2026-05-11); to use a fresh annotation instead, write it to
-`input/` under the same names.
+A fresh run queries the current UniProt release and records it in `<output>.meta.txt`. The table in
+`input/` comes from release 2026_01 (run 2026-05-11); to use a fresh annotation instead, write it to
+`input/` under the same name.
 
 ## Verification
 All runs used the original analysis notebook (cells 0–123) as the reference, on 2026-10-23, with the

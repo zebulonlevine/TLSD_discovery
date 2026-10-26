@@ -4,8 +4,8 @@ Inputs shipped with the code (paths.repo) under proteomics/input/:
 
   protein_quant_30972.tsv        SILAC-TMT protein quantification (RPS3-HaloTag line; 12-plex x heavy/light)
   all_ttest_results.csv          total-abundance TMT protein table (15 samples)
-  silac_topology.tsv,            UniProt membrane topology + MitoCarta 3.0 flags for each table's proteins,
-  total_topology.tsv             written by annotation/uniprot_topology_pipeline.py
+  total_topology.tsv             UniProt membrane topology + MitoCarta 3.0 flags for the total-protein table,
+                                 written by annotation/uniprot_topology_pipeline.py
 
 Read from the data root (paths.inp) under proteomics/, a third-party download:
 
@@ -19,7 +19,6 @@ SILAC_TSV = 'proteomics/input/protein_quant_30972.tsv'
 TOTAL_CSV = 'proteomics/input/all_ttest_results.csv'
 LOCALIZATION_XLSX = 'proteomics/mmc4_published_OpenCell.xlsx'   # data root (paths.inp): download, ref. 170
 LOCALIZATION_SHEET = 'subcell_annotation_summary'
-SILAC_TOPOLOGY = 'proteomics/input/silac_topology.tsv'
 TOTAL_TOPOLOGY = 'proteomics/input/total_topology.tsv'
 
 OUT_DIR = 'proteomics'          # under the output root
