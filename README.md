@@ -12,9 +12,12 @@ Levine *et al.* (in preparation). Analysis and figure code.
 | `ricin_reanalysis/` | Reanalysis of Morgens *et al.* 2017 ricin screen (Fig 7F) |
 | `single_molecule/` | Single-particle tracking (quot + saSPT), ER masking, resampling statistics (Fig 5, S7, Table S12) |
 | `confocal_colocalization/` | Cellpose segmentation and per-cell colocalization (Fig 7D, S10) |
-| `proteomics/`, `flow_cytometry/`, `gels/`, `sucrose_gradients/`, `simulation/` | Remaining quantitative panels |
+| `gels/` | In-gel fluorescence and immunoblot quantification (Fig 3F, 5D, 7B; S5H, S7F, S9F, S9G, S9I) |
+| `proteomics/`, `flow_cytometry/`, `simulation/` | Remaining quantitative panels |
 | `common/` | Path configuration shared by all scripts |
 | `envs/` | Conda environment files |
+
+The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompanies them.
 
 ## Setup
 1. Create the conda environments in `envs/`.
