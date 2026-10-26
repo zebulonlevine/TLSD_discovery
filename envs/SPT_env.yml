@@ -1,0 +1,30 @@
+# Single-particle tracking (single_molecule/): quot tracking + saSPT state arrays.
+# Versions as installed (conda list, 2026-10-23). quot is installed from GitHub at
+# the commit used for the paper (1b9051e); saSPT 0.4.0 from PyPI.
+name: SPT_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8.20
+  - numpy=1.24.4
+  - scipy=1.10.1
+  - pandas=2.0.3
+  - scikit-image=0.19.3
+  - tifffile=2023.7.10
+  - imageio=2.36.0
+  - nd2reader=3.2.1
+  - pims=0.7
+  - dask=2023.5.0
+  - toml=0.10.2
+  - pyyaml=6.0.2
+  - tqdm=4.67.1
+  - seaborn=0.13.0
+  - pyqtgraph=0.13.3
+  - pyside6=6.5.2
+  - pip
+  - pip:
+      - matplotlib==3.7.5
+      - pillow==10.4.0
+      - munkres==1.1.4
+      - saspt==0.4.0
+      - git+https://github.com/alecheckert/quot.git@1b9051e
