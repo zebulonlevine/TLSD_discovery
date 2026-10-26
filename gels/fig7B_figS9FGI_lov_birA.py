@@ -19,29 +19,32 @@ band divided by the lane's tubulin (`*_per_tubulin`).
        S9G  biotin, / mean of sgNT day-0 light lanes
        S9I  JF549 lower band / JF549 intact (raw intensities of the same lane), day 5 only,
             / mean of sgNT day 5
-  4. Mean and 95% CI (t distribution, n - 1 df) per group.
-  5. Welch's t-tests, Benjamini-Hochberg adjusted within each family:
-       7B         day 0 vs day 5 (light) within each genotype                            6 tests
-       S9F, S9G   within genotype: day-0 light vs day 5, day 5 vs day-0 dark             12 tests
-                  across genotypes, day-0 light lanes                                     15 tests
-                  across genotypes, day-5 lanes                                           15 tests
-       S9I        all pairs of genotypes, day 5                                           15 tests
+  4. Drop the repeat lanes (below), then mean and 95% CI (t distribution, n - 1 df) per group.
+  5. Two-sample Student's t-tests (equal variance; scipy's ttest_ind default, as in the analysis
+     notebook), Benjamini-Hochberg adjusted within each family:
+       7B, S9F, S9G  across genotypes, day-0 light lanes                                 15 tests
+                     across genotypes, day-5 lanes                                       15 tests
+       7B            within genotype: day-0 light vs day 5                                6 tests
+       S9F, S9G      within genotype: day-0 light vs day 5, day-0 light vs day-0 dark,
+                     day 5 vs day-0 dark                                                 18 tests
+       S9I           all pairs of genotypes, day 5                                       15 tests
 
-The sheet includes a repeat run of one sgNT and one sgUBA5 replicate (gel 8, column `extra` = Y),
-so those two genotypes have n = 7 and the others n = 6. The original analysis and the placed panels
-include these lanes. `--exclude-repeat-lanes` drops them before step 2 and writes to
-gels/exclude_repeat_lanes/ instead.
+The sheet includes a repeat run of one sgNT and one sgUBA5 replicate (gel 8, column `extra` = Y).
+As in the analysis notebook (updated 2026-10-26), these lanes count toward the gel-8 mean (step 2)
+and the sgNT references (step 3) but are excluded from step 4 on, so every group has n = 6.
+`--include-repeat-lanes` keeps them (n = 7 for sgNT and sgUBA5; the first draft of 7B and S9I) and
+writes to gels/include_repeat_lanes/ instead.
 
 Points are jittered with a fixed seed. Significance brackets are not drawn; the stars are in the
-*_welch.csv tables.
+*_ttests.csv table.
 
 Outputs (output root, gels/):
   fig7B_er_fraction.pdf, figS9F_jf549.pdf, figS9G_biotin.pdf, figS9I_ribophagy.pdf
   fig7B_figS9FGI_values.csv    per-lane values of the four panel quantities
   fig7B_figS9FGI_summary.csv   mean, SEM, 95% CI and n per panel and group
-  fig7B_figS9FGI_welch.csv     all tests: raw and BH-adjusted p, stars
+  fig7B_figS9FGI_ttests.csv    all tests: raw and BH-adjusted p, stars
 
-    python gels/fig7B_figS9FGI_lov_birA.py [--exclude-repeat-lanes]
+    python gels/fig7B_figS9FGI_lov_birA.py [--include-repeat-lanes]
 """
 import argparse
 import os
@@ -92,11 +95,13 @@ STYLE = {'figure.dpi': 100, 'figure.facecolor': 'white', 'pdf.fonttype': 42,
 # analysis
 # ---------------------------------------------------------------------------
 
-def load(exclude_repeat_lanes=False):
-    df = pd.read_excel(paths.inp(*DATA_FILE), sheet_name='gelRedo')
-    if exclude_repeat_lanes:
-        df = df[df['extra'] != 'Y'].reset_index(drop=True)
-    return df
+def load():
+    return pd.read_excel(paths.inp(*DATA_FILE), sheet_name='gelRedo')
+
+
+def analysed(d, include_repeat_lanes=False):
+    """Step 4: the lanes that enter the panels and tests (after normalization)."""
+    return d if include_repeat_lanes else d[d['extra'] != 'Y'].reset_index(drop=True)
 
 
 def quantify(df):
@@ -142,16 +147,17 @@ def _stars(p):
 def families():
     """panel -> {family: [((genetics, timing), (genetics, timing)), ...]} (step 5)."""
     gens = list(GENOTYPES)
-    within = [p for g in gens for p in (((g, 'L'), (g, '5d')), ((g, '5d'), (g, 'D')))]
+    within = [p for g in gens for p in (((g, 'L'), (g, '5d')), ((g, 'L'), (g, 'D')), ((g, '5d'), (g, 'D')))]
     across = {t: [((a, t), (b, t)) for a, b in combinations(gens, 2)] for t in ('L', '5d')}
-    fam_FG = {'within genotype': within, 'day 0 across genotypes': across['L'],
-              'day 5 across genotypes': across['5d']}
-    return {'7B': {'day 0 vs day 5': [((g, 'L'), (g, '5d')) for g in gens]},
+    fam_FG = {'day 0 across genotypes': across['L'], 'day 5 across genotypes': across['5d'],
+              'within genotype': within}
+    return {'7B': {'day 0 across genotypes': across['L'], 'day 5 across genotypes': across['5d'],
+                   'within genotype': [((g, 'L'), (g, '5d')) for g in gens]},
             'S9F': fam_FG, 'S9G': fam_FG,
             'S9I': {'day 5 across genotypes': across['5d']}}
 
 
-def welch_tests(d):
+def t_tests(d):
     rows = []
     for panel, fams in families().items():
         col = PANELS[panel][0]
@@ -160,7 +166,7 @@ def welch_tests(d):
             for (g1, t1), (g2, t2) in pairs:
                 a = d.loc[(d['genetics'] == g1) & (d['timing'] == t1), col].dropna()
                 b = d.loc[(d['genetics'] == g2) & (d['timing'] == t2), col].dropna()
-                r = stats.ttest_ind(a, b, equal_var=False)
+                r = stats.ttest_ind(a, b)
                 block.append({'panel': panel, 'family': fam,
                               'group1': f'{GENOTYPES[g1]} {TIMING_LABEL[t1]}',
                               'group2': f'{GENOTYPES[g2]} {TIMING_LABEL[t2]}',
@@ -230,20 +236,20 @@ def plot_panel(d, panel, path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
-    ap.add_argument('--exclude-repeat-lanes', action='store_true',
-                    help='drop the repeat-run sgNT/sgUBA5 lanes (extra = Y); writes to gels/exclude_repeat_lanes/')
+    ap.add_argument('--include-repeat-lanes', action='store_true',
+                    help='keep the repeat-run sgNT/sgUBA5 lanes (extra = Y); writes to gels/include_repeat_lanes/')
     args = ap.parse_args()
-    sub = (OUT_DIR, 'exclude_repeat_lanes') if args.exclude_repeat_lanes else (OUT_DIR,)
+    sub = (OUT_DIR, 'include_repeat_lanes') if args.include_repeat_lanes else (OUT_DIR,)
 
     def out(name):
         return paths.outp(*sub, name, mkdir=True)
 
-    d = quantify(load(args.exclude_repeat_lanes))
+    d = analysed(quantify(load()), args.include_repeat_lanes)
     cols = ['number', 'gel', 'rep', 'extra', 'genotype', 'timing'] + [p[0] for p in PANELS.values()]
     d[cols].to_csv(out('fig7B_figS9FGI_values.csv'), index=False)
     summarize(d).to_csv(out('fig7B_figS9FGI_summary.csv'), index=False)
-    tests = welch_tests(d)
-    tests.to_csv(out('fig7B_figS9FGI_welch.csv'), index=False)
+    tests = t_tests(d)
+    tests.to_csv(out('fig7B_figS9FGI_ttests.csv'), index=False)
     for panel in PANELS:
         plot_panel(d, panel, out(FILES[panel]))
     sig = tests[tests['sig'] != 'ns']
