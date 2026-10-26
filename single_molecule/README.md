@@ -131,8 +131,10 @@ tier's `occupancy_compare_cache_36state/`. Every other script only reads the dat
 `TLSD_OUT`.
 
 ## Run order
-With the deposited caches and refit draws, only steps 4 and 6 are needed. Steps 1–3 and 5 regenerate those
-inputs from the raw movies.
+With the deposited caches and refit draws, only steps 3, 4 and 6 are needed. Step 3 rebuilds the joint caches,
+which are exact concatenations of the deposited per-condition caches and are not deposited. Steps 1, 2 and 5
+regenerate the other inputs from the raw movies. The deposit holds trajectories pooled per condition
+(`traj_combinations/`), not per field of view.
 
 1. **Tracking.**
    - Run `pipeline/call_filewise_operations.slurm` (`run_filewise.py`). For the ER data, run
