@@ -22,9 +22,10 @@ degradation*.
 
 ## Data
 The inputs are on Zenodo: DOI **TBD**. That deposit has:
-- trajectories;
+- trajectories, pooled per condition (`traj_combinations/`);
 - ER masks;
-- the 36-state likelihood caches (`occupancy_compare_cache_36state/`);
+- the settings of the 36-state likelihood caches (`occupancy_compare_cache_36state/settings_36state.pkl`).
+  The caches and their FOV tables are not deposited; step 2 of the run order rebuilds them;
 - the refit resampling draws.
 
 Point `TLSD_SPT_DATA` at the unpacked tree, which holds `all_data/<experiment>/...`.
@@ -138,10 +139,13 @@ of step 3 go to `$TLSD_OUT/spt_joint_caches/<experiment>/<tier>/`. Steps 1 and 2
 raw movies and write into the experiment's own tree (tracking outputs, per-condition caches).
 
 ## Run order
-With the deposited caches and refit draws, only steps 3, 4 and 6 are needed. Step 3 rebuilds the joint caches,
-which are exact concatenations of the deposited per-condition caches and are not deposited. Steps 1, 2 and 5
-regenerate the other inputs from the raw movies. The deposit holds trajectories pooled per condition
-(`traj_combinations/`), not per field of view.
+With the deposit, run steps 2, 3, 4 and 6.
+- Step 2 builds the 12 per-condition likelihood caches from the deposited pooled trajectories.
+- Step 3 concatenates them into the joint caches.
+- Neither set of caches is deposited. Both rebuilds are bit-identical to the caches behind the published
+  panels: every array, the dtypes and the FOV tables; only the stored input paths differ.
+- Steps 1 and 5 regenerate the trajectories and the resampling draws from the raw movies.
+- The deposit holds trajectories pooled per condition (`traj_combinations/`), not per field of view.
 
 1. **Tracking.**
    - Run `pipeline/call_filewise_operations.slurm` (`run_filewise.py`). For the ER data, run
@@ -158,8 +162,20 @@ regenerate the other inputs from the raw movies. The deposit holds trajectories 
      - pooling takes the per-FOV files in `os.listdir` order.
 
      The trajectories of each FOV are unaffected by the pooling order.
-2. **36-state likelihood caches.** Run `pipeline/submit_36state_caches.py`, which calls
-   `call_variant_cache.slurm` → `build_variant_cache_one.py`.
+2. **36-state likelihood caches.**
+   - Run `pipeline/submit_36state_caches.py`. It submits one Slurm job per condition, with memory sized
+     per condition: `call_variant_cache.slurm` → `build_variant_cache_one.py`.
+   - Or run one condition directly:
+     `python pipeline/build_variant_cache_one.py --dataset <experiment> --condition <condition> --variant 36state`.
+   - Conditions:
+     - `2025_06_06_zeb`: `sgNT_60S`, `sgUBA5_60S`, `sgNT_40S`, `sgUBA5_40S`;
+     - `2026_07_08`: `60S_{NT,UBA5}_{none,HT10,eme360}`;
+     - `2025_09_15_zeb_ER`: `noDegron`, `Degron`.
+   - Measured on 4 CPUs: 3–15 min and 11–36 GB peak per condition. Run in sequence, that is about
+     20 min for 2025_06_06_zeb, 60 min for 2026_07_08 and 10 min for 2025_09_15_zeb_ER.
+   - Output: `<condition>_likelihood_cache.npz` and `<condition>_fov_metadata.csv` in the tier's
+     `occupancy_compare_cache_36state/` (36 GB in total).
+   - The Fig 5F builder also builds the two 2025_09_15_zeb_ER caches itself if they are missing.
 3. **Joint caches for the permutation nulls.** For each contrast in `figures/submit_panel_refit.py`, run
    `figures/merge_contrast_cache.py --tier <tier> --cond-a A --cond-b B`. Contrast keys name their panel
    (`figS7AC_60S`, `figS7A_40S`, `figS7D_*`).
