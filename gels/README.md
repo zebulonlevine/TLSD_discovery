@@ -11,7 +11,7 @@ Gel and blot images in the figures (Fig 3E, S5G, S7F right, S9E) are the scans t
 |---|---|---|---|
 | 3F, S5H | `fig3F_figS5H_rpl26_pulldown.py` | `3F_S5H/QuiescentPulldownFluorGels.xlsx` (sheet `data`) | Welch's t on log2 new/old, elute vs flowthrough within each construct, unadjusted |
 | 5D (graph), S7F | `fig5D_figS7F_pt179_ufm1.py` | `5D_S7F/blotData_fullLane_UFM1.xlsx` | none (replicates and mean) |
-| 7B, S9F, S9G, S9I | `fig7B_figS9FGI_lov_birA.py` | `7B_S9FGI/BirAgels.xlsx` (sheet `gelRedo`) | Student's t, BH within each family of comparisons (see the script docstring); 95% CI from the t distribution |
+| 7B, S9F, S9G, S9I | `fig7B_figS9FGI_lov_birA.py` | `7B_S9FGI/BirAgels.xlsx` (sheet `gelRedo`) | Welch's t, BH within each family of comparisons (see the script docstring); 95% CI from the t distribution |
 
 Each script's docstring gives the processing steps and its output files. Every script also writes
 its plotted values and statistics as CSV next to the PDFs in `<out>/gels/`. Significance brackets are
@@ -41,10 +41,11 @@ Each script was checked against the original notebook run unmodified on the same
 - **Statistics.**
   - Fig 3F follows the legend (Welch's t). The notebook used Student's t: the 5K5R p is 0.044 instead
     of 0.041, and both are *.
-  - The LOV-BirA panels follow the analysis notebook as updated on 2026-10-26: Student's t, with
-    Benjamini-Hochberg correction within each family, and the repeat lanes excluded after
-    normalization. The tests and BH-adjusted p-values equal the notebook's. They reproduce every
-    star placed in 7B, S9F and S9G.
+  - The LOV-BirA panels follow the analysis notebook as updated on 2026-10-26, with one change: the
+    notebook's families (Benjamini-Hochberg within each) and its exclusion of the repeat lanes after
+    normalization are kept, but the test is Welch's t, as in the legends and Methods, instead of the
+    notebook's Student's t. With Student's t, the tests equal the notebook's exactly. Plotted values
+    are identical either way.
 
 ## Removed from the uploaded notebooks (not in the paper)
 - Pulldown: old/new and percent-tagged plots, the per-fraction 549/646 plots, and the t-tests between

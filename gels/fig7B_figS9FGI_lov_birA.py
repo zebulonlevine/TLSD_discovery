@@ -20,8 +20,8 @@ band divided by the lane's tubulin (`*_per_tubulin`).
        S9I  JF549 lower band / JF549 intact (raw intensities of the same lane), day 5 only,
             / mean of sgNT day 5
   4. Drop the repeat lanes (below), then mean and 95% CI (t distribution, n - 1 df) per group.
-  5. Two-sample Student's t-tests (equal variance; scipy's ttest_ind default, as in the analysis
-     notebook), Benjamini-Hochberg adjusted within each family:
+  5. Welch's t-tests, Benjamini-Hochberg adjusted within each family (the analysis notebook used
+     Student's t; the paper uses Welch's, as for the flow cytometry panels):
        7B, S9F, S9G  across genotypes, day-0 light lanes                                 15 tests
                      across genotypes, day-5 lanes                                       15 tests
        7B            within genotype: day-0 light vs day 5                                6 tests
@@ -166,7 +166,7 @@ def t_tests(d):
             for (g1, t1), (g2, t2) in pairs:
                 a = d.loc[(d['genetics'] == g1) & (d['timing'] == t1), col].dropna()
                 b = d.loc[(d['genetics'] == g2) & (d['timing'] == t2), col].dropna()
-                r = stats.ttest_ind(a, b)
+                r = stats.ttest_ind(a, b, equal_var=False)
                 block.append({'panel': panel, 'family': fam,
                               'group1': f'{GENOTYPES[g1]} {TIMING_LABEL[t1]}',
                               'group2': f'{GENOTYPES[g2]} {TIMING_LABEL[t2]}',
