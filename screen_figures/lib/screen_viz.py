@@ -1488,7 +1488,8 @@ def plot_sgrna_score_scatter(
     ntc_color: str = '#DDDDDD',
     score_mode: str = 'perp_weighted',
     dpi: int = 300,
-    cbar_separate: bool = False
+    cbar_separate: bool = False,
+    score_sign: float = 1
 ) -> pd.DataFrame:
     df1 = pd.read_table(sgrna_file1)
     df2 = pd.read_table(sgrna_file2)
@@ -1508,7 +1509,8 @@ def plot_sgrna_score_scatter(
     norm = np.sqrt(1 + m**2)
     perp_dist = np.abs(y - m*x - b) / norm
     parallel_dist = (x + m * (y - b)) / norm
-    merged['score'] = _line_score(parallel_dist, perp_dist, mode=score_mode)
+    # score_sign=-1 reverses the along-line direction (e.g. to match a score defined with x and y swapped)
+    merged['score'] = score_sign * _line_score(parallel_dist, perp_dist, mode=score_mode)
     merged['parallel_dist'] = parallel_dist
     merged['perp_dist'] = perp_dist
 

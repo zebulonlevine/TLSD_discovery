@@ -7,6 +7,9 @@ inputs come from the re-scored tree via common.paths, categories from
 screen_figures/categories/, and outputs go to fixed_NotI/plots/*_fixedNotI.pdf
 under the output root. These are the same substitutions the original
 regenerate_pRanked_figures.py harness applied when it exec'd these cells.
+One deliberate change (2026-10-25): the coloured degradation panels now use the
+published degradation-score sign (score_sign below), so their colours are inverted
+relative to the notebook output.
 
 Run with envs/crispri-screen.yml:  python figS3C_score_construction.py
 """
@@ -102,4 +105,8 @@ for out, sg1, sg2, slope, c1, c2 in _dev_specs:
         title='', dpi=600,
         cbar_separate=True,     # colorbar in its own region; plot area unchanged
         vmin=-3.1, vmax=3.1,    # fixed line-score scale shared across all four
+        # colour = published score. The published scores put the ratio on x; these plots put it on y.
+        # Swapping axes leaves the y = x score unchanged and negates the y = -x one, so sign = slope:
+        # degradation = (ratio - old)/sqrt(2) (drawn as (old - ratio)/sqrt(2) before 2026-10-25).
+        score_sign=slope,
     )

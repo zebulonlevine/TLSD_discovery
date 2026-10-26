@@ -26,8 +26,8 @@ Plotting library: `lib/screen_viz.py`. Category tables: `categories/`. Environme
 - Gene labels in scatters are placed by adjustText, which moves them slightly from run to run.
   Labelled genes, data and axes are identical.
 - Colours: non-targeting controls `#DDDDDD`, other genes `#4D4D4D`.
-- Fig S3C, degradation: the panels pass x = old, y = ratioON with slope −1. The plotted colour is
-  therefore (old − ratio)/√2, the opposite sign of the published degradation score (ratio − old)/√2.
-  Kept as drawn in the manuscript; flagged for the authors.
+- Fig S3C, degradation: the panels plot x = old, y = ratioON with slope −1, which is the published
+  score's axes swapped. The colour is set to the published degradation score (ratio − old)/√2
+  (`score_sign=slope`). The 10-25 draft panels were drawn with the opposite sign, (old − ratio)/√2.
 - `categories/make_common_essentials.py` rebuilds `CommonEssentials.csv` from the DepMap Achilles
   common-essential list (download separately).
