@@ -54,7 +54,7 @@ Outputs go under `$TLSD_OUT`. Panel files carry the `_36state` suffix. The ER bu
 
 | Panel | Script | Output |
 |---|---|---|
-| 5B | `figures/build_fig5B_snapshot.py --render` (FOVs/frames/crops: `figures/fig5B_snapshot_spec.json`) ¹ | `figure5/B/fig5B_snapshot_sgNT_vs_sgUBA5.pdf` |
+| 5B | `figures/build_fig5B_snapshot.py --render` (FOVs/frames/crops: `figures/fig5B_snapshot_spec.json`) ¹ | `figure5/B/fig5B_snapshot.pdf` |
 | 5C | `figures/build_claim1_panels.py` | `figure5/C/fig5C_60S_posterior_overlay_36state.pdf` |
 | 5E | `pipeline/build_er_costain_figure.py line=L29_degron=000_HHT=000_001` ² | `costain/costain_line=L29_degron=000_HHT=000_001_T300.pdf` |
 | 5F left | `figures/build_claim3_panels.py` | `figure5/F/fig5F_left_zone_posterior_overlay_36state.pdf` |
@@ -86,13 +86,17 @@ the placed panels.
 **Overlay sidecars.** Every density overlay writes `_curves.csv` and `_plotspec.json` sidecars, and
 `figures/replot_overlays.py` redraws an overlay from them without refitting.
 
-¹ **Fig 5B.** `fig5B_snapshot_spec.json` selects one raw frame per condition:
-- sgNT: FOV 007, frame 450;
-- sgUBA5: FOV 015, frame 40.
+¹ **Fig 5B.** `fig5B_snapshot_spec.json` selects the two raw frames placed in 5B, both NT-guide (sgNT):
+- left: FOV 007, frame 450;
+- right: FOV 004, frame 110.
 
-Each is an 80-px crop, chosen from the candidates `--scout` ranks. Tracks are drawn in the magenta of the
-placed panel (`#EC008C`). The panel was first rendered in yellow (`#ffe600`) and recoloured by hand. The
-legend ("past trajectory", "current position") and the black condition labels were also added by hand.
+Each is an 80-px crop, chosen from the candidates `--scout` ranks. The panel was drafted as sgNT vs sgUBA5,
+but the right-hand crop is an NT-guide FOV, so the placed panel carries no condition labels (2026-10-26).
+Tracks are drawn in the magenta of the placed panel (`#EC008C`). The panel was first rendered in yellow
+(`#ffe600`) and recoloured by hand. The following were also done by hand:
+- the legend ("past trajectory", "current position");
+- the track line weight;
+- the scale-bar label size.
 
 ² **Fig 5E.** The placed panels come from the FOV 001 co-stain figure:
 - the full-FOV merge (row 0, column 3);

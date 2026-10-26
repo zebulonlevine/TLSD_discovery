@@ -1,12 +1,17 @@
 """
-build_fig5B_snapshot.py -- Figure 5B images: one raw SPT frame per condition
-(sgNT vs sgUBA5, RPL29-Halo / 60S), zoomed in, with every molecule present at
-that frame drawn as its full track so far.
+build_fig5B_snapshot.py -- Figure 5B images: two raw SPT frames (RPL29-Halo /
+60S), zoomed in, with every molecule present at that frame drawn as its full
+track so far.
+
+The placed 5B shows two unlabelled sgNT crops (fig5B_snapshot_spec.json). It was
+drafted as sgNT vs sgUBA5, but the right-hand crop came from an NT-guide FOV, so
+the condition labels were dropped (2026-10-26); the panel only illustrates raw
+data. --scout still ranks candidates per condition.
 
 Dataset `2025_06_06_zeb`, tier `q=15p0_splitsize10`, 0p015 arm (15.091 ms,
 0.11 um/px) -- the same files that feed the 5C posterior overlay.
 
-Illustrative only (one FOV per condition). Tracks are drawn in ONE color: the
+Illustrative only (one FOV per crop). Tracks are drawn in ONE color: the
 panel shows that long-lived and short-lived trajectories coexist, it makes no
 diffusion-class claim. Long vs short is used only to CHOOSE the crop.
 
@@ -25,12 +30,14 @@ Two modes
   --render  draw the final 1x2 panel from fig5B_snapshot_spec.json in the
             output folder, or, if there is none, from the copy shipped next to
             this script (the FOVs, frames and crops placed in Fig 5B). Edit the
-            spec (stem / frame_T / crop) to swap in another candidate.
+            spec (stem / frame_T / crop) to swap in another candidate; an
+            optional per-panel "title" and a top-level "show_time" add the
+            condition label and the frame time.
 
 The image is ONE instantaneous raw frame (no projection, no background
 subtraction), so single molecules sit only ~50-100 ADU above a ~160 ADU
 background. Both panels share one grey scale (percentiles of the two crops
-pooled) so brightness is comparable across conditions.
+pooled) so brightness is comparable between them.
 
 Run:  sbatch call_build_panels.slurm build_fig5B_snapshot.py --scout
       sbatch call_build_panels.slurm build_fig5B_snapshot.py --render
@@ -330,16 +337,20 @@ def render():
         assert n_long >= 1 and n_short >= 1, (label, n_long, n_short)
         scale_bar(ax, p['crop'])
         t_s = p['frame_T'] * FRAME_INTERVAL
-        ax.set_title(label, fontsize=7, color=ps.COLORS[label], pad=2)
-        ax.text(0.03, 0.97, f't = {t_s:.2f} s', transform=ax.transAxes,
-                ha='left', va='top', fontsize=6, color='white',
-                path_effects=[pe.withStroke(linewidth=1.5, foreground='black')])
+        if p.get('title'):                 # the placed 5B is unlabelled
+            ax.set_title(p['title'], fontsize=7, pad=2,
+                         color=ps.COLORS.get(p['title'], 'black'))
+        if spec.get('show_time', False):
+            ax.text(0.03, 0.97, f't = {t_s:.2f} s', transform=ax.transAxes,
+                    ha='left', va='top', fontsize=6, color='white',
+                    path_effects=[pe.withStroke(linewidth=1.5,
+                                                foreground='black')])
         print(f"{label}: {p['stem']} T={p['frame_T']} crop={p['crop']} "
               f"drawn={n_drawn} long={n_long} short={n_short}")
     print(f'grey scale {vmin:.1f}-{vmax:.1f} ADU '
           f'(pooled crop percentiles {spec.get("display_pct", DISPLAY_PCT)})')
 
-    out = os.path.join(OUT, 'fig5B_snapshot_sgNT_vs_sgUBA5.pdf')
+    out = os.path.join(OUT, 'fig5B_snapshot.pdf')
     ps.save(fig, out, metadata={'CreationDate': None})
     print('wrote', out)
 

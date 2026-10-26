@@ -4,7 +4,7 @@
     99.8
   ],
   "panels": {
-    "sgNT": {
+    "left": {
       "stem": "halo=RPL29_cond=NT-guide_exp=0p015_007",
       "frame_T": 450,
       "crop": [
@@ -14,14 +14,14 @@
         120
       ]
     },
-    "sgUBA5": {
-      "stem": "halo=RPL29_cond=sgUBA5-LT_exp=0p015_015",
-      "frame_T": 40,
+    "right": {
+      "stem": "halo=RPL29_cond=NT-guide_exp=0p015_004",
+      "frame_T": 110,
       "crop": [
-        620,
-        700,
-        660,
-        740
+        420,
+        500,
+        920,
+        1000
       ]
     }
   }
