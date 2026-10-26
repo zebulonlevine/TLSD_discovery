@@ -78,7 +78,7 @@ def adjusted_categories(df, loc_df, gene_col='Gene'):
 
 def build_silac(loc_df=None):
     """Protein table with normalized signals, turnover ratios, deltas and categories."""
-    df = sp.drop_contaminants_and_decoys(sp.load_protein_quant(paths.inp(SILAC_TSV)))
+    df = sp.drop_contaminants_and_decoys(sp.load_protein_quant(paths.repo(SILAC_TSV)))
     channel_map = sp.build_channel_map(raw_template=RAW_TEMPLATE, sample_template=SAMPLE_TEMPLATE,
                                        channels=CHANNELS, sample_names=SAMPLE_NAMES, labels=LABELS,
                                        raw_label_tokens=RAW_LABEL_TOKENS)

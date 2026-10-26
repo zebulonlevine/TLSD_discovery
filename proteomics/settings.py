@@ -1,23 +1,26 @@
 """Shared inputs and constants for the proteomics analyses.
 
-Input files are read from the data root (common/paths.py) under proteomics/:
+Inputs shipped with the code (paths.repo) under proteomics/input/:
 
   protein_quant_30972.tsv        SILAC-TMT protein quantification (RPS3-HaloTag line; 12-plex x heavy/light)
   all_ttest_results.csv          total-abundance TMT protein table (15 samples)
-  mmc4_published_OpenCell.xlsx   organelle-IP localization table (sheet 'subcell_annotation_summary'), ref. 170
   silac_topology.tsv,            UniProt membrane topology + MitoCarta 3.0 flags for each table's proteins,
   total_topology.tsv             written by annotation/uniprot_topology_pipeline.py
+
+Read from the data root (paths.inp) under proteomics/, a third-party download:
+
+  mmc4_published_OpenCell.xlsx   organelle-IP localization table (sheet 'subcell_annotation_summary'), ref. 170
 """
 
 # ---------------------------------------------------------------------------
-# Input files (relative to the data root)
+# Input files: in this repository (paths.repo) unless noted
 # ---------------------------------------------------------------------------
-SILAC_TSV = 'proteomics/protein_quant_30972.tsv'
-TOTAL_CSV = 'proteomics/all_ttest_results.csv'
-LOCALIZATION_XLSX = 'proteomics/mmc4_published_OpenCell.xlsx'
+SILAC_TSV = 'proteomics/input/protein_quant_30972.tsv'
+TOTAL_CSV = 'proteomics/input/all_ttest_results.csv'
+LOCALIZATION_XLSX = 'proteomics/mmc4_published_OpenCell.xlsx'   # data root (paths.inp): download, ref. 170
 LOCALIZATION_SHEET = 'subcell_annotation_summary'
-SILAC_TOPOLOGY = 'proteomics/silac_topology.tsv'
-TOTAL_TOPOLOGY = 'proteomics/total_topology.tsv'
+SILAC_TOPOLOGY = 'proteomics/input/silac_topology.tsv'
+TOTAL_TOPOLOGY = 'proteomics/input/total_topology.tsv'
 
 OUT_DIR = 'proteomics'          # under the output root
 

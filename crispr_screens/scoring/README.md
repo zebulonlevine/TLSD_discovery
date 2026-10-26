@@ -4,7 +4,7 @@ Run in this order after the pipeline's MAGeCK stage (`../pipeline/`). Environmen
 `envs/crispri-screen.yml`. Run every step under Slurm (`srun --ntasks=1`).
 
 Inputs: the MAGeCK outputs under `${TLSD_DATA}/Sublibrary_results/results/` (built from the GEO count
-table; see `../pipeline/README.md`) and the sublibrary library files. The published scores are
+table; see `../pipeline/README.md`) and the sublibrary library files, which ship with the code in `../library/`. The published scores are
 Supplementary Tables S4, S5, S10 and S11.
 
 1. `bash run_line_scores.sh`

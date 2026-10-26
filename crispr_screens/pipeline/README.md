@@ -57,11 +57,13 @@ these comparisons against `comparisons_*.csv`, not against the name.
       `gene` → `Gene`, then add the sample columns.
     - GEO omits the eight `outgrown` samples; no figure or table uses them.
   - The published per-comparison results and gene scores are Supplementary Tables S1–S6, S10 and S11.
-- **Library design files.** These are not deposited:
-  - `${TLSD_DATA}/GenomeWide_results/libraryInfo/`: `221010_Weissman_Lib1A_targets.csv`,
-    `221111_lib1_targets.csv`, `230215_extra_isoforms_oligos_single.csv` (counting from FASTQs only);
-  - `${TLSD_DATA}/Sublibrary_results/libraryInfo/`: `sublibrary.csv`, `sublibrary_spacers.csv` (read by
-    `restriction_sites.py`).
+- **Library design files** ship with the code in `../library/`:
+  - genome-wide: `221010_Weissman_Lib1A_targets.csv`, `221111_lib1_targets.csv` and
+    `230215_extra_isoforms_oligos_single.csv`, read through `library_table_genomewide.csv` for counting
+    from FASTQs;
+  - sublibrary: `sublibrary.csv` and `sublibrary_spacers.csv`, read through `library_table_sublibrary.csv`
+    for counting and by `restriction_sites.py` (the NotI/BamHI filter used by scoring and Tables S4, S5,
+    S10, S11).
 
   Guide names, genes and spacers are in the GEO count tables, which also flag the 53 NotI/BamHI-site
   sublibrary guides, and in Tables S1, S4 and S10.

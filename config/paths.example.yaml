@@ -1,13 +1,15 @@
 # Copy to config/paths.yaml (git-ignored) and edit, or set TLSD_DATA / TLSD_OUT.
 # Both roots use the layout of the original analysis tree:
-#   GenomeWide_results/   genome-wide screen: counts/, results/ (MAGeCK + gene tables), libraryInfo/
-#   Sublibrary_results/   sublibrary screens: counts/, results/, scores/ (line scores), libraryInfo/
+#   GenomeWide_results/   genome-wide screen: counts/, results/ (MAGeCK + gene tables)
+#   Sublibrary_results/   sublibrary screens: counts/, results/, scores/ (line scores)
 #   fixed_NotI/           sublibrary re-scored without the 53 NotI/BamHI guides (the published scores)
 #   GSEA_Fig1/            genome-wide GO (decoupler) inputs/outputs
-#   proteomics/           TMT tables (PRIDE), organelle-IP table (download), topology tables
+#   proteomics/           organelle-IP table (download, ref. 170)
 #   flow_cytometry/, gels/, ricin_data_reanalysis/   from the Zenodo deposit (its data/ folder)
 # The screen folders are built from the GEO count tables by crispr_screens/ (see its READMEs);
-# they are not on Zenodo. End-to-end run: set data and out to the same directory.
+# they are not on Zenodo. The library design files (crispr_screens/library/) and the proteomics
+# TMT and topology tables (proteomics/input/) ship with the code and are not read from here.
+# End-to-end run: set data and out to the same directory.
 data: /path/to/tlsd_data
 out:  /path/to/tlsd_data
 # Imaging inputs (read only), each with its own layout:

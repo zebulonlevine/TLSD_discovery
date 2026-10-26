@@ -60,7 +60,7 @@ def uniprot_accession(reference):
 
 def build_total(loc_df=None, topology=True):
     """Protein table with normalized abundances, comparisons, categories and topology."""
-    df = pd.read_csv(paths.inp(TOTAL_CSV))
+    df = pd.read_csv(paths.repo(TOTAL_CSV))
     df.columns = TOTAL_COLUMNS
 
     loc_df = load_localization() if loc_df is None else loc_df
@@ -94,7 +94,7 @@ def build_total(loc_df=None, topology=True):
 
 def add_topology(df):
     """Membrane topology class per protein; '_mito' appended for MitoCarta 3.0 proteins."""
-    annot = pd.read_csv(paths.inp(TOTAL_TOPOLOGY), sep='\t')
+    annot = pd.read_csv(paths.repo(TOTAL_TOPOLOGY), sep='\t')
     annot.loc[annot.in_mitocarta3, 'class'] = annot['class'][annot.in_mitocarta3] + '_mito'
     df['accession'] = uniprot_accession(df.Reference)
     df = pd.merge(df, annot[['input_id', 'class']].rename(columns={'class': 'topology'}),

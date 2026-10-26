@@ -1,3 +1,3 @@
 library_name,sequence_file,annotation_file,no_g,preset,library_filter
-LibA,${TLSD_DATA}/GenomeWide_results/libraryInfo/221010_Weissman_Lib1A_targets.csv,${TLSD_DATA}/GenomeWide_results/libraryInfo/221111_lib1_targets.csv,TRUE,mU6,Weissman
-extras,${TLSD_DATA}/GenomeWide_results/libraryInfo/230215_extra_isoforms_oligos_single.csv,${TLSD_DATA}/GenomeWide_results/libraryInfo/230215_extra_isoforms_oligos_single.csv,FALSE,mU6,Doench
+LibA,${TLSD_REPO}/crispr_screens/library/221010_Weissman_Lib1A_targets.csv,${TLSD_REPO}/crispr_screens/library/221111_lib1_targets.csv,TRUE,mU6,Weissman
+extras,${TLSD_REPO}/crispr_screens/library/230215_extra_isoforms_oligos_single.csv,${TLSD_REPO}/crispr_screens/library/230215_extra_isoforms_oligos_single.csv,FALSE,mU6,Doench

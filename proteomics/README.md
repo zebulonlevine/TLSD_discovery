@@ -56,16 +56,17 @@ Two TMT experiments.
 
 Fig 7C labels TLSD1 by its gene symbol, R3HDM4.
 
-## Inputs (`<data>/proteomics/`)
-| File | Content | Source |
+## Inputs
+| File | Content | Location |
 |---|---|---|
-| `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) | PRIDE (TBD), processed tables of the submission |
-| `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) | PRIDE (TBD), processed tables of the submission |
-| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | Download: ref. 170, supplementary file mmc4 |
-| `silac_topology.tsv`, `total_topology.tsv` | Membrane topology and MitoCarta flags | `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
+| `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) | ships with the code: `input/` |
+| `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) | ships with the code: `input/` |
+| `silac_topology.tsv`, `total_topology.tsv` | Membrane topology and MitoCarta flags | ships with the code: `input/`; written by `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
+| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | download (ref. 170, supplementary file mmc4) to `<data>/proteomics/` |
 
-The raw data are deposited at ProteomeXchange/PRIDE (accession TBD). The per-protein results are
-Supplementary Tables S8 and S9.
+The two quantification tables are the processed outputs of the searches deposited at
+ProteomeXchange/PRIDE (accession TBD), which holds the raw files. `all_ttest_results.csv` (9.1 MB) is
+the one file in the repository over 5 MB. The per-protein results are Supplementary Tables S8 and S9.
 
 ## Run
 ```
@@ -84,8 +85,9 @@ python proteomics/annotation/uniprot_topology_pipeline.py --input topo/total_uni
     --mitocarta Human.MitoCarta3.0.xls --output total_topology.tsv --workdir topo/work
 # and the same for topo/silac_uniprotIDs.csv -> silac_topology.tsv
 ```
-A fresh run queries the current UniProt release. The run used in the paper (release 2026_01) is
-recorded in each `<output>.meta.txt`.
+A fresh run queries the current UniProt release and records it in `<output>.meta.txt`. The tables in
+`input/` come from release 2026_01 (run 2026-05-11); to use a fresh annotation instead, write it to
+`input/` under the same names.
 
 ## Verification
 All runs used the original analysis notebook (cells 0–123) as the reference, on 2026-10-23, with the
