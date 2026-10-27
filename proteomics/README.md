@@ -65,7 +65,7 @@ Fig 7C labels TLSD1 by its gene symbol, R3HDM4.
 | `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | download (Hein *et al.* 2025, Cell, supplementary file mmc4) to `<data>/proteomics/` |
 
 The two quantification tables are the processed outputs of the searches deposited at
-ProteomeXchange/PRIDE (accession TBD), which holds the raw files. `all_ttest_results.csv` (9.1 MB) is
+ProteomeXchange/PRIDE (accession PXD084612), which holds the raw files. `all_ttest_results.csv` (9.1 MB) is
 the one file in the repository over 5 MB. The per-protein results are Supplementary Tables S8 and S9.
 
 ## Run

@@ -38,7 +38,7 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
   to place the count tables.
-- **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and searches; the processed quantification
+- **Proteomics: ProteomeXchange/PRIDE (PXD084612).** Raw files and searches; the processed quantification
   tables the scripts read ship with the code. The per-protein results are Tables S8 and S9 (see
   `proteomics/README.md`).
 - **Data: Zenodo, DOI [10.5281/zenodo.23688082](https://doi.org/10.5281/zenodo.23688082),**
