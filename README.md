@@ -1,6 +1,7 @@
 # Code for: Failure to release from the ER translocon induces 60S ribosome degradation
 
-Levine *et al.* (in preparation). Analysis and figure code.
+Levine *et al.* 2026, bioRxiv preprint, DOI [10.64898/2026.09.26.754687](https://doi.org/10.64898/2026.09.26.754687).
+Analysis and figure code.
 
 Coding conventions (paths, verification, colours) are in `docs/CONVENTIONS.md`.
 
