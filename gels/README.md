@@ -2,7 +2,7 @@
 
 Bands were quantified in ImageStudio (LI-COR) with local background. The scripts here start from the
 exported band intensities, normalize them, run the statistics, and draw the panels. The exports and
-the gel scans are not part of this repository (data deposit TBD). Place the exports under
+the gel scans are not part of this repository (Zenodo data record, DOI TBD). Place the exports under
 `<data>/gels/<folder>/` as listed below.
 
 Gel and blot images in the figures (Fig 3E, S5G, S7F right, S9E) are the scans themselves, with no code.

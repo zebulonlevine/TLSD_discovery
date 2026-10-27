@@ -3,7 +3,7 @@
 Gating and per-well median fluorescence were done in FlowJo. Fig 5G is the exception: its gating was
 done in Python (`fcs_gating.py`). The scripts here start from the per-well exports, normalize, run
 the statistics, and draw the panels. The exports and FCS files are not part of this repository
-(data deposit TBD). Place them under `<data>/flow_cytometry/<folder>/` as listed below.
+(Zenodo data record, DOI TBD). Place them under `<data>/flow_cytometry/<folder>/` as listed below.
 
 Panels drawn entirely in FlowJo (no code): Fig S1A right (EdU), the per-cell histograms in Fig 1C,
 and Fig S1C.
