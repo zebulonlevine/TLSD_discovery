@@ -5,7 +5,8 @@ output root. These are the published gene-level scores (Tables S5/S11, Fig 2,
 Fig 6, Fig S2/S3/S7).
 
 Inputs: the per-sgRNA line scores from run_line_scores.sh
-(Sublibrary_results/scores/) and counts_for_mageck.txt, under the data root.
+(Sublibrary_results/scores/) and counts_for_mageck.txt, under the data root, and
+the sublibrary design files shipped in crispr_screens/library/.
 The 53 NotI/BamHI-site guides are excluded by default; --keep-restriction-sites
 reproduces the superseded pre-2026-10-21 scores.
 """

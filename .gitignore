@@ -2,7 +2,8 @@
 config/paths.yaml
 # work-order log (kept outside the published history)
 .workorders/
-# data and derived outputs never go in git
+# data and derived outputs never go in git, except the small inputs that ship with the code
+# (crispr_screens/library/, proteomics/input/), which are plain CSV/TSV
 *.pdf
 *.png
 *.svg

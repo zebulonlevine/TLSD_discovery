@@ -3,7 +3,8 @@
 - **Paths**: never hardcode absolute paths. Use `common/paths.py`:
   - `paths.inp(...)` for reads under the data root;
   - `paths.outp(...)` for writes under the output root;
-  - `paths.repo(...)` for files shipped in this repo (categories, configs, library design tables).
+  - `paths.repo(...)` for files shipped in this repo (categories, configs, library design tables, the small
+    inputs in `crispr_screens/library/` and `proteomics/input/`).
   - YAML configs may use `${TLSD_DATA}`, `${TLSD_OUT}` and `${TLSD_REPO}`.
 - **Layout**: both roots mirror the original analysis tree (see `config/paths.example.yaml`). Scripts keep
   the original relative sub-paths so outputs can be compared file-for-file with the published ones.

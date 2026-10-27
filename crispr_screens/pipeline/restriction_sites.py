@@ -20,7 +20,7 @@ import pandas as pd
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from common import paths  # noqa: E402
 
-LIBINFO = paths.inp('Sublibrary_results/libraryInfo')
+LIBINFO = paths.repo('crispr_screens', 'library')   # shipped with the code
 MAGECK_COUNTS = paths.inp('Sublibrary_results/results/counts_for_mageck.txt')
 
 RESTRICTION_SITES = {'NotI': 'GCGGCCGC', 'BamHI': 'GGATCC'}   # both palindromic

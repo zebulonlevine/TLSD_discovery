@@ -26,8 +26,8 @@ def main():
     ap.add_argument('--outdir', required=True)
     a = ap.parse_args()
     os.makedirs(a.outdir, exist_ok=True)
-    silac = sp.drop_contaminants_and_decoys(sp.load_protein_quant(paths.inp(SILAC_TSV)))
-    total = pd.read_csv(paths.inp(TOTAL_CSV))
+    silac = sp.drop_contaminants_and_decoys(sp.load_protein_quant(paths.repo(SILAC_TSV)))
+    total = pd.read_csv(paths.repo(TOTAL_CSV))
     for name, refs in (('silac_uniprotIDs.csv', silac['Protein Id']), ('total_uniprotIDS.csv', total.iloc[:, 0])):
         uniprot_accession(refs).to_csv(os.path.join(a.outdir, name), index=False, header=False)
         print(f'{name}: {len(refs)} accessions')

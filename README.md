@@ -24,16 +24,19 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 2. Copy `config/paths.example.yaml` to `config/paths.yaml`, and point `data` and `out` at the data
    directory (see Data availability).
 3. Place the inputs under `data:` at the relative paths the scripts read (the module READMEs and the Zenodo
-   README list them).
+   README list them). Inputs that ship with the code are read from the repository and need no placing.
 
 ## Data availability
-- **Code:** this repository, archived on Zenodo as a Software record (DOI TBD).
+- **Code:** this repository, archived on Zenodo as a Software record (DOI TBD). Small inputs ship with
+  it: the genome-wide and sublibrary library design files (`crispr_screens/library/`) and the processed
+  proteomics tables with their topology annotations (`proteomics/input/`).
 - **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
   to place the count tables.
-- **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and the processed quantification tables; the
-  per-protein results are Tables S8 and S9 (see `proteomics/README.md`).
+- **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and searches; the processed quantification
+  tables the scripts read ship with the code. The per-protein results are Tables S8 and S9 (see
+  `proteomics/README.md`).
 - **Zenodo (TBD).** Single-particle tracking inputs and resampling draws, the confocal stacks and masks,
   flow-cytometry exports, gel quantification sheets and raw scans, and the ricin reanalysis output.
 - **Third-party downloads** (not redistributed):
