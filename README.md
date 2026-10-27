@@ -39,7 +39,8 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 - **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and searches; the processed quantification
   tables the scripts read ship with the code. The per-protein results are Tables S8 and S9 (see
   `proteomics/README.md`).
-- **Data: Zenodo (DOI TBD),** one zip per experiment (see `figure_index.md` and the Zenodo README):
+- **Data: Zenodo, DOI [10.5281/zenodo.23688082](https://doi.org/10.5281/zenodo.23688082),**
+  one zip per experiment (see `figure_index.md` and the Zenodo README):
   - single-particle tracking: pooled trajectories, settings, ER masks, the raw movies shown in Fig 5B and
     5E, and the resampling draws. The likelihood caches are not deposited; `single_molecule/README.md`
     rebuilds them (run order step 2). The other raw movies are available on request;

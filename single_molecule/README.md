@@ -21,7 +21,8 @@ degradation*.
 (`envs/SPT_env.yml`), not vendored.
 
 ## Data
-The inputs are on Zenodo: DOI **TBD**. That deposit has:
+The inputs are on Zenodo: DOI [10.5281/zenodo.23688082](https://doi.org/10.5281/zenodo.23688082).
+That deposit has:
 - trajectories, pooled per condition (`traj_combinations/`);
 - ER masks;
 - the settings of the 36-state likelihood caches (`occupancy_compare_cache_36state/settings_36state.pkl`).

@@ -18,7 +18,7 @@ the root `README.md` (Setup).
 | GEO sublibrary counts | FASTQs and `sublibrary_aggregated_counts.csv` at GEO (accession TBD), with the library design files in `crispr_screens/library/`. Processed by `crispr_screens/pipeline/`, then `crispr_screens/scoring/`; GO by `crispr_screens/go/go_sublibrary.py`. The results are Supplementary Tables S4–S6, S10 and S11. |
 | `screen_figures/categories/` | Gene category tables; ship with the code. |
 | `proteomics/input/` | Processed TMT quantification tables and the topology annotation; ship with the code. Raw files and searches: PRIDE (accession TBD). |
-| Zenodo `<name>` | `<name>.zip` in the Zenodo data record (DOI TBD). The record's `MANIFEST_public.csv` lists every file with its panels and the script that reads it. |
+| Zenodo `<name>` | `<name>.zip` in the Zenodo data record (DOI [10.5281/zenodo.23688082](https://doi.org/10.5281/zenodo.23688082)). The record's `MANIFEST_public.csv` lists every file with its panels and the script that reads it. |
 | Morgens 2017 SD4 | Morgens *et al.* 2017 Supplementary Data 4 (`ncomms15178-s4.xlsx`); third-party download. |
 | Enrichr GO 2025 | Enrichr `GO_Biological_Process_2025`, `GO_Molecular_Function_2025` and `GO_Cellular_Component_2025`, concatenated into one GMT; third-party download. |
 | OpenCell mmc4 | Organelle-IP localization table (Hein *et al.* 2025, Cell, supplementary file mmc4); third-party download. Read by every proteomics script. |
