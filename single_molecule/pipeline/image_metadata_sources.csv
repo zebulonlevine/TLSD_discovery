@@ -1,0 +1,11 @@
+experiment,condition,file,camera_bg,frame_interval
+2026_07_08,halo=60S_sgRNA=NT_drug=none_dt=15ms,halo=60S_sgRNA=NT_drug=none_dt=15ms_002.nd2,155.0,0.015040255831662781
+2026_07_08,halo=60S_sgRNA=NT_drug=HT10_dt=15ms,halo=60S_sgRNA=NT_drug=HT10_dt=15ms_001.nd2,142.0,0.014900520160320199
+2026_07_08,halo=60S_sgRNA=NT_drug=eme360_dt=15ms,halo=60S_sgRNA=NT_drug=eme360_dt=15ms_001.nd2,140.0,0.01477461847695774
+2026_07_08,halo=60S_sgRNA=UBA5_drug=none_dt=15ms,halo=60S_sgRNA=UBA5_drug=none_dt=15ms_003.nd2,128.0,0.015007324288578663
+2026_07_08,halo=60S_sgRNA=UBA5_drug=HT10_dt=15ms,halo=60S_sgRNA=UBA5_drug=HT10_dt=15ms_009.nd2,137.0,0.014853295470944387
+2026_07_08,halo=60S_sgRNA=UBA5_drug=eme360_dt=15ms,halo=60S_sgRNA=UBA5_drug=eme360_dt=15ms_001.nd2,130.0,0.014745911623244892
+2025_06_06_zeb,halo=RPL29_cond=NT-guide_exp=0p015,halo=RPL29_cond=NT-guide_exp=0p015_004.nd2,163.0,0.015091040000000186
+2025_06_06_zeb,halo=RPL29_cond=sgUBA5-LT_exp=0p015,halo=RPL29_cond=sgUBA5-LT_exp=0p015_016.nd2,154.0,0.01509103999999995
+2025_06_06_zeb,halo=RPS24_cond=NT-guide_exp=0p015,halo=RPS24_cond=NT-guide_exp=0p015_080.nd2,162.0,0.015091039999999716
+2025_06_06_zeb,halo=RPS24_cond=sgUBA5-LT_exp=0p015,halo=RPS24_cond=sgUBA5-LT_exp=0p015_064.nd2,184.0,0.015091040000000186

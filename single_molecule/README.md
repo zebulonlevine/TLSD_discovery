@@ -156,12 +156,17 @@ With the deposit, run steps 2, 3, 4 and 6.
    - Then run `call_megapool_operations.slurm` (2026_07_08).
    - The 2026_07_08 raw movies carry the 60S names (see Subunit labels); that experiment's
      `combinations.yaml` maps `60S_*` to the `halo=60S_...` conditions.
-   - Two inputs depend on directory order, so re-tracking a copied tree can differ from the deposited
-     trajectories:
-     - `run_filewise.py` takes `camera_bg` and `dt` from the first file `glob` returns for a condition;
-     - pooling takes the per-FOV files in `os.listdir` order.
-
-     The trajectories of each FOV are unaffected by the pooling order.
+   - **Background level and frame interval.** `run_filewise.py` takes `camera_bg` and `dt` for a condition
+     from one raw movie.
+     - The published runs used the first movie `glob` returned, i.e. directory order.
+     - `pipeline/image_metadata_sources.csv` records that movie and its values for each experiment and
+       condition, so re-tracking reproduces the published trajectories on any copy, even without that
+       movie. Verified byte-identical: 6 FOVs of 2026_07_08 (one per condition) and 5 of 2025_06_06_zeb.
+     - A condition not in the table uses the first movie in sorted order.
+     - The ER experiment (`run_filewise_er.py`) reads `camera_bg` from each FOV's own SPT TIF and does not
+       use the table.
+   - **Pooling order.** Pooling still takes the per-FOV files in `os.listdir` order, so a copied tree can
+     pool the FOVs in a different order. The trajectories of each FOV are unchanged.
 2. **36-state likelihood caches.**
    - Run `pipeline/submit_36state_caches.py`. It submits one Slurm job per condition, with memory sized
      per condition: `call_variant_cache.slurm` → `build_variant_cache_one.py`.

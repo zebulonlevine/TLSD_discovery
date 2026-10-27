@@ -178,16 +178,33 @@ def update_default_settings_for_analysis(settings , home_directory):
     return(settings)
 
 
+# camera_bg and frame_interval come from ONE raw movie per condition. The published runs
+# took the first file glob() returned, i.e. directory order, which differs between copies of
+# a directory. image_metadata_sources.csv records, per experiment and condition, the file
+# those runs used and the values read from it, so a re-run reproduces them on any copy (and
+# without that file). Conditions not in the table use the first file in sorted order.
+_SOURCES = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'image_metadata_sources.csv')
+
+
+def _recorded_source(settings, cond):
+    """(file, camera_bg, frame_interval) recorded for this experiment and condition, or None.
+    The experiment is the name of settings['io']['home_directory']."""
+    import csv
+    exp = os.path.basename(os.path.normpath(settings['io'].get('home_directory', '')))
+    with open(_SOURCES, newline='') as fh:
+        for r in csv.DictReader(fh):
+            if r['experiment'] == exp and r['condition'] == cond:
+                return r['file'], float(r['camera_bg']), float(r['frame_interval'])
+    return None
+
+
+def _read_metadata(path):
+    img = pims.open(path)
+    return float(np.median(img[0])), 1 / img.frame_rate
+
+
 def update_settings_with_image_metadata(settings , cond = None):
-    
-    
-    #arbitrary_image = os.listdir(settings['io']['data_directory'])[0]
-    
-    #    if cond == None:
-    #        arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*.nd2")[0]
-    #    else:
-    #        arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*{cond}*.nd2")[0]
-    
+
     # Skip metadata extraction for TIFF files (already have frame_interval in settings)
     data_dir = settings['io']['data_directory']
     tiff_files = glob.glob(f"{data_dir}/*{cond}*.tif")
@@ -198,24 +215,23 @@ def update_settings_with_image_metadata(settings , cond = None):
         return settings
     
     
-    if cond == None:
-        arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*.nd2")
-        if not arbitrary_image:
-                arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*.tif")
-        arbitrary_image = arbitrary_image[0]
+    rec = _recorded_source(settings, cond) if cond is not None else None
+    if rec is not None:
+        src, bg_level, dt = rec
+        path = os.path.join(data_dir, src)
+        if os.path.exists(path):
+            # the recorded file is here: check it still gives the recorded values
+            assert _read_metadata(path) == (bg_level, dt), (path, _read_metadata(path), rec)
+        print(f"camera_bg {bg_level}, frame_interval {dt} recorded for {cond} (from {src})")
     else:
-        arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*{cond}*.nd2")
-        if not arbitrary_image:
-                arbitrary_image = glob.glob(f"{settings['io']['data_directory']}/*{cond}*.tif")
-        arbitrary_image = arbitrary_image[0]
-    
-    #img = pims.open(os.path.join(settings['io']['data_directory'] ,arbitrary_image))
-    img = pims.open(arbitrary_image)
-    frame = img[0]
-    bg_level = np.median(frame)
+        pattern = '*.nd2' if cond is None else f'*{cond}*.nd2'
+        candidates = sorted(glob.glob(os.path.join(data_dir, pattern)))
+        if not candidates:
+            candidates = sorted(glob.glob(os.path.join(data_dir, pattern[:-4] + '.tif')))
+        bg_level, dt = _read_metadata(candidates[0])
+        print(f"camera_bg {bg_level}, frame_interval {dt} from {os.path.basename(candidates[0])} "
+              f"(first of {len(candidates)} in sorted order)")
 
-    dt = 1 / img.frame_rate
-    
     settings['quot']['localize']['camera_bg'] = bg_level
     settings['quot']['track']['frame_interval'] = dt
     settings['saspt']['frame_interval'] = dt
