@@ -2,7 +2,7 @@
 
 Levine *et al.* (in preparation). Analysis and figure code.
 
-> Work in progress: this repository is being assembled. See `docs/CONVENTIONS.md`.
+Coding conventions (paths, verification, colours) are in `docs/CONVENTIONS.md`.
 
 ## Repository map
 | Folder | Contents |
@@ -30,7 +30,7 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 ## Data availability
 - **Code:** this repository, archived on Zenodo as a Software record (DOI TBD). Small inputs ship with
   it: the genome-wide and sublibrary library design files (`crispr_screens/library/`) and the processed
-  proteomics tables with their topology annotations (`proteomics/input/`).
+  proteomics tables with the total-protein topology annotation (`proteomics/input/`).
 - **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
@@ -38,8 +38,14 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 - **Proteomics: ProteomeXchange/PRIDE (TBD).** Raw files and searches; the processed quantification
   tables the scripts read ship with the code. The per-protein results are Tables S8 and S9 (see
   `proteomics/README.md`).
-- **Zenodo (TBD).** Single-particle tracking inputs and resampling draws, the confocal stacks and masks,
-  flow-cytometry exports, gel quantification sheets and raw scans, and the ricin reanalysis output.
+- **Data: Zenodo (DOI TBD),** one zip per experiment (see `figure_index.md` and the Zenodo README):
+  - single-particle tracking: pooled trajectories, settings, ER masks, the raw movies shown in Fig 5B and
+    5E, and the resampling draws. The likelihood caches are not deposited; `single_molecule/README.md`
+    rebuilds them (run order step 2). The other raw movies are available on request;
+  - the confocal stacks and masks;
+  - flow-cytometry exports;
+  - gel quantification sheets and raw scans;
+  - the ricin reanalysis output.
 - **Third-party downloads** (not redistributed):
   - Enrichr `GO_Biological_Process_2025`, `GO_Molecular_Function_2025` and `GO_Cellular_Component_2025`;
   - the OpenCell organelle-IP table (Hein *et al.* 2025, Cell, supplementary file mmc4);
