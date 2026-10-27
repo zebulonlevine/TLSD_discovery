@@ -7,6 +7,7 @@ Levine *et al.* (in preparation). Analysis and figure code.
 ## Repository map
 | Folder | Contents |
 |---|---|
+| `figure_index.md` | Every figure panel and supplementary table, with the script that makes it and the source of its inputs |
 | `crispr_screens/` | sgRNA counting → MAGeCK → gene scores → synthesis/degradation line scores → per-sgRNA p-values → GO → supplementary tables |
 | `screen_figures/` | Plotting library and one script per screen-derived figure panel |
 | `ricin_reanalysis/` | Reanalysis of Morgens *et al.* 2017 ricin screen (Fig 7F) |
