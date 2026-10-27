@@ -1,4 +1,4 @@
-"""Helper functions for the SILAC + TMT proteomics analyses (Figs 3B, 4A, 4E, 7C; S5B-F; S6B-E;
+"""Helper functions for the SILAC + TMT proteomics analyses (Figs 3B, 4A, 4E, 7C; S5B-F; S6A, S6C-E;
 Tables S8, S9).
 
 Loading and channel naming, total-signal normalization, replicate means with SEM, ratios and

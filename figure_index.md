@@ -36,8 +36,8 @@ steps 2 and 3).
 | 1B | RiboHalo pulse-chase labeling assay | No code: schematic | — |
 | 1C | Turnover curves and per-cell new/old histograms | `flow_cytometry/fig1C_ribohalo_turnover.py` (curves); histograms drawn in FlowJo, no code | Zenodo `flow_RiboHalo-turnover-timecourse` |
 | 1D | Genome-wide new/old ratio screen | No code: schematic | — |
-| 1E | 40S vs 60S new/old gene scores | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels 1E` | GEO genome-wide counts; `screen_figures/categories/` |
-| 1F | GO terms enriched for new/old ratio | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels 1F` | GEO genome-wide counts; Enrichr GO 2025 |
+| 1E | 40S vs 60S new/old gene scores | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels 1E` | GEO genome-wide counts; `screen_figures/categories/` |
+| 1F | GO terms enriched for new/old ratio | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels 1F` | GEO genome-wide counts; Enrichr GO 2025 |
 
 ## Figure 2
 | Panel | What it shows | Script | Inputs |
@@ -103,14 +103,14 @@ steps 2 and 3).
 | S1A | Quiescence induction; EdU flow cytometry | No code: schematic; EdU plots drawn in FlowJo | — |
 | S1B | Immunoblots of HaloTag knock-in clones | No code: representative immunoblots | — |
 | S1C | New/old ratio histograms, screen populations | No code: drawn in FlowJo | — |
-| S1D | Gene-score correlations across screens | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels S1D` | GEO genome-wide counts |
-| S1E | Growth scores, common essentials highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels S1E` | GEO genome-wide counts; DepMap |
-| S1F | New/old scores, common essentials highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels S1F` | GEO genome-wide counts; DepMap |
+| S1D | Gene-score correlations across screens | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels S1D` | GEO genome-wide counts |
+| S1E | Growth scores, common essentials highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels S1E` | GEO genome-wide counts; DepMap |
+| S1F | New/old scores, common essentials highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels S1F` | GEO genome-wide counts; DepMap |
 
 ## Figure S2
 | Panel | What it shows | Script | Inputs |
 |---|---|---|---|
-| S2A | New/old scores by gene category | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels S2A` | GEO genome-wide counts; `screen_figures/categories/` |
+| S2A | New/old scores by gene category | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels S2A` | GEO genome-wide counts; `screen_figures/categories/` |
 | S2B | Autophagy reporter flux after ATG7, RB1CC1 knockdown | `flow_cytometry/figS2B_autophagy_reporter.py`; schematic drawn by hand | Zenodo `flow_autophagy-reporter` |
 
 ## Figure S3
@@ -145,8 +145,8 @@ steps 2 and 3).
 ## Figure S6
 | Panel | What it shows | Script | Inputs |
 |---|---|---|---|
-| S6A | Protein categories after DDRGK1 knockdown | `proteomics/total_abundance.py` (output named `fig4A_figS6B_*`) | `proteomics/input/all_ttest_results.csv`; OpenCell mmc4 |
-| S6B | Quiescent growth scores, Hippo pathway highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6A.py --panels S6A` (labelled S6A in the script) | GEO genome-wide counts; `screen_figures/categories/` |
+| S6A | Protein categories after DDRGK1 knockdown | `proteomics/total_abundance.py` (`fig4A_figS6A_*`) | `proteomics/input/all_ttest_results.csv`; OpenCell mmc4 |
+| S6B | Quiescent growth scores, Hippo pathway highlighted | `screen_figures/panels/fig1_figS1_figS2A_figS6B.py --panels S6B` | GEO genome-wide counts; `screen_figures/categories/` |
 | S6C | Membrane-protein categories after DDRGK1 knockdown | `proteomics/total_abundance.py` | `proteomics/input/all_ttest_results.csv`, `proteomics/input/total_topology.tsv`; OpenCell mmc4 |
 | S6D | Volcano, sgDDRGK1 vs sgNT, quiescent | `proteomics/total_abundance.py` | `proteomics/input/all_ttest_results.csv`; OpenCell mmc4 |
 | S6E | Volcano, sgDDRGK1 vs sgNT, growing | `proteomics/total_abundance.py` | `proteomics/input/all_ttest_results.csv`; OpenCell mmc4 |

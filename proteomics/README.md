@@ -1,4 +1,4 @@
-# Proteomics (Fig 3B, 4A, 4E, 7C; Fig S5B–F, S6B–E; Tables S8, S9)
+# Proteomics (Fig 3B, 4A, 4E, 7C; Fig S5B–F, S6A, S6C–E; Tables S8, S9)
 
 Two TMT experiments.
 - **SILAC pulse-chase.** Quiescent RPS3-HaloTag cells, sgNT or sgDDRGK1, were fully heavy-labelled,
@@ -10,7 +10,7 @@ Two TMT experiments.
 | File | Role |
 |---|---|
 | `silac_turnover.py` | SILAC: normalization, day-8/day-3 turnover, sgDDRGK1 − sgNT deltas, Fig 7C test. Writes Table S8 and Fig 3B, S5B, S5D–F and 7C |
-| `total_abundance.py` | Total protein: median normalization and sgDDRGK1 vs sgNT tests. Writes Table S9 and Fig 4A/S6B, 4E/S6C, S6D/E |
+| `total_abundance.py` | Total protein: median normalization and sgDDRGK1 vs sgNT tests. Writes Table S9 and Fig 4A/S6A, 4E/S6C, S6D/E |
 | `figS5C_correlation.py` | Correlation between the SILAC and total-protein comparisons (Fig S5C) |
 | `silac_proteomics.py` | Helper library: loading, normalization, error propagation, tests, categories, plots |
 | `settings.py` | Input paths, plex layout, comparisons, category and gene-set definitions |
@@ -37,7 +37,7 @@ Two TMT experiments.
   - stress granule, P-body and "translation" count as cytosol;
   - ribosomal proteins are assigned from the RPL/RPS gene lists.
 
-  This is the `category_locAdj` column, used in Fig 3B, 4A, S5D/E and S6B.
+  This is the `category_locAdj` column, used in Fig 3B, 4A, S5D/E and S6A.
 
 ## Outputs (`<out>/proteomics/`)
 | Panel / table | File(s) |
@@ -48,7 +48,7 @@ Two TMT experiments.
 | Fig S5D, S5E | `figS5D_old_turnover_by_category.pdf`, `figS5E_new_turnover_by_category.pdf`, `figS5DE_turnover_{old,new}_{NT,sgDDRGK1}_mwu.csv` |
 | Fig S5F | `figS5F_er_gene_sets_strip.pdf`, `figS5F_values.csv` |
 | Fig 7C | `fig7C_new_protein_volcano.pdf`, `fig7C_new_protein_stats.csv` (days 3 and 8) |
-| Fig 4A, S6B | `fig4A_figS6B_total_by_category.pdf` (Fig 4A shows the RPL / RPS groups), `fig4A_figS6B_{growing,quiescent}_mwu.csv` |
+| Fig 4A, S6A | `fig4A_figS6A_total_by_category.pdf` (Fig 4A shows the RPL / RPS groups), `fig4A_figS6A_{growing,quiescent}_mwu.csv` |
 | Fig 4E, S6C | `fig4E_figS6C_total_by_topology.pdf`, `fig4E_figS6C_{growing,quiescent}_mwu.csv` |
 | Fig S6D, S6E | `figS6D_volcano_quiescent.pdf`, `figS6E_volcano_growing.pdf` |
 | Table S8 | `TableS8_SILAC_annotated.csv`, `.xlsx` |
@@ -62,7 +62,7 @@ Fig 7C labels TLSD1 by its gene symbol, R3HDM4.
 | `protein_quant_30972.tsv` | SILAC-TMT protein quantification (heavy and light signal-to-noise sums for each of 12 channels) | ships with the code: `input/` |
 | `all_ttest_results.csv` | Total-protein TMT table (log2 abundances for 15 samples) | ships with the code: `input/` |
 | `total_topology.tsv` | Membrane topology and MitoCarta flags for the total-protein table | ships with the code: `input/`; written by `annotation/uniprot_topology_pipeline.py` (UniProt release 2026_01; see Run) |
-| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | download (ref. 170, supplementary file mmc4) to `<data>/proteomics/` |
+| `mmc4_published_OpenCell.xlsx` | Organelle-IP localization table (sheet `subcell_annotation_summary`) | download (Hein *et al.* 2025, Cell, supplementary file mmc4) to `<data>/proteomics/` |
 
 The two quantification tables are the processed outputs of the searches deposited at
 ProteomeXchange/PRIDE (accession TBD), which holds the raw files. `all_ttest_results.csv` (9.1 MB) is
@@ -100,14 +100,14 @@ RPL/RPS-dependent outputs changed.
   topology tables byte-for-byte.
 
 ## Changes from the original notebook
-- **Fig 4A/S6B** are grouped by `category_locAdj`, like Fig 3B and S5D/E. The notebook grouped
+- **Fig 4A/S6A** are grouped by `category_locAdj`, like Fig 3B and S5D/E. The notebook grouped
   them by the unadjusted categories. The significance stars are unchanged.
 - **Fig 4E/S6C title** now reads "by membrane topology" (it said "by localization").
 - **Ribosomal gene lists** (`settings.py`), 2026-10-24:
   - Current symbols: RPLP0 (was `RPP0`) and RPS4X (was `RPS4`). Under the old names, neither
     protein was assigned to RPL/RPS.
   - RPL7L1 removed from RPL. It is a 60S assembly factor, not a ribosomal protein.
-  - Affected: Fig 3B, 4A, S5D–F, S6B and the category columns of Tables S8/S9.
+  - Affected: Fig 3B, 4A, S5D–F, S6A and the category columns of Tables S8/S9.
   - Text changes in the placed panels: only the RPL7L1 label in S5F is gone.
   - The subsampled MWU shares one random stream across categories, so changing a group size
     shifts every later category's draws. Calls near a threshold can move for that reason alone.

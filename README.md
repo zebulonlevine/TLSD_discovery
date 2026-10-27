@@ -42,7 +42,7 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
   flow-cytometry exports, gel quantification sheets and raw scans, and the ricin reanalysis output.
 - **Third-party downloads** (not redistributed):
   - Enrichr `GO_Biological_Process_2025`, `GO_Molecular_Function_2025` and `GO_Cellular_Component_2025`;
-  - the OpenCell organelle-IP table (ref. 170, supplementary file mmc4);
+  - the OpenCell organelle-IP table (Hein *et al.* 2025, Cell, supplementary file mmc4);
   - Morgens *et al.* 2017 Supplementary Data 4;
   - the DepMap Achilles common essentials;
   - MitoCarta 3.0.

@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-Regenerate the screen-derived panels of Figure 1 / S1 / S2A / S6A from the current
+Regenerate the screen-derived panels of Figure 1 / S1 / S2A / S6B from the current
 genome-wide scores.
 
 Equivalent to running Fig1.ipynb cells 0, 2, 4, 5, 6, 7, 11, 12, 25 -- lifted
 into a script because several other cells in that notebook cannot be executed
 (cell 26 is a bare `y = `, cell 36 references an undefined name, cells 29-35
 make live network calls, and cell 40 rewrites decoupler inside site-packages).
-Every output path here is absolute, so this is safe to run from anywhere.
+Inputs are read from the data root and outputs written under the output root (common/paths).
 
 Adds the two panels that had no code: S1D (correlation heatmap) and 1F (GO
 enrichment).
 
-    python fig1_figS1_figS2A_figS6A.py [--panels 1E,S1D,S1E,S1F,S2A,S6A,1F]
+    python fig1_figS1_figS2A_figS6B.py [--panels 1E,S1D,S1E,S1F,S2A,S6B,1F]
 """
 
 import argparse
@@ -100,7 +100,7 @@ def three_ways(fn, outdir, stem, **kw):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--panels', default='1E,S1D,S1E,S1F,S2A,S6A,1F')
+    ap.add_argument('--panels', default='1E,S1D,S1E,S1F,S2A,S6B,1F')
     args = ap.parse_args()
     want = {p.strip().upper() for p in args.panels.split(',')}
 
@@ -109,15 +109,15 @@ def main():
 
     from functools import partial
 
-    need_scatter = want & {'1E', 'S1E', 'S1F', 'S6A'}
+    need_scatter = want & {'1E', 'S1E', 'S1F', 'S6B'}
     if need_scatter:
         L29NewOld_comp = comp(L29NewOld, 'L29 NewOld')
         S3NewOld_comp = comp(S3NewOld, 'S3 NewOld')
         L29Growth_comp = comp(L29Growth, 'L29 Growth')
         S3Growth_comp = comp(S3Growth, 'S3 Growth')
 
-    if 'S6A' in want:
-        print('\n=== Fig S6A: growth scores, Hippo pathway ===')
+    if 'S6B' in want:
+        print('\n=== Fig S6B: growth scores, Hippo pathway ===')
         three_ways(
             partial(screen_viz.plot_comparison_scatter,
                     L29Growth_comp, S3Growth_comp,

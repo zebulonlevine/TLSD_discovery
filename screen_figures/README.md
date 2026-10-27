@@ -14,7 +14,7 @@ Zenodo. The same values are in Supplementary Tables S1–S6, S10 and S11.
 
 | Panel | Script (`panels/`) | Output |
 |---|---|---|
-| 1E, 1F, S1D, S1E, S1F, S2A, S6A | `fig1_figS1_figS2A_figS6A.py [--panels ...]` | `GenomeWide_results/plots/{Fig1,EssentialsScatter}/` |
+| 1E, 1F, S1D, S1E, S1F, S2A, S6B | `fig1_figS1_figS2A_figS6B.py [--panels ...]` | `GenomeWide_results/plots/{Fig1,EssentialsScatter}/` |
 | S3B | `figS3B_sublibrary_selection.py` | `Sublibrary_results/plots/GeneScatter/Genomewide_includedGenes_sublib*.pdf` |
 | 2C | `fig2C_synth_vs_deg.py` | `fixed_NotI/plots/compare_{60S,40S}scores_bioBySubunit[_noLegend]_fixedNotI.pdf` |
 | 2D, S4B | `fig2D_figS4B_category_violins.py` | `fixed_NotI/plots/{60S,40S}{deg,synth}_violinPlots_fixedNotI.pdf` |

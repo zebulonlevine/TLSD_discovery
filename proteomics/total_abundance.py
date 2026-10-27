@@ -11,7 +11,7 @@ sgNT / sgDDRGK1, growing / quiescent, and RPL29-HaloTag sgDDRGK1 quiescent).
 
 Outputs (output root, proteomics/):
   TableS9_nonSILAC_proteomics.csv / .xlsx
-  fig4A_figS6B_total_by_category.pdf          + fig4A_figS6B_{growing,quiescent}_mwu.csv
+  fig4A_figS6A_total_by_category.pdf          + fig4A_figS6A_{growing,quiescent}_mwu.csv
   fig4E_figS6C_total_by_topology.pdf          + fig4E_figS6C_{growing,quiescent}_mwu.csv
   figS6D_volcano_quiescent.pdf, figS6E_volcano_growing.pdf
 
@@ -146,11 +146,11 @@ def mwu_by_group(df, group_col, groups, stem):
                                    **MWU).to_csv(out(f'{stem}_{cond}_mwu.csv'), index=False)
 
 
-def fig4A_S6B(df, category_col=ADJ_CATEGORY):
+def fig4A_S6A(df, category_col=ADJ_CATEGORY):
     """Total protein change by localization; Fig 4A shows the RPL / RPS groups."""
     split_box(df, category_col, KEEP_CATEGORIES, 'changes quiescent vs growing by localization',
-              out('fig4A_figS6B_total_by_category.pdf'))
-    mwu_by_group(df, category_col, KEEP_CATEGORIES, 'fig4A_figS6B')
+              out('fig4A_figS6A_total_by_category.pdf'))
+    mwu_by_group(df, category_col, KEEP_CATEGORIES, 'fig4A_figS6A')
 
 
 def fig4E_S6C(df):
@@ -178,7 +178,7 @@ def main():
     warnings.filterwarnings('ignore', message='After omitting NaNs')   # SEM of proteins seen in < 2 replicates = NaN
     df = build_total()
     write_table(table_S9(df), 'TableS9_nonSILAC_proteomics', sheet='SupplementaryTable9')   # xlsx keeps MARCH5 etc. as text
-    fig4A_S6B(df)
+    fig4A_S6A(df)
     fig4E_S6C(df)
     figS6DE(df)
     print(f'{len(df)} proteins; wrote', paths.outp(OUT_DIR))

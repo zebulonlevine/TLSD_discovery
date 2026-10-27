@@ -9,7 +9,8 @@ Inputs shipped with the code (paths.repo) under proteomics/input/:
 
 Read from the data root (paths.inp) under proteomics/, a third-party download:
 
-  mmc4_published_OpenCell.xlsx   organelle-IP localization table (sheet 'subcell_annotation_summary'), ref. 170
+  mmc4_published_OpenCell.xlsx   organelle-IP localization table (sheet 'subcell_annotation_summary'),
+                                 Hein et al. 2025, Cell
 """
 
 # ---------------------------------------------------------------------------
@@ -17,7 +18,7 @@ Read from the data root (paths.inp) under proteomics/, a third-party download:
 # ---------------------------------------------------------------------------
 SILAC_TSV = 'proteomics/input/protein_quant_30972.tsv'
 TOTAL_CSV = 'proteomics/input/all_ttest_results.csv'
-LOCALIZATION_XLSX = 'proteomics/mmc4_published_OpenCell.xlsx'   # data root (paths.inp): download, ref. 170
+LOCALIZATION_XLSX = 'proteomics/mmc4_published_OpenCell.xlsx'   # data root (paths.inp): download, Hein et al. 2025
 LOCALIZATION_SHEET = 'subcell_annotation_summary'
 TOTAL_TOPOLOGY = 'proteomics/input/total_topology.tsv'
 
