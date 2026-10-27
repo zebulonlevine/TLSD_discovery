@@ -29,10 +29,11 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
    README list them). Inputs that ship with the code are read from the repository and need no placing.
 
 ## Data availability
-- **Code:** this repository, archived on Zenodo as a Software record,
-  DOI [10.5281/zenodo.23687356](https://doi.org/10.5281/zenodo.23687356). Small inputs ship with it: the
-  genome-wide and sublibrary library design files (`crispr_screens/library/`) and the processed
-  proteomics tables with the total-protein topology annotation (`proteomics/input/`).
+- **Code:** this repository, [github.com/zebulonlevine/TLSD_discovery](https://github.com/zebulonlevine/TLSD_discovery),
+  archived on Zenodo as a Software record, DOI [10.5281/zenodo.23687356](https://doi.org/10.5281/zenodo.23687356).
+  Small inputs ship with it: the genome-wide and sublibrary library design files
+  (`crispr_screens/library/`) and the processed proteomics tables with the total-protein topology
+  annotation (`proteomics/input/`).
 - **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
