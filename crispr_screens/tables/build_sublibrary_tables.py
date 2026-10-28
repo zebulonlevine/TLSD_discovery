@@ -5,10 +5,12 @@
                                    plus the four line scores AND (new) their
                                    per-sgRNA p-values
   S5   gene level, sgNT arm     -- epsilon / pvalue / product / hit per
-                                   comparison and per line score
+                                   comparison and per line score, plus the
+                                   figure category annotations (see ANNOTATIONS)
   S10  sgRNA level, sgUBA5 arm  -- S4 with every column suffixed _sgUBA5
   S11  gene level, sgUBA5 arm   -- S5 for sgUBA5, plus sgUBA5-minus-sgNT
-                                   epistasis columns for the four line scores
+                                   epistasis columns for the four line scores,
+                                   then the same category annotations
 
 Provenance (all verified against the previous hand-built tables):
   *_Top/Bottom_count      <- mageck treatment_count / control_count (kept as the
@@ -49,6 +51,7 @@ from common import paths  # noqa: E402
 import gene_aliases  # noqa: E402
 import mageck_counts  # noqa: E402
 import restriction_sites  # noqa: E402
+from build_supplementary_tables import category_rows, join_categories  # noqa: E402
 
 # Published tables are built from the re-scored tree (53 NotI/BamHI guides excluded).
 RES = paths.inp('fixed_NotI/results')
@@ -77,6 +80,48 @@ def arms(comp):
     row = tab.loc[comp]
     split = lambda v: [x.strip() for x in str(v).split(',') if x.strip()]
     return split(row['treatment']), split(row['control'])
+
+
+# Figure category annotations (S5 and S11), one column per colouring, named by the panels that use
+# it. Each table is built as in the figure script named; a gene in two categories lists both.
+RNA_POL_I = ['POLR1A', 'POLR1B', 'POLR1C', 'POLR1D', 'POLR1E', 'POLR1F', 'POLR1G', 'POLR1H']
+LYSO_MANUAL = ['RNASEK', 'ATG14']
+EIF3 = ['EIF3A', 'EIF3B', 'EIF3C', 'EIF3D', 'EIF3E', 'EIF3F', 'EIF3G',
+        'EIF3H', 'EIF3I', 'EIF3J', 'EIF3K', 'EIF3L', 'EIF3M']
+
+
+def bysubunit_categories(s8ef=False):
+    """Biogenesis split by subunit (RNA Pol I in 'Both subunits'), plus Lysosome/Autophagy and
+    UFMylation from GenomeWideCats_threeOptions.csv; RNASEK and ATG14 curated to Lysosome/Autophagy
+    (fig2C_synth_vs_deg.py, figS4A_subunit_scatter.py). s8ef=True adds the EIF3 and R3HDM4 groups of
+    figS8EF_growth_epistasis.py."""
+    bio = category_rows('GenomeWideCats_synth_bySubunit.csv')
+    bio['category'] = bio['category'].replace({'Both Biogenesis': 'Both subunits'})
+    bio.loc[bio['gene'].isin(RNA_POL_I), 'category'] = 'Both subunits'
+    base = category_rows('GenomeWideCats_threeOptions.csv')
+    cats = pd.concat([bio, base[base['category'] != 'Biogenesis']], ignore_index=True)
+    curated = {g: 'Lysosome/Autophagy' for g in LYSO_MANUAL}
+    if s8ef:
+        curated.update({g: 'EIF3' for g in EIF3}, R3HDM4='R3HDM4')
+    cats = cats[~cats['gene'].isin(curated)]
+    return pd.concat([cats, pd.DataFrame({'gene': list(curated), 'category': list(curated.values())})],
+                     ignore_index=True)
+
+
+ANNOTATIONS = {
+    'Fig2C_FigS4A_Categories': bysubunit_categories,
+    'Fig2D_FigS4B_Categories': lambda: category_rows('manyCats.csv'),
+    'Fig6B_Categories':        lambda: category_rows('CatsSublib_R3HDM4_40S.csv'),
+    'FigS8BC_Categories':      lambda: category_rows('CatsSublib_R3HDM4_40S_2.csv'),
+    'FigS8EF_Categories':      lambda: bysubunit_categories(s8ef=True),
+}
+
+
+def add_annotations(t):
+    """Append the ANNOTATIONS columns, matched on the unaliased gene symbol."""
+    for col, rows in ANNOTATIONS.items():
+        t[col] = t['gene'].astype(str).map(join_categories(rows()))
+    return t
 
 
 def treatment_is_bottom(comp):
@@ -291,6 +336,7 @@ def main():
 
     print('=== Table S5: gene level, sgNT ===')
     s5 = build_gene_table('wt', args.scores_root)
+    s5 = add_annotations(s5)
     s5 = gene_aliases.apply_to(s5, plain_cols=('gene',))
     s5.to_csv(os.path.join(args.outdir, f'TableS5_GeneLevel_sublib{t}.csv'), index=False)
     print(f'  {s5.shape[0]} rows x {s5.shape[1]} cols')
@@ -304,6 +350,7 @@ def main():
     print('=== Table S11: gene level, sgUBA5 + epistasis ===')
     s11 = build_gene_table('sgUBA5', args.scores_root)
     s11 = add_epistasis(s11, s5)
+    s11 = add_annotations(s11)
     s11 = gene_aliases.apply_to(s11, plain_cols=('gene',))
     s11.to_csv(os.path.join(args.outdir, f'TableS11_GeneLevel_sublib_sgUBA5{t}.csv'), index=False)
     print(f'  {s11.shape[0]} rows x {s11.shape[1]} cols')

@@ -93,12 +93,12 @@ CONDITION_NAMES = {
     'unsorted': 'End',
 }
 
-# Table S2 annotation columns -> category file
+# Table S2 annotation columns, named by the panel they colour -> category file
 ANNOTATION_FILES = {
-    'CommonEssential':        'CommonEssentials.csv',
-    'Fig1FCategories':        'GenomeWideCats_threeOptions.csv',
-    'FigS1FCategories':       'manyCats2.csv',
-    'HippoPathway_FigureS5A': 'Cats_Hippo.csv',
+    'CommonEssential':     'CommonEssentials.csv',              # Figs S1E, S1F
+    'Fig1E_Categories':    'GenomeWideCats_threeOptions.csv',
+    'FigS2A_Categories':   'manyCats2.csv',
+    'FigS6B_HippoPathway': 'Cats_Hippo.csv',
 }
 
 
@@ -128,42 +128,28 @@ def _line_and_state(comp: str) -> tuple:
     return line, state
 
 
-# Columns whose figure plots a DISTRIBUTION (violins), where a gene listed
-# under two categories legitimately contributes to both. Everything else backs
-# a scatter, where the point carries one colour.
-MULTI_CATEGORY_COLUMNS = {'FigS1FCategories'}
-
-
-def _load_category(filename: str, multi: bool = False) -> pd.Series:
-    """gene -> category, from a two-column Categories CSV.
-
-    A handful of genes are listed under more than one category (ATG16L1 is both
-    Autophagy and E3; RACK1 is both Biogenesis and Lysosome/Autophagy). The
-    resolution mirrors screen_viz:
-
-    multi=False  one category, autophagy preferred, else last row wins
-                 (screen_viz._gene_to_cat_map -- what the scatters colour by)
-    multi=True   every category, '; '-joined
-                 (screen_viz._gene_to_cats_map -- what the violins group by)
-    """
-    path = os.path.join(CATEGORY_DIR, filename)
-    df = pd.read_csv(path)
+def category_rows(filename: str) -> pd.DataFrame:
+    """(gene, category) rows of a Categories CSV, whitespace-stripped, in file order."""
+    df = pd.read_csv(os.path.join(CATEGORY_DIR, filename))
     gene_col = 'gene' if 'gene' in df.columns else df.columns[0]
     cat_col = 'category' if 'category' in df.columns else df.columns[-1]
-    df[gene_col] = df[gene_col].astype(str).str.strip()
-    df[cat_col] = df[cat_col].astype(str).str.strip()
-    df = df[df[gene_col] != '']
+    out = pd.DataFrame({'gene': df[gene_col].astype(str).str.strip(),
+                        'category': df[cat_col].astype(str).str.strip()})
+    return out[out['gene'] != ''].reset_index(drop=True)
 
-    if multi:
-        return (df.drop_duplicates(subset=[gene_col, cat_col])
-                  .groupby(gene_col)[cat_col].apply('; '.join))
 
-    out = {}
-    for gene, cat in zip(df[gene_col], df[cat_col]):
-        held = out.get(gene)
-        if held is None or 'autophagy' not in held.lower():
-            out[gene] = cat
-    return pd.Series(out)
+def join_categories(rows: pd.DataFrame) -> pd.Series:
+    """gene -> every category it is listed under, '; '-joined in row order.
+
+    A handful of genes are listed under two categories (ATG16L1 is both Autophagy
+    and E3; RACK1 is both Biogenesis and Lysosome/Autophagy); the tables keep both.
+    In the scatters such a gene is drawn once, in the autophagy colour
+    (screen_viz._gene_to_cat_map); the violins count it in each category
+    (screen_viz._gene_to_cats_map). A category named after a gene gets the gene's
+    display label (R3HDM4 -> TLSD1/R3HDM4).
+    """
+    rows = rows.assign(category=rows['category'].map(gene_aliases.alias_symbol))
+    return rows.drop_duplicates().groupby('gene', sort=False)['category'].agg('; '.join)
 
 
 # =============================================================================
@@ -332,7 +318,7 @@ def build_gene_table(results_dir: str) -> pd.DataFrame:
     # Figure category annotations, from the same files the figures read.
     for out_col, filename in ANNOTATION_FILES.items():
         try:
-            mapping = _load_category(filename, multi=out_col in MULTI_CATEGORY_COLUMNS)
+            mapping = join_categories(category_rows(filename))
         except FileNotFoundError:
             print(f"  WARNING: {filename} not found -- {out_col} left blank")
             table[out_col] = pd.NA

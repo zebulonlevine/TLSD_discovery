@@ -16,6 +16,12 @@ their inputs under the data root from the GEO count tables (see `../pipeline/REA
     `ratioON_Bottom` in S4/S10). See `../pipeline/README.md`.
   - Until 2026-10-28 these headers used the sorter's names: S1 `Top`/`Bottom`, S4/S10 `RatioON_*`
     with `RatioON_BottomvTop`, S5/S11 `RatioON_TopvBottom`. The values are unchanged.
+- Category annotation columns (the pathway categories that colour the figures):
+  - S2: `CommonEssential`, `Fig1E_Categories`, `FigS2A_Categories`, `FigS6B_HippoPathway`.
+  - S5/S11: `Fig2C_FigS4A_Categories`, `Fig2D_FigS4B_Categories`, `Fig6B_Categories`,
+    `FigS8BC_Categories`, `FigS8EF_Categories`.
+  - Each is built from the figure's own file in `../../screen_figures/categories/`.
+  - A gene in two categories lists both, joined by "; ". The category R3HDM4 reads TLSD1/R3HDM4.
 - `--tables s1,s2,s3` selects a subset.
 - Gene labels: the combined display labels (TLSD1/R3HDM4, UBA5/ACAD11, ATG9A/ANKZF1, RMP64) are used
   in every table. `--gene-labels plain` affects only S1's `Gene` column. `gene_id` is never aliased.
