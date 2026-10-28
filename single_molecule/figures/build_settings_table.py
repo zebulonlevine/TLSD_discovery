@@ -185,7 +185,8 @@ ROWS = [
     ('quot: track', 'max_blinks', q('track', 'max_blinks'), 'frames',
      'Gap frames tolerated within one trajectory; 0 = no gap closing'),
     ('quot: track', 'min_I0', q('track', 'min_I0'), 'ADU',
-     'Minimum fitted spot intensity for a detection to be linked'),
+     'Spot intensity threshold: a spot below it cannot start a trajectory, and trajectories '
+     'with mean spot intensity at or below it are discarded before saSPT'),
     ('quot: track', 'scale', q('track', 'scale'), '',
      'Coordinate scale factor; 1.0 keeps trajectories in pixels'),
 

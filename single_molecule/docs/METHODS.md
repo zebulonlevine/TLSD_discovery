@@ -99,9 +99,11 @@ than because it affects a conclusion.
 > (github.com/alecheckert/quot): log-likelihood-ratio detection (window 15 px,
 > threshold 15.0, k = 2.0) followed by least-squares fitting of an
 > integrated 2-D Gaussian (window 15 px, PSF σ = 2.5 px, camera offset 100 ADU).
-> Localizations were linked by Euclidean nearest-neighbour assignment with a
-> 1.2 µm search radius and no gap-closing (`max_blinks = 0`). Trajectories whose
-> mean spot intensity fell below 100 ADU above background were discarded.
+> Localizations were linked frame to frame by the assignment that minimizes the
+> total Euclidean displacement (Hungarian algorithm; quot's `euclidean` method),
+> with a 1.2 µm search radius and no gap-closing (`max_blinks = 0`). Spots below
+> 100 ADU could not start a trajectory, and trajectories whose mean spot intensity
+> was at or below 100 ADU were discarded.
 > Single-frame images of sparse labels are close to background (real spots sit
 > only ~80–130 ADU above a ~148 ADU background), so displayed stills are
 > maximum- or median-intensity projections; projection is never applied to the
