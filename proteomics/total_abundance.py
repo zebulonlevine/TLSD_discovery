@@ -166,7 +166,8 @@ def figS6DE(df):
     for panel, cond in (('figS6D', 'quiescent'), ('figS6E', 'growing')):
         col = CONDITIONS[cond]
         sp.volcano(df, effect_col=col, pvalue_col=col + '_p', title=f'S3 {cond} log2FC sgDDRGK1 vs NT',
-                   category_col=GENE_SET_COL, highlight={'Other': 'lightgrey', 'Translocon': 'blue', 'UPR': 'orange'})
+                   category_col=GENE_SET_COL, highlight={'Other': 'lightgrey', 'Translocon': 'blue', 'UPR': 'orange'},
+                   base_size=27, highlight_size=40.5)          # 1.5x the default marker diameter (area x 2.25)
         plt.vlines([np.log2(1.5), np.log2(1 / 1.5)], ymin=0, ymax=7, linestyles='dashed')
         plt.hlines([-np.log10(0.05)], xmin=-6, xmax=2.5, linestyles='dashed')
         plt.xlim(-6, 2.5)

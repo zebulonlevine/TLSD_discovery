@@ -1169,6 +1169,8 @@ def volcano(
     xlim: tuple[float, float] | None = None,
     base_color: str = "lightgrey",
     base_alpha: float = 0.3,
+    base_size: float = 12,
+    highlight_size: float = 18,
     figsize: tuple[float, float] = (8, 7),
     save: str | None = None,
     ax: plt.Axes | None = None,
@@ -1180,14 +1182,14 @@ def volcano(
         ``{'RPL': ['RPL10A', 'RPL3', ...], 'RPS': [...]}``  -- list of genes
     Only the dict-of-color form uses `category_col`; the dict-of-list form
     matches gene symbols directly via the index of the DataFrame's `Gene
-    Symbol` column (assumed present).
+    Symbol` column (assumed present). `base_size` / `highlight_size` are marker areas (pt^2).
     """
     if ax is None:
         _, ax = plt.subplots(figsize=figsize)
 
     x = df[effect_col]
     y = -np.log10(df[pvalue_col])
-    ax.scatter(x, y, alpha=base_alpha, color=base_color, s=12, label="all", rasterized=True)
+    ax.scatter(x, y, alpha=base_alpha, color=base_color, s=base_size, label="all", rasterized=True)
 
     if highlight:
         for label, spec in highlight.items():
@@ -1201,7 +1203,7 @@ def volcano(
                     raise KeyError("highlight by gene list requires a 'Gene Symbol' column")
                 mask = df["Gene Symbol"].isin(list(spec))
                 color = None
-            ax.scatter(x[mask], y[mask], alpha=0.7, s=18, label=label, color=color, rasterized=True)
+            ax.scatter(x[mask], y[mask], alpha=0.7, s=highlight_size, label=label, color=color, rasterized=True)
 
     ax.set_xlabel(xlabel or effect_col)
     ax.set_ylabel(f"-log10({pvalue_col})")
