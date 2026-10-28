@@ -176,7 +176,7 @@ ROWS = [
     ('quot: localize', 'damp', q('localize', 'damp'), '',
      'Damping factor on the parameter update'),
     ('quot: localize', 'camera_bg', q('localize', 'camera_bg'), 'ADU',
-     'Camera offset, read from the SPT TIF; reading it from the ND2 yields NaN'),
+     'Camera offset, read from the SPT TIF'),
 
     ('quot: track', 'method', q('track', 'method'), '',
      'Frame-to-frame linking by Euclidean distance (Hungarian assignment)'),
