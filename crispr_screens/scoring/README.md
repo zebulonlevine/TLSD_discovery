@@ -10,7 +10,8 @@ Supplementary Tables S4, S5, S10 and S11.
 1. `bash run_line_scores.sh`
    - Per-sgRNA line scores for the 8 sublibrary screens (60S/40S × synthesis/degradation × sgNT/sgUBA5),
      written to `Sublibrary_results/scores/<dir>/<dir>_sgrna_scores.csv`.
-   - x is the ratioON comparison. y is the new (synthesis, line y = x) or old (degradation,
+   - x is the ratio comparison (`*_ratioON_top_v_bottom_*`, a log2 fold change of new/old top over
+     bottom; see `../pipeline/README.md`). y is the new (synthesis, line y = x) or old (degradation,
      line y = −x) comparison.
    - score = parallel·|parallel| / (|parallel| + perp).
 2. `python export_scores.py`

@@ -25,11 +25,23 @@ Used for the genome-wide screens (`config_genomewide.yaml`) and the sublibrary s
 
 `python screen_pipeline.py run --config <config> --wait` chains stages 2–5.
 
-## Orientation warning
-The `ratioON` comparisons use the **bottom** sorted fraction as treatment and the **top** as control,
-so their fold change is log2(bottom/top). This is deliberate: it makes the slope +1/−1 geometry of the
-synthesis/degradation scores correct (see `../scoring/`). Check any "Top"/"Bottom" table column for
-these comparisons against `comparisons_*.csv`, not against the name.
+## Ratio sorts: sorter names vs new/old names
+The sorter gated the ratio sorts on the **old/new** ratio (JF549/JF646), in both screens. The sample
+names here keep the sorter's gate names, as do the FASTQ files: genome-wide `top`/`bottom` and
+sublibrary `ratioON_Top`/`ratioON_Bottom` are the top and bottom 25% of **old/new**.
+
+The paper, the supplementary tables and GEO report these samples by **new/old** ratio. The sorter's
+**bottom** gate is the top 25% of new/old, and its **top** gate is the bottom 25%.
+
+The ratio comparisons (`*_TopvBottom*` genome-wide, `*_ratioON_top_v_bottom_*` sublibrary) take the
+sorter's bottom gate as treatment. Their fold change is therefore log2(new/old top / new/old bottom),
+the same direction as the new and old sorts. The synthesis/degradation scores rely on this (see
+`../scoring/`). Every value in the tables follows this orientation; only the column names say new/old:
+- Table S1: `RatioNewOld_Top` = sorter `bottom`.
+- Tables S4/S10: `RatioNewOld_Top` = sorter `ratioON_Bottom`.
+- S1, S4/S10 and S5/S11 all name the fold change `RatioNewOld_TopvBottom`.
+
+`geo_sample_names.csv` maps each GEO sample name to the sample name used here.
 
 ## Files
 | File | Purpose |
@@ -38,6 +50,7 @@ these comparisons against `comparisons_*.csv`, not against the name.
 | `count_spacers.py` | Exact-match spacer counting after the key sequence (+1G aware) |
 | `restriction_sites.py` | Sublibrary guide annotation and the 53 NotI/BamHI-site guides excluded from all analyses |
 | `gene_aliases.py` | Display labels for the supplementary tables (TLSD1/R3HDM4, UBA5/ACAD11, ATG9A/ANKZF1, RMP64) |
+| `geo_sample_names.csv` | GEO sample name → sample name used here, with each sample's fraction. The ratio sorts are new/old at GEO and old/new (sorter) here |
 | `mageck_counts.py` | Puts sub-threshold guides' counts on MAGeCK's normalised scale for the tables |
 | `config_*.yaml`, `sample_table_*.csv`, `library_table_*.csv`, `comparisons_*.csv` | Screen definitions |
 
@@ -46,6 +59,9 @@ these comparisons against `comparisons_*.csv`, not against the name.
   `sample_table_*.csv`.
 - **Count tables (GEO).** To start at the MAGeCK stage (stage 4), build `counts_for_mageck.txt` from the
   GEO count tables. Rows are in the same order and the counts are the ones the published results used.
+  GEO names the ratio-sorted samples by new/old ratio (e.g. `L29rep1_ratioNewOld_top`). Rename the
+  sample columns to the names used here with `geo_sample_names.csv` (`geo_name` → `sample_name`; e.g.
+  `L29rep1_ratioNewOld_top` → `L29rep1_bottom`). The other samples keep their names.
   - Genome-wide, `${TLSD_DATA}/GenomeWide_results/results/`:
     - `counts_for_mageck.txt` from `genomewide_aggregated_counts.csv`: tab-separated; columns `sgRNA`,
       `Gene` (the sgRNA name without its `_sg<n>` suffix), then the 22 sample columns.

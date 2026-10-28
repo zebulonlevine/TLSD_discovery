@@ -10,6 +10,12 @@ their inputs under the data root from the GEO count tables (see `../pipeline/REA
 | S6 | `python ../go/build_tableS6.py` | `fixed_NotI/supplementary_tables/TableS6_GO_pooled_sublibraryScores.{csv,xlsx}` |
 
 **Notes**
+- Ratio-sort columns are named by new/old ratio: `RatioNewOld_Top`/`_Bottom` counts and means and
+  `RatioNewOld_TopvBottom` fold changes (S1, S4/S5, S10/S11; S2 already used `RatioNewOld`).
+  - The sorter gated on old/new, so `RatioNewOld_Top` holds the sorter's bottom gate (`bottom` in S1,
+    `ratioON_Bottom` in S4/S10). See `../pipeline/README.md`.
+  - Until 2026-10-28 these headers used the sorter's names: S1 `Top`/`Bottom`, S4/S10 `RatioON_*`
+    with `RatioON_BottomvTop`, S5/S11 `RatioON_TopvBottom`. The values are unchanged.
 - `--tables s1,s2,s3` selects a subset.
 - Gene labels: the combined display labels (TLSD1/R3HDM4, UBA5/ACAD11, ATG9A/ANKZF1, RMP64) are used
   in every table. `--gene-labels plain` affects only S1's `Gene` column. `gene_id` is never aliased.

@@ -37,7 +37,9 @@ The sucrose gradient traces (Fig 5A, 7E) were analysed manually; no code accompa
 - **CRISPRi screens: GEO (accession TBD).** The FASTQs and the per-sample count tables
   (`genomewide_aggregated_counts.csv`, `sublibrary_aggregated_counts.csv`). The screen results and gene
   scores are Supplementary Tables S1–S6, S10 and S11. `crispr_screens/pipeline/README.md` describes how
-  to place the count tables.
+  to place the count tables. GEO and the tables name the ratio-sorted samples by new/old ratio. The
+  sorter gated on old/new, and the pipeline keeps the sorter's names:
+  `crispr_screens/pipeline/geo_sample_names.csv` maps between them.
 - **Proteomics: ProteomeXchange/PRIDE (PXD084612).** Raw files and searches; the processed quantification
   tables the scripts read ship with the code. The per-protein results are Tables S8 and S9 (see
   `proteomics/README.md`).

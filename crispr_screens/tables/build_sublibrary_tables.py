@@ -20,19 +20,19 @@ Provenance (all verified against the previous hand-built tables):
   *_lfc_{epsilon,...}     <- results/<comp>/<comp>_all_genes.csv (+ hits file)
   *_score_{epsilon,...}   <- <scores>/<dir>/gene_scores_all_genes.csv (+ hits)
 
-RatioON column labelling
-------------------------
-`*_ratioON_top_v_bottom_*` is defined with treatment=Bottom, control=Top --
-reversed relative to the new/old comparisons despite its name. Traced to the raw
-counts to be sure: mageck's treatment_count for that comparison matches the raw
-ratioON_Bottom samples to within normalisation (~1.00x) while Top is 3-5x off.
+Ratio column labelling
+----------------------
+The sorter gated on the old/new ratio (JF549/JF646; samples `ratioON_Top/Bottom`).
+`*_ratioON_top_v_bottom_*` takes the sorter's Bottom gate as treatment (traced to
+the raw counts: mageck's treatment_count matches the ratioON_Bottom samples to
+within normalisation, ~1.00x, while Top is 3-5x off), so its fold change is
+log2(new/old top / new/old bottom), the same direction as the New and Old sorts.
 
-The previous S4/S10 put treatment_count under `RatioON_Top_count`, so those
-columns held BOTTOM counts and the `RatioON_TopvBottom_LFC` name described the
-opposite of what it contained. Default here is `--ratioon-labels fixed`, which
-puts Top counts under Top and names the fold change `RatioON_BottomvTop_LFC`.
-No number changes -- only labels. Use `--ratioon-labels legacy` to reproduce the
-old (incorrect) headers exactly.
+The tables report the ratio sort by new/old ratio: `RatioNewOld_Top` = sorter
+Bottom, `RatioNewOld_Bottom` = sorter Top, fold change `RatioNewOld_TopvBottom`.
+GEO uses the same names (../pipeline/geo_sample_names.csv). Values are unchanged
+from the 2026-10-23 tables, which used the sorter's names (S4/S10
+`RatioON_Top/Bottom_count`, `RatioON_BottomvTop_LFC`; S5/S11 `RatioON_TopvBottom`).
 """
 import argparse
 import glob
@@ -64,11 +64,11 @@ SCORES = [('L29_Degradation', '60S_Degradation', 'L29_Degradation'),
 # per-comparison blocks: (line, stem, sgRNA-table prefix, gene-table prefix)
 BLOCKS = [('L29', 'new_top_v_bottom',     'L29_New',      '60S_New_TopvBottom'),
           ('L29', 'old_top_v_bottom',     'L29_Old',      '60S_Old_TopvBottom'),
-          ('L29', 'ratioON_top_v_bottom', 'L29_RatioON',  '60S_RatioON_TopvBottom'),
+          ('L29', 'ratioON_top_v_bottom', 'L29_RatioNewOld', '60S_RatioNewOld_TopvBottom'),
           ('L29', 'unsorted_v_early',     'L29',          '60S_UnsortedvEarly'),
           ('S3',  'new_top_v_bottom',     'S3_New',       '40S_New_TopvBottom'),
           ('S3',  'old_top_v_bottom',     'S3_Old',       '40S_Old_TopvBottom'),
-          ('S3',  'ratioON_top_v_bottom', 'S3_RatioON',   '40S_RatioON_TopvBottom'),
+          ('S3',  'ratioON_top_v_bottom', 'S3_RatioNewOld',  '40S_RatioNewOld_TopvBottom'),
           ('S3',  'unsorted_v_early',     'S3',           '40S_UnsortedvEarly')]
 
 
@@ -112,7 +112,7 @@ def raw_counts():
 # sgRNA level (S4 / S10)
 # =============================================================================
 
-def build_sgrna_table(cond, scores_root, ratioon_labels='fixed', lib=None):
+def build_sgrna_table(cond, scores_root, lib=None):
     sfx = '' if cond == 'wt' else '_sgUBA5'
     ct = sfx                      # condition tag inserted before quantity markers
     out = None
@@ -128,14 +128,9 @@ def build_sgrna_table(cond, scores_root, ratioon_labels='fixed', lib=None):
                                           'control_mean', 'treat_mean', 'LFC', 'p.twosided'])
         if stem == 'unsorted_v_early':
             a, b, lfc_name = 'Unsorted', 'Early', f'{pre}_UnsortedvEarly'
-        elif stem == 'ratioON_top_v_bottom' and treatment_is_bottom(comp):
-            if ratioon_labels == 'fixed':
-                # treatment is Bottom: put it under Bottom, and name the fold
-                # change for the direction it actually measures.
-                a, b, lfc_name = 'Bottom', 'Top', f'{pre}_BottomvTop'
-            else:
-                a, b, lfc_name = 'Top', 'Bottom', f'{pre}_TopvBottom'   # legacy, mislabelled
         else:
+            # the sorter's ratioON Bottom (treatment) is the new/old Top; see the module docstring
+            assert stem != 'ratioON_top_v_bottom' or treatment_is_bottom(comp), comp
             a, b, lfc_name = 'Top', 'Bottom', f'{pre}_TopvBottom'
 
         # Condition tag sits immediately after the sample/comparison identifier
@@ -277,7 +272,6 @@ def main():
                     help='per-comparison mageck/U-test results; point this at a '
                          're-scored tree (e.g. fixed_NotI/results) to rebuild '
                          'S5/S11 from it')
-    ap.add_argument('--ratioon-labels', choices=['fixed', 'legacy'], default='fixed')
     ap.add_argument('--tag', default='')
     args = ap.parse_args()
     RES = args.results_root
@@ -290,7 +284,7 @@ def main():
           f'NotI/BamHI oligos ===')
 
     print('=== Table S4: sgRNA level, sgNT ===')
-    s4 = build_sgrna_table('wt', args.scores_root, args.ratioon_labels, lib=lib)
+    s4 = build_sgrna_table('wt', args.scores_root, lib=lib)
     s4 = gene_aliases.apply_to(s4, plain_cols=('gene',))
     s4.to_csv(os.path.join(args.outdir, f'TableS4_sgRNA_merged{t}.csv'), index=False)
     print(f'  {s4.shape[0]} rows x {s4.shape[1]} cols')
@@ -302,7 +296,7 @@ def main():
     print(f'  {s5.shape[0]} rows x {s5.shape[1]} cols')
 
     print('=== Table S10: sgRNA level, sgUBA5 ===')
-    s10 = build_sgrna_table('sgUBA5', args.scores_root, args.ratioon_labels, lib=lib)
+    s10 = build_sgrna_table('sgUBA5', args.scores_root, lib=lib)
     s10 = gene_aliases.apply_to(s10, plain_cols=('gene',))
     s10.to_csv(os.path.join(args.outdir, f'TableS10_sgRNA_sgUBA5_merged{t}.csv'), index=False)
     print(f'  {s10.shape[0]} rows x {s10.shape[1]} cols')

@@ -13,6 +13,13 @@ The merges are the reusable part; the table layout is just column naming on top
 of them. Written as CSV so nothing depends on openpyxl (absent from the
 crispri-screen env).
 
+Ratio sorts are labelled by new/old ratio. The sorter gated on the old/new ratio
+(JF549/JF646), so its `bottom` samples are the top 25% of new/old and its `top`
+samples the bottom 25%. The `*_TopvBottom` comparisons take the sorter's bottom as
+treatment, so their fold change is already log2(new/old top / new/old bottom). In
+Table S1 the sorter's `bottom` is labelled `RatioNewOld_Top` and its `top`
+`RatioNewOld_Bottom`; GEO uses the same new/old names (../pipeline/geo_sample_names.csv).
+
 Usage:
     python build_supplementary_tables.py --config config_genomewide.yaml
     python build_supplementary_tables.py --config config_genomewide.yaml --tables s2
@@ -43,12 +50,12 @@ CATEGORY_DIR = paths.repo('screen_figures', 'categories')
 # 'label' is the Table S1 naming ("Unsorted" is called "End" in the paper),
 # 'prefix' is the Table S2 naming.
 COMPARISONS = [
-    dict(comp='L29_TopvBottom',             label='L29_TopvBottom',          prefix='L29_RatioNewOld_Quiescent'),
-    dict(comp='S3_TopvBottom',              label='S3_TopvBottom',           prefix='S3_RatioNewOld_Quiescent'),
+    dict(comp='L29_TopvBottom',             label='L29_RatioNewOld_TopvBottom',          prefix='L29_RatioNewOld_Quiescent'),
+    dict(comp='S3_TopvBottom',              label='S3_RatioNewOld_TopvBottom',           prefix='S3_RatioNewOld_Quiescent'),
     dict(comp='L29_UnsortedvEarly',         label='L29_EndvEarly',           prefix='L29_Growth_Quiescent'),
     dict(comp='S3_UnsortedvEarly',          label='S3_EndvEarly',            prefix='S3_Growth_Quiescent'),
-    dict(comp='L29_TopvBottom_growing',     label='L29_TopvBottom_growing',  prefix='L29_RatioNewOld_growing'),
-    dict(comp='S3_TopvBottom_growing',      label='S3_TopvBottom_growing',   prefix='S3_RatioNewOld_growing'),
+    dict(comp='L29_TopvBottom_growing',     label='L29_RatioNewOld_TopvBottom_growing',  prefix='L29_RatioNewOld_growing'),
+    dict(comp='S3_TopvBottom_growing',      label='S3_RatioNewOld_TopvBottom_growing',   prefix='S3_RatioNewOld_growing'),
     dict(comp='L29_UnsortedvEarly_growing', label='L29_EndvEarly_growing',   prefix='L29_Growth_growing'),
     dict(comp='S3_UnsortedvEarly_growing',  label='S3_EndvEarly_growing',    prefix='S3_Growth_growing'),
 ]
@@ -61,26 +68,27 @@ LIBRARY_LABELS = {'Weissman': 'CRISPRi v2', 'Doench': 'Dolcetto'}
 
 S1_COLUMN_ORDER = [
     'Gene', 'sgRNA', 'sgRNA Sequence', 'Library',
-    'S3_Bottom_growing_count', 'S3_Early_growing_count', 'S3_Bottom_count', 'S3_Early_count',
-    'L29_Bottom_growing_count', 'L29_Early_growing_count', 'L29_Bottom_count', 'L29_Early_count',
-    'S3_Top_growing_count', 'S3_End_growing_count', 'S3_Top_count', 'S3_End_count',
-    'L29_Top_growing_count', 'L29_End_growing_count', 'L29_Top_count', 'L29_End_count',
-    'S3_Bottom_growing_mean', 'S3_Early_growing_mean', 'S3_Bottom_mean', 'S3_Early_mean',
-    'L29_Bottom_growing_mean', 'L29_Early_growing_mean', 'L29_Bottom_mean', 'L29_Early_mean',
-    'S3_Top_growing_mean', 'S3_End_growing_mean', 'S3_Top_mean', 'S3_End_mean',
-    'L29_Top_growing_mean', 'L29_End_growing_mean', 'L29_Top_mean', 'L29_End_mean',
-    'S3_TopvBottom_growing_LFC', 'S3_EndvEarly_growing_LFC', 'S3_TopvBottom_LFC', 'S3_EndvEarly_LFC',
-    'L29_TopvBottom_growing_LFC', 'L29_EndvEarly_growing_LFC', 'L29_TopvBottom_LFC', 'L29_EndvEarly_LFC',
-    'S3_TopvBottom_growing_p.twosided', 'S3_EndvEarly_growing_p.twosided',
-    'S3_TopvBottom_p.twosided', 'S3_EndvEarly_p.twosided',
-    'L29_TopvBottom_growing_p.twosided', 'L29_EndvEarly_growing_p.twosided',
-    'L29_TopvBottom_p.twosided', 'L29_EndvEarly_p.twosided',
+    'S3_RatioNewOld_Top_growing_count', 'S3_Early_growing_count', 'S3_RatioNewOld_Top_count', 'S3_Early_count',
+    'L29_RatioNewOld_Top_growing_count', 'L29_Early_growing_count', 'L29_RatioNewOld_Top_count', 'L29_Early_count',
+    'S3_RatioNewOld_Bottom_growing_count', 'S3_End_growing_count', 'S3_RatioNewOld_Bottom_count', 'S3_End_count',
+    'L29_RatioNewOld_Bottom_growing_count', 'L29_End_growing_count', 'L29_RatioNewOld_Bottom_count', 'L29_End_count',
+    'S3_RatioNewOld_Top_growing_mean', 'S3_Early_growing_mean', 'S3_RatioNewOld_Top_mean', 'S3_Early_mean',
+    'L29_RatioNewOld_Top_growing_mean', 'L29_Early_growing_mean', 'L29_RatioNewOld_Top_mean', 'L29_Early_mean',
+    'S3_RatioNewOld_Bottom_growing_mean', 'S3_End_growing_mean', 'S3_RatioNewOld_Bottom_mean', 'S3_End_mean',
+    'L29_RatioNewOld_Bottom_growing_mean', 'L29_End_growing_mean', 'L29_RatioNewOld_Bottom_mean', 'L29_End_mean',
+    'S3_RatioNewOld_TopvBottom_growing_LFC', 'S3_EndvEarly_growing_LFC', 'S3_RatioNewOld_TopvBottom_LFC', 'S3_EndvEarly_LFC',
+    'L29_RatioNewOld_TopvBottom_growing_LFC', 'L29_EndvEarly_growing_LFC', 'L29_RatioNewOld_TopvBottom_LFC', 'L29_EndvEarly_LFC',
+    'S3_RatioNewOld_TopvBottom_growing_p.twosided', 'S3_EndvEarly_growing_p.twosided',
+    'S3_RatioNewOld_TopvBottom_p.twosided', 'S3_EndvEarly_p.twosided',
+    'L29_RatioNewOld_TopvBottom_growing_p.twosided', 'L29_EndvEarly_growing_p.twosided',
+    'L29_RatioNewOld_TopvBottom_p.twosided', 'L29_EndvEarly_p.twosided',
 ]
 
-# sample-name suffix -> condition name used in the Table S1 column headers
+# sample-name suffix -> condition name used in the Table S1 column headers.
+# top/bottom are the sorter's old/new gates; they are reported by new/old ratio.
 CONDITION_NAMES = {
-    'bottom': 'Bottom',
-    'top': 'Top',
+    'bottom': 'RatioNewOld_Top',
+    'top': 'RatioNewOld_Bottom',
     'early': 'Early',
     'unsorted': 'End',
 }
