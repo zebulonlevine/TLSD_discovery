@@ -234,7 +234,7 @@ ROWS = [
      'Field-of-view bootstrap draws for confidence intervals'),
     ('Resampling', 'n_permutation', lambda n, b, v: RS['n_refit'], 'draws',
      'Whole-FOV label permutations for the null (genotype and drug contrasts, '
-     'Figs S7A, S7C, S7D, S7J); each draw re-fit with saSPT'),
+     'Figs S7A, S7C, S7D); each draw re-fit with saSPT'),
     ('Resampling', 'permutation_p_floor', lambda n, b, v: f"1/{RS['n_refit'] + 1}", '',
      'Phipson-Smyth add-one estimator; a permutation p cannot be 0 (floor for the '
      '500-draw tests; Fig 5F floors in the rows below)'),
