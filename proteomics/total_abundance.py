@@ -170,7 +170,10 @@ def figS6DE(df):
         plt.vlines([np.log2(1.5), np.log2(1 / 1.5)], ymin=0, ymax=7, linestyles='dashed')
         plt.hlines([-np.log10(0.05)], xmin=-6, xmax=2.5, linestyles='dashed')
         plt.xlim(-6, 2.5)
-        plt.savefig(out(f'{panel}_volcano_{cond}.pdf'))
+        # Points are rasterized (sp.volcano); dpi sets their resolution (default 100 is too coarse).
+        # TrueType text (fonttype 42) stays editable in Illustrator; matplotlib's default Type 3 does not.
+        with matplotlib.rc_context({'pdf.fonttype': 42, 'ps.fonttype': 42}):
+            plt.savefig(out(f'{panel}_volcano_{cond}.pdf'), dpi=300)
         plt.close('all')
 
 
