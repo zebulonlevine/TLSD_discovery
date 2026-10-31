@@ -14,8 +14,8 @@ the root `README.md` (Setup).
 ## Input sources
 | Short name | What and where |
 |---|---|
-| GEO genome-wide counts | FASTQs and `genomewide_aggregated_counts.csv` at GEO (accession TBD), with the library design files in `crispr_screens/library/` (ship with the code). Processed by `crispr_screens/pipeline/`; GO by `crispr_screens/go/go_genomewide.py`. The results are Supplementary Tables S1–S3. |
-| GEO sublibrary counts | FASTQs and `sublibrary_aggregated_counts.csv` at GEO (accession TBD), with the library design files in `crispr_screens/library/`. Processed by `crispr_screens/pipeline/`, then `crispr_screens/scoring/`; GO by `crispr_screens/go/go_sublibrary.py`. The results are Supplementary Tables S4–S6, S10 and S11. |
+| GEO genome-wide counts | FASTQs and `genomewide_aggregated_counts.csv` at GEO (GSE352053), with the library design files in `crispr_screens/library/` (ship with the code). Processed by `crispr_screens/pipeline/`; GO by `crispr_screens/go/go_genomewide.py`. The results are Supplementary Tables S1–S3. |
+| GEO sublibrary counts | FASTQs and `sublibrary_aggregated_counts.csv` at GEO (GSE352053), with the library design files in `crispr_screens/library/`. Processed by `crispr_screens/pipeline/`, then `crispr_screens/scoring/`; GO by `crispr_screens/go/go_sublibrary.py`. The results are Supplementary Tables S4–S6, S10 and S11. |
 | `screen_figures/categories/` | Gene category tables; ship with the code. |
 | `proteomics/input/` | Processed TMT quantification tables and the topology annotation; ship with the code. Raw files and searches: PRIDE (accession PXD084612). |
 | Zenodo `<name>` | `<name>.zip` in the Zenodo data record (DOI [10.5281/zenodo.23688082](https://doi.org/10.5281/zenodo.23688082)). The record's `MANIFEST_public.csv` lists every file with its panels and the script that reads it. |

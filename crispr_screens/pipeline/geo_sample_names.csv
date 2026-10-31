@@ -1,87 +1,87 @@
-geo_name,sample_name,screen,fraction
-L29rep1_early,L29rep1_early,genome-wide,"early timepoint after selection, unsorted"
-L29rep1_unsorted,L29rep1_unsorted,genome-wide,"end of screen, unsorted"
-L29rep1_ratioNewOld_bottom,L29rep1_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep1_ratioNewOld_top,L29rep1_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep2_early,L29rep2_early,genome-wide,"early timepoint after selection, unsorted"
-L29rep2_unsorted,L29rep2_unsorted,genome-wide,"end of screen, unsorted"
-L29rep2_ratioNewOld_bottom,L29rep2_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep2_ratioNewOld_top,L29rep2_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep1growing_unsorted,L29rep1growing_unsorted,genome-wide,"end of screen, unsorted"
-L29rep1growing_ratioNewOld_bottom,L29rep1growing_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep1growing_ratioNewOld_top,L29rep1growing_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep1_early,S3rep1_early,genome-wide,"early timepoint after selection, unsorted"
-S3rep1_unsorted,S3rep1_unsorted,genome-wide,"end of screen, unsorted"
-S3rep1_ratioNewOld_bottom,S3rep1_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep1_ratioNewOld_top,S3rep1_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep2_early,S3rep2_early,genome-wide,"early timepoint after selection, unsorted"
-S3rep2_unsorted,S3rep2_unsorted,genome-wide,"end of screen, unsorted"
-S3rep2_ratioNewOld_bottom,S3rep2_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep2_ratioNewOld_top,S3rep2_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep1growing_unsorted,S3rep1growing_unsorted,genome-wide,"end of screen, unsorted"
-S3rep1growing_ratioNewOld_bottom,S3rep1growing_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep1growing_ratioNewOld_top,S3rep1growing_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep1_early_wt,L29rep1_early_wt,sublibrary,"early timepoint after selection, unsorted"
-L29rep1_unsorted_wt,L29rep1_unsorted_wt,sublibrary,"end of screen, unsorted"
-L29rep1_old_Top_wt,L29rep1_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
-L29rep1_old_Bottom_wt,L29rep1_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
-L29rep1_new_Top_wt,L29rep1_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
-L29rep1_new_Bottom_wt,L29rep1_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
-L29rep1_ratioNewOld_Bottom_wt,L29rep1_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep1_ratioNewOld_Top_wt,L29rep1_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep2_early_wt,L29rep2_early_wt,sublibrary,"early timepoint after selection, unsorted"
-L29rep2_unsorted_wt,L29rep2_unsorted_wt,sublibrary,"end of screen, unsorted"
-L29rep2_old_Top_wt,L29rep2_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
-L29rep2_old_Bottom_wt,L29rep2_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
-L29rep2_new_Top_wt,L29rep2_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
-L29rep2_new_Bottom_wt,L29rep2_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
-L29rep2_ratioNewOld_Bottom_wt,L29rep2_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep2_ratioNewOld_Top_wt,L29rep2_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep1_early_sgUBA5,L29rep1_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
-L29rep1_unsorted_sgUBA5,L29rep1_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
-L29rep1_old_Top_sgUBA5,L29rep1_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
-L29rep1_old_Bottom_sgUBA5,L29rep1_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
-L29rep1_new_Top_sgUBA5,L29rep1_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
-L29rep1_new_Bottom_sgUBA5,L29rep1_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
-L29rep1_ratioNewOld_Bottom_sgUBA5,L29rep1_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep1_ratioNewOld_Top_sgUBA5,L29rep1_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-L29rep2_early_sgUBA5,L29rep2_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
-L29rep2_unsorted_sgUBA5,L29rep2_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
-L29rep2_old_Top_sgUBA5,L29rep2_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
-L29rep2_old_Bottom_sgUBA5,L29rep2_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
-L29rep2_new_Top_sgUBA5,L29rep2_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
-L29rep2_new_Bottom_sgUBA5,L29rep2_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
-L29rep2_ratioNewOld_Bottom_sgUBA5,L29rep2_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-L29rep2_ratioNewOld_Top_sgUBA5,L29rep2_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep1_early_wt,S3rep1_early_wt,sublibrary,"early timepoint after selection, unsorted"
-S3rep1_unsorted_wt,S3rep1_unsorted_wt,sublibrary,"end of screen, unsorted"
-S3rep1_old_Top_wt,S3rep1_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
-S3rep1_old_Bottom_wt,S3rep1_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
-S3rep1_new_Top_wt,S3rep1_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
-S3rep1_new_Bottom_wt,S3rep1_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
-S3rep1_ratioNewOld_Bottom_wt,S3rep1_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep1_ratioNewOld_Top_wt,S3rep1_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep2_early_wt,S3rep2_early_wt,sublibrary,"early timepoint after selection, unsorted"
-S3rep2_unsorted_wt,S3rep2_unsorted_wt,sublibrary,"end of screen, unsorted"
-S3rep2_old_Top_wt,S3rep2_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
-S3rep2_old_Bottom_wt,S3rep2_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
-S3rep2_new_Top_wt,S3rep2_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
-S3rep2_new_Bottom_wt,S3rep2_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
-S3rep2_ratioNewOld_Bottom_wt,S3rep2_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep2_ratioNewOld_Top_wt,S3rep2_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep1_early_sgUBA5,S3rep1_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
-S3rep1_unsorted_sgUBA5,S3rep1_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
-S3rep1_old_Top_sgUBA5,S3rep1_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
-S3rep1_old_Bottom_sgUBA5,S3rep1_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
-S3rep1_new_Top_sgUBA5,S3rep1_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
-S3rep1_new_Bottom_sgUBA5,S3rep1_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
-S3rep1_ratioNewOld_Bottom_sgUBA5,S3rep1_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep1_ratioNewOld_Top_sgUBA5,S3rep1_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
-S3rep2_early_sgUBA5,S3rep2_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
-S3rep2_unsorted_sgUBA5,S3rep2_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
-S3rep2_old_Top_sgUBA5,S3rep2_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
-S3rep2_old_Bottom_sgUBA5,S3rep2_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
-S3rep2_new_Top_sgUBA5,S3rep2_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
-S3rep2_new_Bottom_sgUBA5,S3rep2_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
-S3rep2_ratioNewOld_Bottom_sgUBA5,S3rep2_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
-S3rep2_ratioNewOld_Top_sgUBA5,S3rep2_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+gsm,geo_name,sample_name,screen,fraction
+GSM10147970,L29rep1_early,L29rep1_early,genome-wide,"early timepoint after selection, unsorted"
+GSM10147971,L29rep1_unsorted,L29rep1_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147972,L29rep1_ratioNewOld_bottom,L29rep1_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147973,L29rep1_ratioNewOld_top,L29rep1_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147974,L29rep2_early,L29rep2_early,genome-wide,"early timepoint after selection, unsorted"
+GSM10147975,L29rep2_unsorted,L29rep2_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147976,L29rep2_ratioNewOld_bottom,L29rep2_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147977,L29rep2_ratioNewOld_top,L29rep2_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147978,L29rep1growing_unsorted,L29rep1growing_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147979,L29rep1growing_ratioNewOld_bottom,L29rep1growing_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147980,L29rep1growing_ratioNewOld_top,L29rep1growing_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147981,S3rep1_early,S3rep1_early,genome-wide,"early timepoint after selection, unsorted"
+GSM10147982,S3rep1_unsorted,S3rep1_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147983,S3rep1_ratioNewOld_bottom,S3rep1_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147984,S3rep1_ratioNewOld_top,S3rep1_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147985,S3rep2_early,S3rep2_early,genome-wide,"early timepoint after selection, unsorted"
+GSM10147986,S3rep2_unsorted,S3rep2_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147987,S3rep2_ratioNewOld_bottom,S3rep2_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147988,S3rep2_ratioNewOld_top,S3rep2_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147989,S3rep1growing_unsorted,S3rep1growing_unsorted,genome-wide,"end of screen, unsorted"
+GSM10147990,S3rep1growing_ratioNewOld_bottom,S3rep1growing_top,genome-wide,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147991,S3rep1growing_ratioNewOld_top,S3rep1growing_bottom,genome-wide,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10147992,L29rep1_early_wt,L29rep1_early_wt,sublibrary,"early timepoint after selection, unsorted"
+GSM10147993,L29rep1_unsorted_wt,L29rep1_unsorted_wt,sublibrary,"end of screen, unsorted"
+GSM10147994,L29rep1_old_Top_wt,L29rep1_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10147995,L29rep1_old_Bottom_wt,L29rep1_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10147996,L29rep1_new_Top_wt,L29rep1_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10147997,L29rep1_new_Bottom_wt,L29rep1_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10147998,L29rep1_ratioNewOld_Bottom_wt,L29rep1_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10147999,L29rep1_ratioNewOld_Top_wt,L29rep1_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148000,L29rep2_early_wt,L29rep2_early_wt,sublibrary,"early timepoint after selection, unsorted"
+GSM10148001,L29rep2_unsorted_wt,L29rep2_unsorted_wt,sublibrary,"end of screen, unsorted"
+GSM10148002,L29rep2_old_Top_wt,L29rep2_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148003,L29rep2_old_Bottom_wt,L29rep2_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148004,L29rep2_new_Top_wt,L29rep2_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148005,L29rep2_new_Bottom_wt,L29rep2_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148006,L29rep2_ratioNewOld_Bottom_wt,L29rep2_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148007,L29rep2_ratioNewOld_Top_wt,L29rep2_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148008,L29rep1_early_sgUBA5,L29rep1_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
+GSM10148009,L29rep1_unsorted_sgUBA5,L29rep1_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
+GSM10148010,L29rep1_old_Top_sgUBA5,L29rep1_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148011,L29rep1_old_Bottom_sgUBA5,L29rep1_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148012,L29rep1_new_Top_sgUBA5,L29rep1_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148013,L29rep1_new_Bottom_sgUBA5,L29rep1_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148014,L29rep1_ratioNewOld_Bottom_sgUBA5,L29rep1_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148015,L29rep1_ratioNewOld_Top_sgUBA5,L29rep1_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148016,L29rep2_early_sgUBA5,L29rep2_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
+GSM10148017,L29rep2_unsorted_sgUBA5,L29rep2_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
+GSM10148018,L29rep2_old_Top_sgUBA5,L29rep2_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148019,L29rep2_old_Bottom_sgUBA5,L29rep2_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148020,L29rep2_new_Top_sgUBA5,L29rep2_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148021,L29rep2_new_Bottom_sgUBA5,L29rep2_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148022,L29rep2_ratioNewOld_Bottom_sgUBA5,L29rep2_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148023,L29rep2_ratioNewOld_Top_sgUBA5,L29rep2_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148024,S3rep1_early_wt,S3rep1_early_wt,sublibrary,"early timepoint after selection, unsorted"
+GSM10148025,S3rep1_unsorted_wt,S3rep1_unsorted_wt,sublibrary,"end of screen, unsorted"
+GSM10148026,S3rep1_old_Top_wt,S3rep1_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148027,S3rep1_old_Bottom_wt,S3rep1_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148028,S3rep1_new_Top_wt,S3rep1_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148029,S3rep1_new_Bottom_wt,S3rep1_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148030,S3rep1_ratioNewOld_Bottom_wt,S3rep1_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148031,S3rep1_ratioNewOld_Top_wt,S3rep1_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148032,S3rep2_early_wt,S3rep2_early_wt,sublibrary,"early timepoint after selection, unsorted"
+GSM10148033,S3rep2_unsorted_wt,S3rep2_unsorted_wt,sublibrary,"end of screen, unsorted"
+GSM10148034,S3rep2_old_Top_wt,S3rep2_old_Top_wt,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148035,S3rep2_old_Bottom_wt,S3rep2_old_Bottom_wt,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148036,S3rep2_new_Top_wt,S3rep2_new_Top_wt,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148037,S3rep2_new_Bottom_wt,S3rep2_new_Bottom_wt,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148038,S3rep2_ratioNewOld_Bottom_wt,S3rep2_ratioON_Top_wt,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148039,S3rep2_ratioNewOld_Top_wt,S3rep2_ratioON_Bottom_wt,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148040,S3rep1_early_sgUBA5,S3rep1_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
+GSM10148041,S3rep1_unsorted_sgUBA5,S3rep1_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
+GSM10148042,S3rep1_old_Top_sgUBA5,S3rep1_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148043,S3rep1_old_Bottom_sgUBA5,S3rep1_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148044,S3rep1_new_Top_sgUBA5,S3rep1_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148045,S3rep1_new_Bottom_sgUBA5,S3rep1_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148046,S3rep1_ratioNewOld_Bottom_sgUBA5,S3rep1_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148047,S3rep1_ratioNewOld_Top_sgUBA5,S3rep1_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new
+GSM10148048,S3rep2_early_sgUBA5,S3rep2_early_sgUBA5,sublibrary,"early timepoint after selection, unsorted"
+GSM10148049,S3rep2_unsorted_sgUBA5,S3rep2_unsorted_sgUBA5,sublibrary,"end of screen, unsorted"
+GSM10148050,S3rep2_old_Top_sgUBA5,S3rep2_old_Top_sgUBA5,sublibrary,FACS top 25% old ribosomes (JF549)
+GSM10148051,S3rep2_old_Bottom_sgUBA5,S3rep2_old_Bottom_sgUBA5,sublibrary,FACS bottom 25% old ribosomes (JF549)
+GSM10148052,S3rep2_new_Top_sgUBA5,S3rep2_new_Top_sgUBA5,sublibrary,FACS top 25% new ribosomes (JF646)
+GSM10148053,S3rep2_new_Bottom_sgUBA5,S3rep2_new_Bottom_sgUBA5,sublibrary,FACS bottom 25% new ribosomes (JF646)
+GSM10148054,S3rep2_ratioNewOld_Bottom_sgUBA5,S3rep2_ratioON_Top_sgUBA5,sublibrary,FACS bottom 25% new/old ribosome ratio (JF646/JF549); sorter gate: top 25% old/new
+GSM10148055,S3rep2_ratioNewOld_Top_sgUBA5,S3rep2_ratioON_Bottom_sgUBA5,sublibrary,FACS top 25% new/old ribosome ratio (JF646/JF549); sorter gate: bottom 25% old/new

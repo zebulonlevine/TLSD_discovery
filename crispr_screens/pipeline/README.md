@@ -41,7 +41,7 @@ the same direction as the new and old sorts. The synthesis/degradation scores re
 - Tables S4/S10: `RatioNewOld_Top` = sorter `ratioON_Bottom`.
 - S1, S4/S10 and S5/S11 all name the fold change `RatioNewOld_TopvBottom`.
 
-`geo_sample_names.csv` maps each GEO sample name to the sample name used here.
+`geo_sample_names.csv` maps each GEO sample name (series GSE352053) to the sample name used here.
 
 ## Files
 | File | Purpose |
@@ -50,14 +50,14 @@ the same direction as the new and old sorts. The synthesis/degradation scores re
 | `count_spacers.py` | Exact-match spacer counting after the key sequence (+1G aware) |
 | `restriction_sites.py` | Sublibrary guide annotation and the 53 NotI/BamHI-site guides excluded from all analyses |
 | `gene_aliases.py` | Display labels for the supplementary tables (TLSD1/R3HDM4, UBA5/ACAD11, ATG9A/ANKZF1, RMP64) |
-| `geo_sample_names.csv` | GEO sample name → sample name used here, with each sample's fraction. The ratio sorts are new/old at GEO and old/new (sorter) here |
+| `geo_sample_names.csv` | GSM accession and GEO sample name → sample name used here, with each sample's fraction. The ratio sorts are new/old at GEO and old/new (sorter) here |
 | `mageck_counts.py` | Puts sub-threshold guides' counts on MAGeCK's normalised scale for the tables |
 | `config_*.yaml`, `sample_table_*.csv`, `library_table_*.csv`, `comparisons_*.csv` | Screen definitions |
 
 ## Inputs not in this repository
-- **FASTQs (GEO).** Place them under `${TLSD_DATA}/fastq/{genomewide,sublibrary}/`, at the paths given in
+- **FASTQs (GEO, GSE352053).** Place them under `${TLSD_DATA}/fastq/{genomewide,sublibrary}/`, at the paths given in
   `sample_table_*.csv`.
-- **Count tables (GEO).** To start at the MAGeCK stage (stage 4), build `counts_for_mageck.txt` from the
+- **Count tables (GEO, GSE352053).** To start at the MAGeCK stage (stage 4), build `counts_for_mageck.txt` from the
   GEO count tables. Rows are in the same order and the counts are the ones the published results used.
   GEO names the ratio-sorted samples by new/old ratio (e.g. `L29rep1_ratioNewOld_top`). Rename the
   sample columns to the names used here with `geo_sample_names.csv` (`geo_name` → `sample_name`; e.g.
